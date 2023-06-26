@@ -1,6 +1,7 @@
 package greedy;
 
 public class BuySellStock {
+
     public static void main(String[] args) {
         int prices[] = new int[]{6, 9, 1, 5, 7};
         int min_price = 6;

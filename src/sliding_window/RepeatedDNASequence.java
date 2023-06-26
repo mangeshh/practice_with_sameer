@@ -2,6 +2,7 @@ package sliding_window;
 
 import java.util.HashSet;
 
+// fixed length
 public class RepeatedDNASequence {
     public static void main(String[] args) {
 //        AGCTGAAAGCTTAGCTG
