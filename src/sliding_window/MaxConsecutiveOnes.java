@@ -1,8 +1,13 @@
 package sliding_window;
 
+import java.util.Arrays;
+
 public class MaxConsecutiveOnes {
 
-        public int findMaxConsecutiveOnes(int[] nums) {
+    public static void main(String[] args) {
+        findMaxConsecutiveOnes(new int[]{1,0,0,1,1,1,0});
+    }
+    public static int findMaxConsecutiveOnes(int[] nums) {
 
 
             // 2 pointers, because of dynamic window (subarray)
