@@ -7,8 +7,9 @@ public class MaxConsecutiveOnes {
     public static void main(String[] args) {
         findMaxConsecutiveOnes(new int[]{1,0,0,1,1,1,0});
     }
-    public static int findMaxConsecutiveOnes(int[] nums) {
 
+
+    public static int findMaxConsecutiveOnes(int[] nums) {
 
             // 2 pointers, because of dynamic window (subarray)
             // right and left - points to zero then increase right till zero and at zero
