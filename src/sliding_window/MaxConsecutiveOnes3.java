@@ -17,7 +17,7 @@ public class MaxConsecutiveOnes3 {
 
         int left = 0;
 
-//        Right ko ek ek kar ke fixed krna hai
+        //  Right ko ek ek kar ke fixed krna hai
         int right = 0;
         int current_zero_count = 0;
 
@@ -28,7 +28,7 @@ public class MaxConsecutiveOnes3 {
                 current_zero_count += 1;
             }
 
-//            Main left ko aage tabhi bahaunga jab current window ka sum 10 ya usse bada hai
+           // Main left ko aage tabhi bahaunga jab current window ka sum K ya usse bada hai
             while (current_zero_count > k) {
                 if (nums[left] == 0) {
                     current_zero_count -= 1;

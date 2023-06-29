@@ -2,6 +2,9 @@ package sliding_window;
 
 import java.util.Arrays;
 
+/**
+ * this is dynamic window problem.
+ */
 public class MaxConsecutiveOnes {
 
     public static void main(String[] args) {

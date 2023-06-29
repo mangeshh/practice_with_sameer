@@ -23,7 +23,7 @@ public class SmallestSubarraySum {
 
         int left = 0;
 
-//        Right ko ek ek kar ke fixed krna hai
+        // Right ko ek ek kar ke fixed krna hai
         int right = 0;
         int current_window_sum = 0;
 
@@ -32,7 +32,7 @@ public class SmallestSubarraySum {
         while (right < n){
             current_window_sum += nums[right];
 
-//            Main left ko aage tabhi bahaunga jab current window ka sum 10 ya usse bada hai
+            // Main left ko aage tabhi bahaunga jab current window ka sum TARGET ya usse bada hai
             while (current_window_sum >= target_sum){
                 minLen = Math.min(minLen, right - left + 1);
                 current_window_sum -= nums[left];

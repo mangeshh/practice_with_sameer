@@ -5,8 +5,8 @@ import java.util.HashSet;
 // fixed length
 public class RepeatedDNASequence {
     public static void main(String[] args) {
-//        AGCTGAAAGCTTAGCTG
-//        k = 5
+        //   AGCTGAAAGCTTAGCTG
+        //   k = 5
 
         String input = "AGCTGAAAGCTTAGCTG";
         int n = input.length();

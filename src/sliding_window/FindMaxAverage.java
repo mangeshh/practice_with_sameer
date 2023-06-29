@@ -1,14 +1,16 @@
 package sliding_window;
 
+/**
+ * This is fixed window problem.
+ */
 class FindMaxAverage {
 
     public static double findMaxAverage(int[] nums, int k) {
 
 
         // first iterate the window size and collect the average.
-        // then incrase the windows size to right and decrase from left and
-        // again find average.
-        // base condition to make window
+        // then increase the windows size to right and decrease from left and again find average.
+        // base condition to make window, that's it.
         int right = 0;
         double sum = 0;
 
