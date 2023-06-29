@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class MergeSort {
     public static void merge(int left, int right, ArrayList<Integer> a){
         int mid = (left + right) / 2;
-//        left, mid - LeftSubArray
-//        mid+1, right - RightSubArray
+        // left, mid - LeftSubArray
+        // mid+1, right - RightSubArray
 
         ArrayList<Integer> leftArray = new ArrayList<>();
         ArrayList<Integer> rightArray = new ArrayList<>();
