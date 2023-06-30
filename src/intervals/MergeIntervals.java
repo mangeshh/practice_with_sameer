@@ -34,12 +34,12 @@ public class MergeIntervals {
 
         for(int i = 1; i < intervals.length; ++i){
             if(current_end >= intervals[i][0]){
-//                I can merge it
+                //  I can merge it
                 current_end = Math.max(current_end, intervals[i][1]);
             }
             else{
-//                Apna current interval to khatam ho gaya
-//                Means it cannot extend any further now
+                // Apna current interval to khatam ho gaya
+                // Means it cannot extend any further now
                 mergedIntervals.add(Arrays.toString(new int[]{current_start, current_end}));
                 current_start = intervals[i][0];
                 current_end = intervals[i][1];
