@@ -16,6 +16,7 @@ operations are as below.
 
 
 we see a patterns -
+
 pattern-1 : `(a)col` and `(b)row` are always same and iterating from 0 to n.
 
 pattern-2 : `(a)row` repeating same as number of rows in a matrix or columns in b matrix.
