@@ -13,6 +13,17 @@ package matrix;
  */
 public class Multiplication {
 
+    static void displayMatrix(int [][] arg){
+        System.out.println();
+        for (int l = 0; l < arg.length; l++) {
+            for (int n = 0; n < arg[0].length; n++) {
+                System.out.print(n < arg[1].length - 1 ? arg[l][n] + ", " : arg[l][n]);
+            }
+            System.out.println();
+        }
+
+    }
+
     public static void multiply(int[][] a, int[][] b) {
 
         int ans[][] = new int[a.length][b[0].length];
@@ -27,24 +38,12 @@ public class Multiplication {
 
         // print matrix - a
         System.out.println("matrix a");
-        for (int l = 0; l < a.length; l++) {
-            for (int n = 0; n < a[0].length; n++) {
-                System.out.print(n < a[1].length - 1 ? a[l][n] + ", " : a[l][n]);
-            }
-            System.out.println();
-        }
+        displayMatrix(a);
 
-        System.out.println();
         // print matrix - b
         System.out.println("matrix b");
-        for (int l = 0; l < b.length; l++) {
-            for (int n = 0; n < b[0].length; n++) {
-                System.out.print(n < b[1].length - 1 ? b[l][n] + ", " : b[l][n]);
-            }
-            System.out.println();
-        }
+        displayMatrix(b);
 
-        System.out.println();
         System.out.println();
         System.out.println("operations... ");
 
@@ -67,15 +66,9 @@ public class Multiplication {
         }
 
 
-        System.out.println();
-        // print matrix - b
+        // print matrix - ans
         System.out.println("matrix ans");
-        for (int l = 0; l < ans.length; l++) {
-            for (int n = 0; n < ans[0].length; n++) {
-                System.out.print(n < ans[1].length - 1 ? ans[l][n] + ", " : ans[l][n]);
-            }
-            System.out.println();
-        }
+        displayMatrix(ans);
 
     }
 
