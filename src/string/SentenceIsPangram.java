@@ -16,7 +16,6 @@ public class SentenceIsPangram {
         }
         for(int j=0; j < charIndexes.length; j++){
             if(charIndexes[j] < 1){
-
                 return false;
             }
         }
