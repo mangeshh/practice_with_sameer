@@ -1,7 +1,7 @@
 
 
 
-**![img.png](binary_search_first_occurrence.png)**
+**![img.png](imgs/binary_search_first_occurrence.png)**
 we are finding the 1st occurrence, meaning 
 if we get the target then we have to check index of target minus 1 is also
 same as target, here we simply keep the algorithm same
@@ -12,7 +12,7 @@ to continue the calculation.
 
 [ Next problem ]
 
-![img_1.png](binary_search_closest_to_target.png)
+![img_1.png](imgs/binary_search_closest_to_target.png)
 
 Actually in bonary search we are already moving to the target meaning, every attempt we find the 
 closest number, in this kind of problem, we simply has to

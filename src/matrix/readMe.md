@@ -1,6 +1,6 @@
 Matrix multiplication
 
-![img.png](matrix_multiplication.png)
+![img.png](imgs/matrix_multiplication.png)
 
 operations are as below.
 
