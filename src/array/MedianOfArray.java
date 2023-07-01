@@ -30,7 +30,7 @@ public class MedianOfArray {
             mergedArray[k++] = nums2[j++];
         }
 
-
+        // median of array - core logic.
         if (mergedArray.length % 2 == 0) {
             answer = (double) (mergedArray[(newLength / 2 - 1)] + mergedArray[(newLength / 2)]) / 2;
         } else {
