@@ -31,7 +31,38 @@ public class KthLargestElement {
 
     }
 
+    // here we are creating max heap, see constructor of PriorityQueue.
+    public int findKthLargestUsingMaxHeap(int[] nums, int k) {
+        // 3, 2, 1, 5, 0
+        // 3, 2, 1, 5, 0
+        // heap.peek() will give me the smallest element
+        // heap.push(x) will insert x into the heap     O(log n)
+        // heap.poll() will remove the smallest element     O(log n)
+
+        // where n is the current size of the heap
+
+
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
+        // By default it is a min heap only
+
+        // Min heap matlab top pe sabse smallest aur remove bhi smallest hi hoga (peek and poll)
+
+        // 3, 5
+        // time complexity is n logn (because iteration of nums (n) and heap's time complexity (log n) so
+        // n log(n)
+        for (int x : nums) {
+            maxHeap.add(x);
+        }
+
+        for (int i = 0; i < k - 1; ++i) {
+            maxHeap.poll();
+        }
+
+        return maxHeap.peek();
+
+    }
+
     public static void main(String[] args) {
-        findKthLargest(new int[] {3,2,1,4,5}, 2);
+        findKthLargest(new int[]{3, 2, 1, 4, 5}, 2);
     }
 }
