@@ -20,7 +20,7 @@ public class KthLargestElement {
         // Min heap matlab top pe sabse smallest aur remove bhi smallest hi hoga (peek and poll)
 
         // 3, 5
-
+        // time complexity is n (interation of nums) * logK (heap has max k element so log k).
         for (int x : nums) {
             minHeap.add(x);
             if (minHeap.size() > k) {
