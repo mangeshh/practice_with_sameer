@@ -7,40 +7,6 @@ import java.util.Queue;
 
 public class LevelOrderTraversal {
 
-    public List<List<Integer>> LearningLevelOrderButWrong(TreeNode root) {
-        List<List<Integer>> allLevels = new ArrayList<List<Integer>>();
-
-        if (root == null) {
-            return allLevels;
-        }
-
-        Queue<TreeNode> queue = new LinkedList<>();
-        List<Integer> valuesPerLevel = new ArrayList<>();
-
-        queue.add(root);
-        valuesPerLevel.add(root.val);
-        allLevels.add(valuesPerLevel);
-
-
-        while (!queue.isEmpty()) {
-            TreeNode currentNode = queue.poll();
-            valuesPerLevel = new ArrayList<Integer>();
-            if (currentNode.left != null) {
-                queue.add(currentNode.left);
-                valuesPerLevel.add(currentNode.left.val);
-            }
-            if (currentNode.right != null) {
-                queue.add(currentNode.right);
-                valuesPerLevel.add(currentNode.right.val);
-            }
-            if (valuesPerLevel.size() > 0) {
-                allLevels.add(valuesPerLevel);
-            }
-
-        }
-
-        return allLevels;
-    }
 
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> allLevels = new ArrayList<List<Integer>>();
@@ -78,4 +44,46 @@ public class LevelOrderTraversal {
 
         return allLevels;
     }
+
+    /**
+     * WRONG WAY below method
+     * @param root
+     * @return
+     */
+    public List<List<Integer>> LearningLevelOrderButWrong(TreeNode root) {
+        List<List<Integer>> allLevels = new ArrayList<List<Integer>>();
+
+        if (root == null) {
+            return allLevels;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        List<Integer> valuesPerLevel = new ArrayList<>();
+
+        queue.add(root);
+        valuesPerLevel.add(root.val);
+        allLevels.add(valuesPerLevel);
+
+
+        while (!queue.isEmpty()) {
+            TreeNode currentNode = queue.poll();
+            valuesPerLevel = new ArrayList<Integer>();
+            if (currentNode.left != null) {
+                queue.add(currentNode.left);
+                valuesPerLevel.add(currentNode.left.val);
+            }
+            if (currentNode.right != null) {
+                queue.add(currentNode.right);
+                valuesPerLevel.add(currentNode.right.val);
+            }
+            if (valuesPerLevel.size() > 0) {
+                allLevels.add(valuesPerLevel);
+            }
+
+        }
+
+        return allLevels;
+    }
+
+
 }
