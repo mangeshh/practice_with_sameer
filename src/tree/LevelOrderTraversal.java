@@ -22,7 +22,7 @@ public class LevelOrderTraversal {
 
 
         while (!queue.isEmpty()) {
-
+            // queue size is the key here
             int size = queue.size();
             valuesPerLevel = new ArrayList<Integer>();
 
