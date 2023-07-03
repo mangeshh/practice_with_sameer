@@ -1,4 +1,4 @@
-![img.png](img.png)
+![img.png](imgs/img.png)
 
 step 1 - select node (random) and keep inside the
 visited SET. if we explore all it's children and no more
