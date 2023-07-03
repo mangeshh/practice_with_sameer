@@ -3,7 +3,7 @@ package backtracking;
 import java.util.Arrays;
 
 /**
- * Interview camp, using auxilary buffer.
+ * Interview camp, using auxiliary buffer.
  */
 public class PrintCombo {
 
