@@ -9,22 +9,22 @@ public class BinarySearch {
         while(low <= high){
             int mid = (low + high) / 2;
 
-            if(nums[mid] < target){
-                low = mid + 1;
+            if(nums[mid] > target || (nums[mid] == nums[mid-1] && nums[mid]==target && mid > 0)){
+                high = mid - 1;
             }
             else if(nums[mid] == target){
                 answer = mid;
                 break;
             }
             else{
-                high = mid - 1;
+                low = mid + 1;
             }
         }
         return answer;
     }
 
     public static void main(String[] args) {
-        int []nums = new int[]{2, 4, 6, 7};
+        int []nums = new int[]{2, 4, 1, 6, 6, 7};
         System.out.println(binarySearch(nums, 6));
     }
 }
