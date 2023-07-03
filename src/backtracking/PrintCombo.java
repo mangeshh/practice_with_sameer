@@ -5,7 +5,6 @@ import java.util.Arrays;
 /**
  * Interview camp, using auxilary buffer.
  */
-//TODO
 public class PrintCombo {
 
     public static void print(String space, int [] array, int [] buffer, int startIndex, int bufferIndex){
