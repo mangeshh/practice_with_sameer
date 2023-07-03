@@ -15,7 +15,7 @@ public class KthLargestElement {
 
 
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-        // By default it is a min heap only
+        // By default, it is a min heap only
 
         // Min heap matlab top pe sabse smallest aur remove bhi smallest hi hoga (peek and poll)
 
@@ -43,7 +43,7 @@ public class KthLargestElement {
 
 
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
-        // By default it is a min heap only
+        // By default, it is a min heap only
 
         // Min heap matlab top pe sabse smallest aur remove bhi smallest hi hoga (peek and poll)
 
