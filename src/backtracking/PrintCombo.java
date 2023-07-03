@@ -1,9 +1,9 @@
-package auxilary_buffer;
+package backtracking;
 
 import java.util.Arrays;
 
 /**
- * Interview camp
+ * Interview camp, using auxilary buffer.
  */
 //TODO
 public class PrintCombo {
