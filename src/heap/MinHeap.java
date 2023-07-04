@@ -127,7 +127,7 @@ package heap;
 
                 8
              7    9
-          8
+          8(not in tree)
 
           It seems like our heap Array contains 2 8s but in reality since we have also decreased size by one.
           So the last one is 9 (index 2) and not 8.
@@ -151,23 +151,23 @@ package heap;
 
 import java.util.Arrays;
 
-class MinHeap {
+public class MinHeap {
     private int[] heapArray;
     private int size;
     private int capacity;
 
-    public MinHeap(int capacity) {
+    public MinHeap(int capacity){
         this.capacity = capacity;
         this.size = 0;
         this.heapArray = new int[capacity];
     }
 
-    public boolean isEmpty() {
+    public boolean isEmpty(){
         return size == 0;
     }
 
-    public void push(int element) {
-        if (this.size >= this.capacity) {
+    public void push(int element){
+        if(this.size >= this.capacity){
             System.out.println("Sorry, we cannot insert any new element! Overflow!");
             return;
         }
@@ -176,35 +176,81 @@ class MinHeap {
         heapifyUp(this.size - 1);
     }
 
-    public int peek() {
-        if (size == 0) {
-            System.out.println("Sorry, we do not have any element in heap! Underflow!");
+    public int peek(){
+        if(size == 0){
+            System.out.println("Sorry, we do not have any element in heap to peek! Underflow!");
             return -1;
         }
         return this.heapArray[0];
     }
 
-    private void heapifyUp(int index) {
+    public int poll(){
+        if(size == 0){
+            System.out.println("Sorry, we do not have any element in heap to poll! Underflow!");
+            return -1;
+        }
+        int minElement = this.heapArray[0];
+        this.heapArray[0] = this.heapArray[size - 1];
+        /* It is very necessary to decrease size by 1 even before calling heapifyDown */
+        size--;
+
+        heapifyDown(0);
+        return minElement;
+    }
+
+
+    public void heapifyDown(int index){
+        int minIndex = index;
+        int leftChildIndex = 2 * index + 1;
+        int rightChildIndex = 2 * index + 2;
+
+        if(leftChildIndex < size && this.heapArray[leftChildIndex] < this.heapArray[minIndex]){
+            minIndex = leftChildIndex;
+        }
+
+        if(rightChildIndex < size && this.heapArray[rightChildIndex] < this.heapArray[minIndex]){
+            minIndex = rightChildIndex;
+        }
+
+        /*
+            Three possibilities:
+                a. My left child is smallest (minIndex = leftChildIndex)
+                b. My right child is smallest (minIndex = rightChildIndex)
+                c. I am smallest myself (minIndex = index)
+
+            In case c, I do not need to go down further.
+        */
+
+        if(minIndex != index){
+            swap(minIndex, index);
+            heapifyDown(minIndex);
+        }
+
+    }
+
+    private void heapifyUp(int index){
         int parentIndex = (index - 1) / 2;
 
-        while (index > 0 && this.heapArray[index] < this.heapArray[parentIndex]) {
+        while (index > 0 && this.heapArray[index] < this.heapArray[parentIndex]){
             swap(index, parentIndex);
             index = parentIndex;
             parentIndex = (index - 1) / 2;
         }
     }
 
-    private void swap(int i, int j) {
+    private void swap(int i, int j){
         int temp = this.heapArray[i];
         this.heapArray[i] = this.heapArray[j];
         this.heapArray[j] = temp;
     }
 
-    public void showHeap() {
+    public void showHeap(){
         System.out.println("HeapArray: " + Arrays.toString(this.heapArray));
     }
 
+}
 
+class ImplementationMinHeap {
     public static void main(String[] args) {
         MinHeap heap = new MinHeap(20);
         heap.push(7);
@@ -214,7 +260,12 @@ class MinHeap {
         heap.push(2);
         heap.showHeap();
         System.out.println(heap.peek());
+        heap.poll();
+        System.out.println(heap.peek());
+        heap.poll();
+        System.out.println(heap.peek());
+        heap.push(1);
+        System.out.println(heap.peek());
 
     }
 }
-
