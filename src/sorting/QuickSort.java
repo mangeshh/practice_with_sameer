@@ -5,12 +5,12 @@ import java.util.Arrays;
 public class QuickSort {
 
     /**
-     * important steps :
+     * important  : (i and j are important, i is for keeping track to have smaller element and j is for iteration.)
      *
-     * 1. We initialize a variable i to low - 1
+     * 1. We initialize a variable `i` to low - 1
      *    to keep track of the position where elements smaller than the pivot will be placed.
      *
-     * 2. We iterate from low to high-1 using a variable j to compare each element with the pivot.
+     * 2. We iterate from low to high-1 using a variable `j` to compare each element with the pivot.
      *
      * 3. Inside the loop, if the current element at j is smaller than the pivot,
      *    we increment i and swap the elements at positions i and j.
