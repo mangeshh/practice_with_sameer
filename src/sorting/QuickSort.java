@@ -7,11 +7,14 @@ public class QuickSort {
     /**
      * important steps :
      *
-     * 1. We initialize a variable i to low - 1 to keep track of the position where elements smaller than the pivot will be placed.
+     * 1. We initialize a variable i to low - 1
+     *    to keep track of the position where elements smaller than the pivot will be placed.
      *
      * 2. We iterate from low to high-1 using a variable j to compare each element with the pivot.
      *
-     * 3. Inside the loop, if the current element at j is smaller than the pivot, we increment i and swap the elements at positions i and j. This ensures that all elements smaller than the pivot are placed before it.
+     * 3. Inside the loop, if the current element at j is smaller than the pivot,
+     *    we increment i and swap the elements at positions i and j.
+     *    This ensures that all elements smaller than the pivot are placed before it.
      *
      *
      */
