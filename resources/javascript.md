@@ -121,7 +121,8 @@ console.log(newPerson);
 
 ###### 4.4 Higher-Order Functions:
 
-```function multiplyBy(factor) {
+```
+multiplyBy = multiplyBy(factor) {
   return function (number) {
     return number * factor;
   };
