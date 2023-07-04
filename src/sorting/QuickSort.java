@@ -5,7 +5,8 @@ import java.util.Arrays;
 public class QuickSort {
 
     /**
-     * important : (i and j are important, i is for keeping track to have smaller element and j is for iteration.)
+     * important : `i` and `j` are important, `i` is used for keeping track of smaller element and j is for iteration
+     *             to find smaller element and assign at ith index.)
      *
      * 1. We initialize a variable `i` to low - 1
      *    to keep track of the position where elements smaller than the pivot will be placed.
