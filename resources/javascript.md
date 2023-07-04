@@ -183,7 +183,7 @@ countdown(5);
 // Countdown complete!
 ```
 
-####### 4.8 Immediately Invoked Function Expressions (IIFE):
+###### 4.8 Immediately Invoked Function Expressions (IIFE):
 
 ```(function () {
   const message = 'Hello from IIFE';
@@ -193,7 +193,7 @@ countdown(5);
 // Output: Hello from IIFE
 ```
 
-####### 4.8 Function Methods:
+###### 4.9 Function Methods:
 
 ```const person = {
   name: 'John',
@@ -217,7 +217,7 @@ console.log(person.name); // Output: John
 
 ```
 
-####### 5.1 Iterating through an Array:
+###### 5.1 Iterating through an Array:
 ```
 const numbers = [1, 2, 3, 4, 5];
 
@@ -236,7 +236,7 @@ for (let number of numbers) {
   console.log(number);
 }
 ```
-####### 5.2 Array Methods:
+###### 5.2 Array Methods:
 ```
 const numbers = [1, 2, 3, 4, 5];
 
@@ -264,7 +264,7 @@ console.log(slicedArray); // Output: [2, 3, 4]
 
 ```
 
-####### 5.3 Object Properties:
+###### 5.3 Object Properties:
 ```
 const person = {
   name: 'John',
@@ -287,7 +287,7 @@ console.log(person); // Output: { name: 'John', age: 31, occupation: 'Developer'
 
 ```
 
-####### 6.1 Object Methods:
+###### 5.4 Object Methods:
 ```
 const calculator = {
   add: function (a, b) {
@@ -303,7 +303,7 @@ console.log(calculator.multiply(2, 4)); // Output: 8
 
 ```
 
-####### 6.1 Object Iteration:
+######  5.5 Object Iteration:
 ```
 const person = {
   name: 'John',
@@ -333,7 +333,7 @@ const heading = document.getElementById('my-heading');
 heading.textContent = 'Hello, JavaScript!';
 ```
 
-####### 6.1 Accessing Elements:
+###### 6.1 Accessing Elements:
 
 ```
 // Access an element by its ID
@@ -349,7 +349,7 @@ const listItems = document.getElementsByTagName('li');
 console.log(listItems.length); // Output: Number of list items on the page
 ```
 
-####### 6.2 Modifying Element Content:
+###### 6.2 Modifying Element Content:
 
 ```
 // Change the text content of an element
@@ -362,7 +362,7 @@ paragraph.innerHTML = '<em>New content</em>';
 
 ```
 
-####### 6.3 Modifying Element Attributes:
+###### 6.3 Modifying Element Attributes:
 
 ```
 // Change the value of an input field
@@ -374,7 +374,7 @@ const image = document.getElementById('my-image');
 image.src = 'new-image.jpg';
 ```
 
-####### 6.4 Adding and Removing Classes:
+###### 6.4 Adding and Removing Classes:
 
 ```
 // Add a class to an element
@@ -385,7 +385,7 @@ element.classList.add('new-class');
 element.classList.remove('old-class');
 ```
 
-####### 6.5 Creating New Elements:
+###### 6.5 Creating New Elements:
 
 ```
 // Create a new paragraph element
@@ -397,7 +397,7 @@ const container = document.getElementById('container');
 container.appendChild(newParagraph);
 ```
 
-####### 6.6 Event Handling:
+###### 6.6 Event Handling:
 ```
 // Add an event listener to a button
 const button = document.getElementById('my-button');
@@ -414,7 +414,7 @@ button.addEventListener('click', handleClick);
 button.removeEventListener('click', handleClick);
 ```
 
-####### 6.7 Modifying CSS Styles:
+###### 6.7 Modifying CSS Styles:
 ```
 // Change the style properties of an element
 const element = document.getElementById('my-element');
@@ -423,8 +423,7 @@ element.style.fontSize = '20px';
 
 ```
 
-####### 6.8 Traversing the DOM:
-
+###### 6.8 Traversing the DOM:
 ```
 // Traverse the DOM and access child elements
 const parent = document.getElementById('parent-element');
@@ -455,7 +454,7 @@ person.greet(); // Output: Hello, my name is John and I am 30 years old.
 ```
 
 
-####### 7.1 Inheritance
+###### 7.1 Inheritance
 
 ``` 
 class Square extends Rectangle {
@@ -468,7 +467,7 @@ const square = new Square(4);
 console.log(square.getArea()); // Output: 16
 ```
 
-####### 7.2 Getter and setter:
+###### 7.2 Getter and setter:
 ```
 class Circle {
   constructor(radius) {
@@ -491,7 +490,7 @@ circle.diameter = 10;
 console.log(circle.radius); // Output: 5
 ```
 
-####### 7.3 Static Methods:
+###### 7.3 Static Methods:
 
 ```
 class MathUtils {
@@ -508,7 +507,7 @@ console.log(MathUtils.add(5, 3)); // Output: 8
 console.log(MathUtils.multiply(2, 4)); // Output: 8
 ```
 
-####### 7.4 Class Expressions:
+###### 7.4 Class Expressions:
 
 ```class Jumpable {
   jump() {
@@ -535,7 +534,7 @@ superman.jump(); // Output: Jumping!
 superman.fly(); // Output: Flying!
 ```
 
-####### 7.5 Mixins (Class Composition):
+###### 7.5 Mixins (Class Composition):
 
 ```
 class Jumpable {
@@ -573,7 +572,7 @@ button.addEventListener('click', function () {
 });
 ```
 
-####### 8.1 Event Propagation (Bubbling and Capturing):
+###### 8.1 Event Propagation (Bubbling and Capturing):
 ```
 // Event bubbling (default behavior)
 const parentElement = document.getElementById('parent');
@@ -606,7 +605,7 @@ childElement.addEventListener(
 
 
 ```
-####### 8.2 Removing Event Listeners:
+###### 8.2 Removing Event Listeners:
 ```
 // Remove an event listener from a button
 const button = document.getElementById('my-button');
@@ -623,7 +622,7 @@ button.removeEventListener('click', handleClick);
 
 ```
 
-####### 8.3 Event Delegation:
+###### 8.3 Event Delegation:
 ```
 // Event delegation using event.target
 const parentElement = document.getElementById('parent');
@@ -636,7 +635,7 @@ parentElement.addEventListener('click', function (event) {
 
 ```
 
-####### 8.4 Event Object:
+###### 8.4 Event Object:
 ```
 // Accessing event properties
 const button = document.getElementById('my-button');
@@ -650,7 +649,7 @@ button.addEventListener('click', function (event) {
 
 ```
 
-####### 8.5 Event Prevent Default:
+###### 8.5 Event Prevent Default:
 ```
 // Prevent default behavior of a link click
 const link = document.getElementById('my-link');
@@ -662,7 +661,7 @@ link.addEventListener('click', function (event) {
 
 ```
 
-####### 8.6 Mouse event:
+###### 8.6 Mouse event:
 ```
 // Mouse click event
 const button = document.getElementById('my-button');
@@ -683,7 +682,7 @@ document.addEventListener('mousemove', function (event) {
 
 ```
 
-####### 8.7 Keyboard Events:
+###### 8.7 Keyboard Events:
 ```
 // Keydown event
 document.addEventListener('keydown', function (event) {
@@ -702,7 +701,7 @@ document.addEventListener('keyup', function (event) {
 
 ```
 
-####### 8.8 Form Events:
+###### 8.8 Form Events:
 ```
 // Form submission event
 const form = document.getElementById('my-form');
@@ -719,7 +718,7 @@ input.addEventListener('input', function () {
 
 ```
 
-####### 8.9 Event Delegation:
+###### 8.9 Event Delegation:
 ```
 // Event delegation using event.target
 const parentElement = document.getElementById('parent');
@@ -732,7 +731,7 @@ parentElement.addEventListener('click', function (event) {
 
 ```
 
-####### 8.10 Custom Events:
+###### 8.10 Custom Events:
 ```
 // Custom event creation and handling
 const customEvent = new CustomEvent('my-event', { detail: { message: 'Custom event triggered!' } });
@@ -747,7 +746,7 @@ document.dispatchEvent(customEvent); // Dispatch the custom event
 
 ##### 9 Error Handling:
 
-####### 9.1 Try-catch:
+###### 9.1 Try-catch:
 ```
 try {
   // Code that may throw an error
@@ -759,7 +758,7 @@ try {
 
 ```
 
-####### 9.2 Custom Error:
+###### 9.2 Custom Error:
 ```
 class CustomError extends Error {
   constructor(message) {
@@ -777,7 +776,7 @@ try {
 
 ```
 
-####### 9.3 Error Propagation:
+###### 9.3 Error Propagation:
 ```
 function validateNumber(num) {
   if (typeof num !== 'number') {
@@ -806,7 +805,7 @@ try {
 
 ```
 
-####### 9.4 Finally Block:
+###### 9.4 Finally Block:
 ```
 function performTask() {
   try {
@@ -827,7 +826,7 @@ performTask();
 
 ```
 
-####### 9.5 Handling Asynchronous Errors:
+###### 9.5 Handling Asynchronous Errors:
 
 ```
 function fetchData() {
@@ -859,7 +858,7 @@ fetchData()
 
 ##### 12 Asynchronous JavaScript:
 
-####### 12.1 Async Function with Await:
+###### 12.1 Async Function with Await:
 
 ```
 function resolveAfterDelay(delay) {
@@ -887,7 +886,7 @@ asyncFunction();
 ```
 
 
-####### 12.2 Promise Chaining:
+###### 12.2 Promise Chaining:
 ```
 function fetchUserData() {
   return new Promise(resolve => {
@@ -931,7 +930,7 @@ fetchUserData()
 
 ```
 
-####### 12.3 Handling Async Operations with Async/Await and Try/Catch:
+###### 12.3 Handling Async Operations with Async/Await and Try/Catch:
 ```
 function fetchData() {
   return new Promise((resolve, reject) => {
@@ -959,7 +958,7 @@ performTask();
 
 ```
 
-####### 12.4 Using Promise.all to Await Multiple Promises:
+###### 12.4 Using Promise.all to Await Multiple Promises:
 ```
 function fetchUserData() {
   return new Promise(resolve => {
@@ -1001,7 +1000,7 @@ fetchAllData();
 
 ```
 
-####### 12.5 Promises:
+###### 12.5 Promises:
 ```
 function fetchData() {
   return new Promise((resolve, reject) => {
@@ -1021,7 +1020,7 @@ fetchData()
   });
 
 ```
-####### 12.6 Async/Await:
+###### 12.6 Async/Await:
 
 ```function resolveAfterDelay(delay) {
   return new Promise(resolve => {
