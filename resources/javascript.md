@@ -186,7 +186,8 @@ countdown(5);
 
 ###### 4.8 Immediately Invoked Function Expressions (IIFE):
 
-```(function () {
+```
+(function () {
   const message = 'Hello from IIFE';
   console.log(message);
 })();
