@@ -22,6 +22,7 @@ public class QuickSort {
         for (int j = low; j < high; j++) {
              if (arr[j] <= pivot) {
                 i++;
+                // in 1st attempt it will replace 0 with 0, if oth index is smaller than pivot.
                 swap(arr, i, j);
             }
         }
