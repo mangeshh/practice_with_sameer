@@ -70,7 +70,7 @@ console.log(multiply(2, 4)); // Output: 8
 
 ```
 
-####Generics
+#### Generics
 ```javascript
 function getFirstElement<T>(arr: T[]): T {
   return arr[0];
@@ -86,7 +86,7 @@ console.log(firstName); // Output: 'John'
 
 ```
 
-####Decorators:
+#### Decorators:
 ```javascript
 function logMethod(target: any, key: string, descriptor: PropertyDescriptor) {
   const originalMethod = descriptor.value;
@@ -109,7 +109,7 @@ console.log(calc.add(5, 3)); // Output: Method add called with arguments: 5,3 | 
 
 ```
 
-####Asynchronous Programming:
+#### Asynchronous Programming:
 ```javascript
 function fetchData(): Promise<string> {
   return new Promise((resolve) => {
