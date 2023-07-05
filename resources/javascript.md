@@ -123,7 +123,7 @@ console.log(newPerson);
 ###### 4.4 Higher-Order Functions:
 
 ```javascript
-multiplyBy = multiplyBy(factor) {
+function multiplyBy(factor) {
   return function (number) {
     return number * factor;
   };
