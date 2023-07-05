@@ -1,5 +1,5 @@
 ## javascript notes
-》 #### 1. Variables and Data Types:
+#### 1. Variables and Data Types:
 
 ```javascript
 let name = 'John';
