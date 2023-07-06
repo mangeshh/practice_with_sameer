@@ -32,8 +32,10 @@ public class SortedArrayToBinarySearchTree {
         }
         if(node.val > val){
             node.left = insertNodeIntoBSTree(node.left, val);
+            System.out.println("assigning-1 ... ");
         } else if (node.val < val){
             node.right = insertNodeIntoBSTree(node.right, val);
+            System.out.println("assigning-2 ... " + node.right.val);
         }
 
         return node;
