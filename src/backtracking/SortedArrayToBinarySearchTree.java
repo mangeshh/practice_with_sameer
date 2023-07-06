@@ -26,15 +26,6 @@ public class SortedArrayToBinarySearchTree {
         return midNode;
     }
 
-    public static void main(String[] args) {
-        int [] nums = new int[]{1,2,3,4,5,6};
-        Node root = createBSTree(nums,0,nums.length-1);
-        //inOrder(root);
-        insertNodeIntoBSTree(root, 9);
-        inOrder(root);
-    }
-
-    //
     public static Node insertNodeIntoBSTree(Node node, int val){
         if(node == null){
             node = new Node(val);
@@ -47,6 +38,15 @@ public class SortedArrayToBinarySearchTree {
 
         return node;
     }
+
+    public static void main(String[] args) {
+        int [] nums = new int[]{1,2,3,4,5,6};
+        Node root = createBSTree(nums,0,nums.length-1);
+        //inOrder(root);
+        insertNodeIntoBSTree(root, 9);
+        inOrder(root);
+    }
+
 
     public static void inOrder(Node root){
         if(root == null){
