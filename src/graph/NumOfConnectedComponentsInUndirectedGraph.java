@@ -29,7 +29,14 @@ public class NumOfConnectedComponentsInUndirectedGraph {
             int y = edges[e][1];
 
             adj.get(x).add(y);
-            adj.get(y).add(x);
+            adj.get(y).add(x); // if we comment this line then it will fail, see below comments.
+
+            // 1 -- 0
+
+            // adj[1] = {0}
+            // adj[0] = {}
+
+            // System.out.println(adj);
         }
     }
 
