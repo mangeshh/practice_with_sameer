@@ -1,7 +1,5 @@
 package tree;
 
-import static backtracking.SortedArrayToBinarySearchTree.inOrder;
-
 /**
  * https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/
  */
