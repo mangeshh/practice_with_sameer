@@ -5,9 +5,9 @@ package tree;
  * https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/
  */
 public class MaxDifferenceBetweenNodeFromAncestor {
-    int maxDifference = 0;
+    static int maxDifference = 0;
 
-    public void helper(TreeNode root, int max, int min) {
+    public static void helper(TreeNode root, int max, int min) {
         if (root == null) {
             return;
         }
@@ -26,8 +26,42 @@ public class MaxDifferenceBetweenNodeFromAncestor {
 
     }
 
-    public int maxAncestorDiff(TreeNode root) {
+    public static int maxAncestorDiff(TreeNode root) {
         helper(root, root.val, root.val);
         return maxDifference;
+    }
+
+
+    /**
+     *               7
+     *
+     *        3            12
+     *
+     *     1     5      10     14
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        // root
+        TreeNode root = new TreeNode(7);
+
+        // root's left side
+        TreeNode root_left = new TreeNode(3);
+        root.left = root_left;
+
+        TreeNode root_left_left = new TreeNode(1);
+        root_left.left = root_left_left;
+
+        TreeNode root_left_right = new TreeNode(5);
+        root_left.right = root_left_right;
+
+        // root's right side
+        TreeNode root_right = new TreeNode(12);
+
+        TreeNode root_right_left = new TreeNode(10);
+        root_right.left = root_right_left;
+
+        TreeNode root_right_right = new TreeNode(14);
+        root_right.right = root_right_right;
     }
 }
