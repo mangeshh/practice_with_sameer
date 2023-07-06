@@ -1,5 +1,6 @@
 package tree;
 
+import static backtracking.SortedArrayToBinarySearchTree.inOrder;
 
 /**
  * https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/
@@ -57,11 +58,17 @@ public class MaxDifferenceBetweenNodeFromAncestor {
 
         // root's right side
         TreeNode root_right = new TreeNode(12);
+        root.right = root_right;
 
         TreeNode root_right_left = new TreeNode(10);
         root_right.left = root_right_left;
 
         TreeNode root_right_right = new TreeNode(14);
         root_right.right = root_right_right;
+
+        TreeNode.inOrderTraversal(root);
+
+        System.out.println("answer is " + maxAncestorDiff(root));
+
     }
 }
