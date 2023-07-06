@@ -12,7 +12,7 @@ public class MaxDifferenceBetweenNodeFromAncestor {
             return;
         }
 
-        System.out.println(root.val + " " + max + " " + min);
+        System.out.println(" current root: " + root.val + " max: " + max + ", min: " + min);
 
         maxDifference = Math.max(maxDifference, Math.abs(root.val - max));
         maxDifference = Math.max(maxDifference, Math.abs(root.val - min));
