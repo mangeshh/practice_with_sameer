@@ -488,3 +488,210 @@ In this document, the `<style>` tag is used to include CSS, and the `<script>` t
 Remember that this is a very basic introduction. Each of these languages has much more depth to explore, and with them, you can create a wide variety of web experiences. Happy coding!
 
 ------------------
+
+> routing
+
+Routing is the ability to move between different parts of an application when a user enters a URL or interacts with an element (like a button) within the application.
+
+Let's create an example with two pages: a Home page and a Profile page.
+
+Here's how you can set this up in both React (using `react-router-dom`) and Angular (using `@angular/router`).
+
+**React:**
+
+First, install `react-router-dom` with npm:
+
+```
+npm install react-router-dom
+```
+
+Then, in your app component (typically `App.js`), import the necessary components and set up your routes:
+
+```jsx
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+function Home() {
+  return <h2>Home</h2>;
+}
+
+function Profile() {
+  return <h2>Profile</h2>;
+}
+
+function App() {
+  return (
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/profile">Profile</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Switch>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+```
+
+In this React example, `Switch` is used to render only the first `Route` or `Redirect` that matches the location. `Route` is used to render some UI when a location matches the route's path.
+
+**Angular:**
+
+First, when you create a new Angular application using Angular CLI, a routing module `app-routing.module.ts` is usually created if you select yes for routing during setup.
+
+In this module, you set up your routes:
+
+```typescript
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
+
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+In the `app.component.html`, add `<router-outlet></router-outlet>` where you want to display the routed views. Also, add links to the different routes:
+
+```html
+<nav>
+  <a routerLink="/home">Home</a>
+  <a routerLink="/profile">Profile</a>
+</nav>
+<router-outlet></router-outlet>
+```
+
+Finally, generate the `HomeComponent` and `ProfileComponent` using the Angular CLI:
+
+```
+ng generate component home
+ng generate component profile
+```
+
+In each component's HTML file, you can put:
+
+`home.component.html`:
+```html
+<h2>Home</h2>
+```
+
+`profile.component.html`:
+```html
+<h2>Profile</h2>
+```
+
+In this Angular example, `RouterModule` is used to configure the routes, `routerLink` is used to link to the routes, and `<router-outlet></router-outlet>` is used as a placeholder for the routed views.
+
+--------------------------------------
+
+> How to create component in react and angular?
+
+let's create a simple "Hello World" component in both React and Angular.
+
+**React:**
+
+Components in React can be created as functions or classes. Here's an example of a functional component:
+
+```jsx
+import React from 'react';
+
+function HelloWorld() {
+  return (
+    <h1>Hello, World!</h1>
+  );
+}
+
+export default HelloWorld;
+```
+
+To use this component, you would import it into another file like this:
+
+```jsx
+import React from 'react';
+import HelloWorld from './HelloWorld';
+
+function App() {
+  return (
+    <div className="App">
+      <HelloWorld />
+    </div>
+  );
+}
+
+export default App;
+```
+
+**Angular:**
+
+In Angular, you typically create a new component using the Angular CLI with the `ng generate component` or `ng g c` command, like so:
+
+```bash
+ng generate component hello-world
+```
+
+This command creates a new folder named `hello-world` with four files:
+
+- `hello-world.component.ts` (TypeScript logic file)
+- `hello-world.component.html` (HTML template)
+- `hello-world.component.css` (CSS styles)
+- `hello-world.component.spec.ts` (Testing)
+
+You can replace the automatically generated content with the following:
+
+`hello-world.component.ts`:
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-hello-world',
+  templateUrl: './hello-world.component.html',
+  styleUrls: ['./hello-world.component.css']
+})
+export class HelloWorldComponent {
+}
+```
+
+`hello-world.component.html`:
+```html
+<h1>Hello, World!</h1>
+```
+
+You can then use this component in another component by using its selector (`app-hello-world`), like so:
+
+`app.component.html`:
+```html
+<div class="app">
+  <app-hello-world></app-hello-world>
+</div>
+```
+
+This way, both React and Angular allow you to create modular and reusable components to build your application.
+
+--------------
+
