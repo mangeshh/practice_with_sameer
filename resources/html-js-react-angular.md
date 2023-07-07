@@ -1,5 +1,6 @@
-html javascript onclick and same in react and angular with example
-Certainly! Let's start with an example of an HTML and JavaScript code that uses the onclick event. Then, we'll show how the same functionality can be achieved in React and Angular.
+>html javascript onclick and same in react and angular with example
+
+Let's start with an example of an HTML and JavaScript code that uses the onclick event. Then, we'll show how the same functionality can be achieved in React and Angular.
 
 HTML and JavaScript (onclick event):
 
