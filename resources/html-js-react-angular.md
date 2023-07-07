@@ -698,3 +698,91 @@ This way, both React and Angular allow you to create modular and reusable compon
 
 --------------
 
+To call a function with a dynamic parameter from HTML in JavaScript, React, and Angular, you can utilize JavaScript expressions and template literals to dynamically pass values.
+
+JavaScript:
+
+HTML:
+```html
+<input type="text" id="inputField" />
+<button onclick="myFunction(document.getElementById('inputField').value)">Click Me</button>
+```
+
+JavaScript:
+```javascript
+function myFunction(parameter) {
+  alert(parameter);
+}
+```
+
+In the above JavaScript example, an input field is used to enter a value dynamically. The `myFunction` function is called with the value obtained from the input field using `document.getElementById('inputField').value`. When the button is clicked, the function is invoked with the dynamically entered value.
+
+React:
+
+```jsx
+import React, { useState } from 'react';
+
+function App() {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleClick = () => {
+    myFunction(inputValue);
+  };
+
+  const myFunction = (parameter) => {
+    alert(parameter);
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <button onClick={handleClick}>Click Me</button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+In the React code, we utilize the React `useState` hook to manage the input value. When the button is clicked, the `handleClick` function is called, which in turn calls `myFunction` with the current value of the input field. The value is obtained from the `inputValue` state variable.
+
+Angular:
+
+HTML:
+```html
+<input type="text" [(ngModel)]="inputValue" />
+<button (click)="myFunction(inputValue)">Click Me</button>
+```
+
+TypeScript:
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <input type="text" [(ngModel)]="inputValue" />
+    <button (click)="myFunction(inputValue)">Click Me</button>
+  `,
+})
+export class AppComponent {
+  inputValue: string = '';
+
+  myFunction(parameter: string): void {
+    alert(parameter);
+  }
+}
+```
+
+In the Angular code, we use the `[(ngModel)]` directive to bind the input field to the `inputValue` property in the component. The `myFunction` method is called with the current value of `inputValue` when the button is clicked.
+
+In all three examples, the function is called with a dynamically obtained parameter based on user input. The JavaScript example uses the `document.getElementById` method, while React and Angular examples utilize state variables to manage the dynamic value.
+
+-------------------------------------------
+
+
+
