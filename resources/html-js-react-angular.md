@@ -131,6 +131,8 @@ HTML:
 ```html
 <div (mousemove)="handleMouseMove($event)">Move mouse over me</div>
 ```
+Note - The $event object is automatically passed by Angular when an event is triggered. You do not explicitly pass it, Angular does this for you.
+
 
 TypeScript:
 ```typescript
