@@ -83,6 +83,7 @@ In both React and Angular, we use the onClick (React) or (click) (Angular) event
 Feel free to create new React and Angular projects, replace the necessary files with the provided code, and run the applications to see the button-click functionality in action.
 
 --------------------------------------------------------------------
+> mouse event in javascript react and angular
 
 Sure, let's take the `mousemove` event as an example.
 
@@ -149,6 +150,8 @@ In these examples, when you move the mouse over the specified element, the posit
 
 
 --------------------------------------------------------
+
+> event in javascript react and angular
 
 Sure, let's explore some other common events:
 
@@ -270,6 +273,7 @@ export class AppComponent {
 Here we've looked at some more event types, notably the page/component load events (onload in HTML/JS, componentDidMount in React, and ngOnInit in Angular) and the keydown event in an input field.
 
 ------------------------------------------------
+> Event propagation in javascript, react and angular 
 
 Event propagation refers to the order in which event handlers are called when one element is nested inside a second element, and both elements have registered a listener for the same event (a click, for example).
 
@@ -359,3 +363,127 @@ export class AppComponent  {
 In this Angular example, if you click the inner div, you will only see "Inner div clicked" and not "Outer div clicked".
 
 ------------------------------
+
+learn basic, html+js+css
+
+Teaching programming in an intuitive way can involve a variety of approaches. Since you're interested in HTML, CSS, and JavaScript, I will start with the basics of each, and then show how they interact. We'll build a simple webpage to illustrate this.
+
+Let's get started!
+
+**1. HTML**
+
+HTML (HyperText Markup Language) is the skeleton of web pages. It provides the basic structure, which is then enhanced and manipulated by CSS and JavaScript.
+
+Here's an example of an HTML document:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first webpage</title>
+  </head>
+  <body>
+    <h1>Welcome to my webpage!</h1>
+    <p>This is a paragraph.</p>
+  </body>
+</html>
+```
+
+In this HTML document:
+
+- The `<!DOCTYPE html>` declaration helps with browser compatibility.
+- `<html>` is the root element.
+- `<head>` contains meta-information about the document like its title.
+- `<title>` specifies the title of the webpage.
+- `<body>` contains the content that will be visible to web users.
+- `<h1>` and `<p>` are both examples of HTML elements. The `h1` element is a heading, and the `p` element is a paragraph.
+
+**2. CSS**
+
+CSS (Cascading Style Sheets) is like the paint for our webpage — it controls how the HTML content is displayed. We can use it to set colors, fonts, layouts, and more.
+
+Here's an example of CSS:
+
+```css
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+p {
+  font-size: 20px;
+}
+```
+
+In this CSS:
+
+- `body` is a selector that selects the `<body>` element in the HTML.
+- `background-color` is a property that changes the background color of the selected element.
+- `h1` selects all `<h1>` elements.
+- `color` and `text-align` are properties that change the color and alignment of the text in the selected element, respectively.
+- `p` selects all `<p>` elements.
+- `font-size` changes the size of the text in the selected element.
+
+**3. JavaScript**
+
+JavaScript gives life to the webpage. It is used to make the webpage interactive, to create dynamic content, to load new page content without reloading, and many more functionalities.
+
+Here's an example of JavaScript:
+
+```javascript
+document.querySelector('h1').onclick = function() {
+    alert('You clicked the title!');
+}
+```
+
+In this JavaScript:
+
+- `document.querySelector('h1')` selects the first `<h1>` element in the document.
+- `.onclick` is an event handler that executes the following function when the `<h1>` element is clicked.
+- `function() { alert('You clicked the title!'); }` is a function that displays an alert box with the message "You clicked the title!" when executed.
+
+**4. Integrating HTML, CSS, and JavaScript**
+
+You can include CSS and JavaScript directly in your HTML file, although in larger projects it's common to put them in separate files. Here's an example of HTML, CSS, and JavaScript all together:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first webpage</title>
+  <style>
+    body {
+      background-color: lightblue;
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to my webpage!</h1>
+  <p>This is a paragraph.</p>
+  <script>
+    document.querySelector('h1').onclick = function() {
+      alert('You clicked the title!');
+    }
+  </script>
+</body>
+</html>
+```
+
+In this document, the `<style>` tag is used to include CSS, and the `<script>` tag is used to include JavaScript.
+
+Remember that this is a very basic introduction. Each of these languages has much more depth to explore, and with them, you can create a wide variety of web experiences. Happy coding!
+
+------------------
