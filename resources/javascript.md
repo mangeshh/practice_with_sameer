@@ -1086,5 +1086,71 @@ asyncFunction();
 
 ```
 
+------------------------------------------------------------------------
+
+>Including JavaScript in your HTML can be done in two ways: 
+
+inline, where the JavaScript is directly written in the HTML file, or externally, where the JavaScript is in an external file and is referenced in the HTML file. Here are examples of both:
+
+**1. Inline JavaScript**
+
+Inline JavaScript is written directly in the HTML file inside `<script>` tags. Here's an example:
+
+```html
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Inline JavaScript</h2>
+
+    <button type="button" onclick="alert('Hello, World!')">Click Me!</button>
+
+    <script>
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "Paragraph changed.";
+        }
+    </script>
+
+    <p id="demo">A Paragraph.</p>
+
+    <button type="button" onclick="myFunction()">Try it</button>
+</body>
+</html>
+```
+
+In this example, the `onclick` attribute is used to call JavaScript code or functions when the element is clicked. Also, a `<script>` tag is used to include JavaScript code in the HTML document.
+
+**2. External JavaScript**
+
+External JavaScript is written in a separate `.js` file and then referred to in the HTML file using the `src` attribute of the `<script>` tag. Here's an example:
+
+HTML (`index.html`):
+
+```html
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>External JavaScript</h2>
+
+    <p id="demo">A Paragraph.</p>
+
+    <button type="button" onclick="myFunction()">Try it</button>
+
+    <!-- Referencing the external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+JavaScript (`script.js`):
+
+```javascript
+function myFunction() {
+    document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
+```
+
+In this example, `script.js` is a separate JavaScript file that contains JavaScript code. This file is referred to in the `index.html` file using the `<script>` tag.
+
+Note: It's recommended to place the `<script>` tag just before the closing `</body>` tag, as this prevents blocking of rendering of the page. If you place the `<script>` tag in the `<head>`, the browser will execute the JavaScript before it builds the DOM, which could lead to errors if your JavaScript is trying to interact with DOM elements that aren't built yet.
 
 
