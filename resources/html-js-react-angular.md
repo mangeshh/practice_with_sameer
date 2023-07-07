@@ -54,7 +54,7 @@ In the above code, we define a functional component called App. Inside this comp
 Angular (click event):
 
 Set up a new Angular project using the Angular CLI.
-Open the generated app.component.html file and replace its contents with the following code:
+Open the generated `app.component.html` file and replace its contents with the following code:
 
 ```
 <div>
@@ -84,6 +84,7 @@ In both React and Angular, we use the onClick (React) or (click) (Angular) event
 Feel free to create new React and Angular projects, replace the necessary files with the provided code, and run the applications to see the button-click functionality in action.
 
 --------------------------------------------------------------------
+
 > mouse event in javascript react and angular
 
 Sure, let's take the `mousemove` event as an example.
