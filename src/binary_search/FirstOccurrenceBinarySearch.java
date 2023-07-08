@@ -14,7 +14,7 @@ public class FirstOccurrenceBinarySearch {
             }
             else if(nums[mid] == target){
                 answer = mid;
-                break;
+                high = mid - 1 ;
             }
             else{
                 high = mid - 1;
@@ -24,7 +24,7 @@ public class FirstOccurrenceBinarySearch {
     }
 
     public static void main(String[] args) {
-        int []nums = new int[]{2, 4, 6, 7};
+        int []nums = new int[]{2, 4, 6, 6, 6, 7};
         System.out.println(binarySearch(nums, 6));
     }
 }
