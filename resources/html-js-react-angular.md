@@ -783,6 +783,36 @@ In the Angular code, we use the `[(ngModel)]` directive to bind the input field 
 In all three examples, the function is called with a dynamically obtained parameter based on user input. The JavaScript example uses the `document.getElementById` method, while React and Angular examples utilize state variables to manage the dynamic value.
 
 -------------------------------------------
+React - How to pass argument in function?
+
+Passing arguments to functions in React is pretty straightforward and similar to how you'd do it in regular JavaScript. If you have an event handler function that you want to pass an argument to, you can use an arrow function to create a new function that calls your event handler with the arguments you want to pass.
+
+Here's an example with a simple React component that has a button. When the button is clicked, it calls a function and passes an argument to that function:
+
+```jsx
+import React from 'react';
+
+function MyComponent() {
+  const handleClick = (message) => {
+    alert(message);
+  };
+
+  return (
+    <button onClick={() => handleClick('Hello, World!')}>
+      Click me
+    </button>
+  );
+}
+
+export default MyComponent;
+```
+
+In this example, `handleClick` is the function that we want to pass an argument to. When the button is clicked, it calls `handleClick('Hello, World!')` due to the arrow function `() => handleClick('Hello, World!')`.
+
+This means that whenever the button is clicked, it will display an alert box with the message "Hello, World!".
+
+Remember to not forget the arrow function, i.e., avoid doing this: `onClick={handleClick('Hello, World!')}`. This would call the function every time the component renders, not when the button is clicked. The proper way is to use an arrow function, like so: `onClick={() => handleClick('Hello, World!')}`. This way, the `handleClick` function will be called only when the button is clicked.
+
 
 
 
