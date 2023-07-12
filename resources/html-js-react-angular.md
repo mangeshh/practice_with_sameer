@@ -813,6 +813,8 @@ This means that whenever the button is clicked, it will display an alert box wit
 
 Remember to not forget the arrow function, i.e., avoid doing this: `onClick={handleClick('Hello, World!')}`. This would call the function every time the component renders, not when the button is clicked. The proper way is to use an arrow function, like so: `onClick={() => handleClick('Hello, World!')}`. This way, the `handleClick` function will be called only when the button is clicked.
 
+---------------------------------------------
+
 
 
 
