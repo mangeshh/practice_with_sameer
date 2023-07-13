@@ -10,7 +10,7 @@ public class BinarySearch {
         while(low <= high){
             int mid = (low + high) / 2;
 
-            if(nums[mid] > target || (nums[mid] == nums[mid-1] && nums[mid]==target && mid > 0)){
+            if(nums[mid] > target){
                 high = mid - 1;
             }
             else if(nums[mid] == target){
