@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class PrintCombo {
 
     public static void print(String space, int [] array, int [] buffer, int startIndex, int bufferIndex){
-        //System.out.print(space);
+        System.out.print(space);
 
         // base case.
         if(buffer.length == bufferIndex){
