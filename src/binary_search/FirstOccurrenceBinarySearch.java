@@ -13,7 +13,7 @@ public class FirstOccurrenceBinarySearch {
                 low = mid + 1;
             }
             else if(nums[mid] == target){
-                answer = mid;
+                answer = mid; // magic line
                 high = mid - 1 ;
             }
             else{
