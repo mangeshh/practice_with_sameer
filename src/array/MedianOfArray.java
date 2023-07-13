@@ -10,10 +10,11 @@ public class MedianOfArray {
         int newLength = nums1.length + nums2.length;
         int[] mergedArray = new int[newLength];
         int k = 0;
-        int i = 0;
-        int j = 0;
+        int i = 0; //counter for nums1
+        int j = 0; // counter for nums2
         Double answer = null;
 
+        // num1 and num2 are sorted and now we will make mergedArray as final sorted array.
         while (i < nums1.length && j < nums2.length) {
             if (nums1[i] < nums2[j]) {
                 mergedArray[k++] = nums1[i++];
