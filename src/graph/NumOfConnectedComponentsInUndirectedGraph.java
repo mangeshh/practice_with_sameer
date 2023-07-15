@@ -5,11 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * we are using counter to find time complexity
+ * we are using counter to find time complexity (this graph is un directional (meaning, bi-directional)
  *
  */
 public class NumOfConnectedComponentsInUndirectedGraph {
     static int counter = 0;
+
     public static void dfs(int currentNode, HashMap<Integer, List<Integer>> adj, boolean[] visited, int counter) {
         visited[currentNode] = true;
         for (int neighborNode : adj.get(currentNode)) {
@@ -21,7 +22,7 @@ public class NumOfConnectedComponentsInUndirectedGraph {
 
     public static void createAdjacencyList(HashMap<Integer, List<Integer>> adj, int[][] edges, int n) {
         for (int i = 0; i < n; ++i) {
-            adj.put(i, new ArrayList<>());
+            adj.put(i, new ArrayList<>()); // from that node (key of map), how many edges are going in/out (values of map)
         }
 
         for (int e = 0; e < edges.length; ++e) {
