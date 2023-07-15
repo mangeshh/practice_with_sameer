@@ -10,16 +10,17 @@ public class SubarrayMaxByKadane {
     public static int kadaneSpaceOptimized(int []nums){
         int n = nums.length;
 
-        int maxSumEnding = nums[0];
-        int maxSumSoFar = nums[0];
+        int currentMaxSumEnding = nums[0];
+        int maxSum = nums[0];
 
         for(int i = 1; i < n; ++i){
-//            dp[i] = Math.max(dp[i - 1] + nums[i], nums[i]);
-            maxSumEnding = Math.max(maxSumEnding + nums[i], nums[i]);
-            maxSumSoFar = Math.max(maxSumSoFar, maxSumEnding);
+            // dp[i] = Math.max(dp[i - 1] + nums[i], nums[i]);
+            // currentMaxSumEnding is same as dp[i-1]
+            currentMaxSumEnding = Math.max(currentMaxSumEnding + nums[i], nums[i]);
+            maxSum = Math.max(maxSum, currentMaxSumEnding);
         }
 
-        return maxSumSoFar;
+        return maxSum;
     }
 
     public static int kadane(int []nums){
