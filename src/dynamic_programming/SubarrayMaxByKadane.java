@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * refer LongestIncreasingSubsequence first then do KadaneMaxSubarray
  */
-public class SubarrayMapByKadane {
+public class SubarrayMaxByKadane {
 
     public static int kadaneSpaceOptimized(int []nums){
         int n = nums.length;
