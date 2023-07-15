@@ -27,11 +27,11 @@ public class FindIfPathExists {
         }
     }
 
-    public static void dfs(int currentNode, HashMap<Integer, List<Integer>> adj, boolean[] visited, int counter) {
+    public static void dfs(int currentNode, HashMap<Integer, List<Integer>> adj, boolean[] visited) {
         visited[currentNode] = true;
         for (int neighborNode : adj.get(currentNode)) {
             if (!visited[neighborNode]) {
-                dfs(neighborNode, adj, visited, counter++);
+                dfs(neighborNode, adj, visited);
             }
         }
     }
@@ -39,11 +39,12 @@ public class FindIfPathExists {
 
     public static boolean validPath(int nodes, int[][] edges, int source, int destination) {
         boolean visited[] = new boolean[nodes];
-        int counter = 0;
+
+        // first initiate the graph using map
         HashMap<Integer, List<Integer>> adj = new HashMap<>();
         createAdjacencyList(adj, edges, nodes);
-        dfs(source, adj, visited, counter++);
-        System.out.println("counter " + counter);
+
+        dfs(source, adj, visited);
         return visited[destination];
     }
 
