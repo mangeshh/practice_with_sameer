@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class HouseRobber {
     public static void main1(String[] args) {
-//               0 1 2
+//        0 1 2
 //        nums: [3 5 1 7 4]
 //        3 1 4 = 8
 //        5 7   = 12
