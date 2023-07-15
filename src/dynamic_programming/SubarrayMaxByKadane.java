@@ -41,7 +41,7 @@ public class SubarrayMaxByKadane {
     }
 
     public static void main(String[] args) {
-//        4, -3, -2, 2, 3, 1, 4, 2, -6, nums[i]
+//        4, -3, -2, 2, 3, 1, 4, 2, -6 --> nums[i]
 //
 //        Definition - Let dp[i] be the maximum sum that we can get while "including" the ith index (we have to include) in the subarray
 //
