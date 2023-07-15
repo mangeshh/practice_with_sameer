@@ -19,7 +19,6 @@ public class KthLargestElement {
 
         // Min heap matlab top pe sabse smallest aur remove bhi smallest hi hoga (peek and poll)
 
-        // 3, 5
         // time complexity is n (iteration of nums) * logK (heap has max k element so log k).
         for (int x : nums) {
             minHeap.add(x);
@@ -48,12 +47,12 @@ public class KthLargestElement {
         // Min heap matlab top pe sabse smallest aur remove bhi smallest hi hoga (peek and poll)
 
         // 3, 5
-        // time complexity is n logn (because iteration of nums (n) and heap's time complexity (log n) so
+        // time complexity is n log(n) (because iteration of nums (n) and heap's time complexity (log n) so
         // n log(n)
         for (int x : nums) {
             maxHeap.add(x);
         }
-
+        // find (n)th the largest salary (SQL problem)
         for (int i = 0; i < k - 1; ++i) {
             maxHeap.poll();
         }
