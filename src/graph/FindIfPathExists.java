@@ -37,11 +37,11 @@ public class FindIfPathExists {
     }
 
 
-    public static boolean validPath(int n, int[][] edges, int source, int destination) {
-        boolean visited[] = new boolean[n];
+    public static boolean validPath(int nodes, int[][] edges, int source, int destination) {
+        boolean visited[] = new boolean[nodes];
         int counter = 0;
         HashMap<Integer, List<Integer>> adj = new HashMap<>();
-        createAdjacencyList(adj, edges, n);
+        createAdjacencyList(adj, edges, nodes);
         dfs(source, adj, visited, counter++);
         System.out.println("counter " + counter);
         return visited[destination];
