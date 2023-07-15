@@ -11,11 +11,11 @@ import java.util.List;
 public class NumOfConnectedComponentsInUndirectedGraph {
     static int counter = 0;
 
-    public static void dfs(int currentNode, HashMap<Integer, List<Integer>> adj, boolean[] visited, int counter) {
+    public static void dfs(int currentNode, HashMap<Integer, List<Integer>> adj, boolean[] visited) {
         visited[currentNode] = true;
         for (int neighborNode : adj.get(currentNode)) {
             if (!visited[neighborNode]) {
-                dfs(neighborNode, adj, visited, counter++);
+                dfs(neighborNode, adj, visited);
             }
         }
     }
@@ -49,10 +49,10 @@ public class NumOfConnectedComponentsInUndirectedGraph {
         for (int node = 0; node < n; ++node) {
             if (!visited[node]) {
                 components++;
-                dfs(node, adj, visited, counter++);
+                dfs(node, adj, visited);
             }
         }
-        System.out.println("counter " + counter);
+        System.out.println("counter " + components);
         return components;
     }
 
