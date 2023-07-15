@@ -43,11 +43,11 @@ public class SubarrayMaxByKadane {
     public static void main(String[] args) {
 //        4, -3, -2, 2, 3, 1, 4, 2, -6, nums[i]
 //
-//        Let dp[i] be the maximum sum that we can get while including the ith index (we have to include) in the subarray
+//        Definition - Let dp[i] be the maximum sum that we can get while "including" the ith index (we have to include) in the subarray
 //
 //        There are two possibilities to include index i:
-//          a.  nums[i] extends the previous subarray (i - 1 ki hi baat ho rahi hai)           { dp[i] = dp[i - 1] + nums[i] }
-//          b.  nums[i] does not extend the previous subarray                                  { dp[i] = nums[i] }
+//          1.  nums[i] extends the previous subarray (i - 1 ki hi baat ho rahi hai)           { dp[i] = dp[i - 1] + nums[i] }
+//          2.  nums[i] does not extend the previous subarray                                  { dp[i] = nums[i] }
 
 //        In the end, I will print max element of dp array.
 
