@@ -1,6 +1,7 @@
 package dynamic_programming;
 
 public class ClimbingStairs {
+
     public static void main(String[] args) {
 //        n = 3
 //        Initially I am at zeroth stairs
