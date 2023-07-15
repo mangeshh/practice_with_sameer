@@ -2,7 +2,10 @@ package dynamic_programming;
 
 import java.util.Arrays;
 
-public class KadaneMaxSubarray {
+/**
+ * refer LongestIncreasingSubsequence first then do KadaneMaxSubarray
+ */
+public class SubarrayMapByKadane {
 
     public static int kadaneSpaceOptimized(int []nums){
         int n = nums.length;
