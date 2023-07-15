@@ -14,7 +14,7 @@ public class BinarySearch {
                 high = mid - 1;
             }
             else if(nums[mid] == target){
-                answer = mid;
+                answer = mid; // recording strategy.
                 break;
             }
             else{
