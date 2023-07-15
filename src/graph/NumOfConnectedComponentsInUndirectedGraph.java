@@ -22,7 +22,7 @@ public class NumOfConnectedComponentsInUndirectedGraph {
 
     public static void createAdjacencyList(HashMap<Integer, List<Integer>> adj, int[][] edges, int n) {
         for (int i = 0; i < n; ++i) {
-            adj.put(i, new ArrayList<>()); // from that node (key of map), how many edges are going in/out (values of map)
+            adj.put(i, new ArrayList<>()); // from that node (key of map), how many connect nodes, going in/out (values of map)
         }
 
         for (int e = 0; e < edges.length; ++e) {
