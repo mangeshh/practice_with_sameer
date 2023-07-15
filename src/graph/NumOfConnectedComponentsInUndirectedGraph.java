@@ -9,7 +9,6 @@ import java.util.List;
  *
  */
 public class NumOfConnectedComponentsInUndirectedGraph {
-    static int counter = 0;
 
     public static void dfs(int currentNode, HashMap<Integer, List<Integer>> adj, boolean[] visited) {
         visited[currentNode] = true;
