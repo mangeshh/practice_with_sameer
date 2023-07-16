@@ -29,20 +29,20 @@ package heap;
               2
             3
 
-         This is not a valid binary tree to be considered for implementing heap
+         This is "not a valid binary tree" to be considered for implementing heap
 
-       b. While inserting nodes in the current level we should maintain the order from left to right
+        b. While inserting nodes in the current level we should maintain the order from left to right
 
               5
                 6
-         This is not a valid binary tree to be considered for implementing heap
+         This is "not a valid binary tree" to be considered for implementing heap
 
          Because 6 should ideally be made the left child of 7 and not right
 
 
 
 
-         Let's take a valid min-heap for example
+         >> Let's take a valid min-heap for example
 
                   3
                5     4
