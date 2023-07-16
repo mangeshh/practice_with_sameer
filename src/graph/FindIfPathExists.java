@@ -1,8 +1,6 @@
 package graph;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class FindIfPathExists {
 
@@ -36,6 +34,22 @@ public class FindIfPathExists {
         }
     }
 
+    public static void bfs(int currentNode, HashMap<Integer, List<Integer>> adj, boolean[] visited) {
+        Queue<Integer> queue = new LinkedList<>();
+
+        queue.add(currentNode);
+        visited[currentNode] = true;
+
+        while (queue.size() != 0){
+            currentNode = queue.poll();
+            for(int neighbour: adj.get(currentNode)){
+                if(!visited[neighbour]){
+                    queue.add(neighbour);
+                    visited[neighbour] = true;
+                }
+            }
+        }
+    }
 
     public static boolean validPath(int nodes, int[][] edges, int source, int destination) {
         boolean visited[] = new boolean[nodes];
@@ -44,13 +58,24 @@ public class FindIfPathExists {
         HashMap<Integer, List<Integer>> adj = new HashMap<>();
         createAdjacencyList(adj, edges, nodes);
 
-        dfs(source, adj, visited);
+        // dfs(source, adj, visited);
+        bfs(source, adj, visited);
+
         return visited[destination];
     }
 
     public static void main(String[] args) {
         int [][]edges = new int [][]{{0,1},{1,2},{2,0}};
-        validPath(3, edges, 0,1);
+        int source = 3;
+        int destination = 3;
+        int nodes = 4;
+
+        if(validPath(nodes, edges, source,destination)){
+            System.out.println("Path exists from " + source + " to " + destination);
+        }
+        else{
+            System.out.println("Path does not exists from " + source + " to " + destination);
+        }
 
     }
 }
