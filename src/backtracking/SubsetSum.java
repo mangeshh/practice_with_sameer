@@ -28,7 +28,6 @@ public class SubsetSum {
             return;
         }
 
-
         previousSubset.add(nums[currentIndex]);
         previousSum += nums[currentIndex];
 
@@ -38,8 +37,6 @@ public class SubsetSum {
         previousSum -= nums[currentIndex];
 
         backtrack(currentIndex + 1, previousSum, previousSubset, subsets, target, nums);
-
-
 
     }
 

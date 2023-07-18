@@ -26,8 +26,6 @@ public class PrintAllSubsets {
         previousSubset.remove(previousSubset.size() - 1);
         backtrack(currentIndex + 1, previousSubset, subsets, nums);
 
-
-
     }
 
     public static void main(String[] args) {
