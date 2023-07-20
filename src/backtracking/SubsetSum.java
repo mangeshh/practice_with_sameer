@@ -6,10 +6,11 @@ import java.util.List;
 /**
  * You are given an integer array nums and a target sum.
  * You have to find out weather there exists a subset with that sum.
+ * Author - Sameer
  */
 
-
 public class SubsetSum {
+
     public static List<List<Integer>> findSubsetsWithSum(int[] nums, int target){
         List<List<Integer>> subsets = new ArrayList<>();
         backtrack(0, 0, new ArrayList<>(), subsets, target, nums);
@@ -25,6 +26,7 @@ public class SubsetSum {
         }
 
         if(currentIndex == nums.length || previousSum > target){
+            System.out.println(previousSubset);
             return;
         }
 
@@ -34,7 +36,7 @@ public class SubsetSum {
         backtrack(currentIndex + 1, previousSum, previousSubset, subsets, target, nums);
 
         previousSubset.remove(previousSubset.size() - 1);
-        previousSum -= nums[currentIndex];
+        previousSum -= nums[currentIndex]; // IMP
 
         backtrack(currentIndex + 1, previousSum, previousSubset, subsets, target, nums);
 
