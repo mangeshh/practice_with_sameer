@@ -12,6 +12,7 @@ public class PascalTriangle {
         for (int rowIndex = 0; rowIndex < numRows; rowIndex++) {
 
             List<Integer> currentRow = new ArrayList();
+
             currentRow.add(0, 1);
             for (int columnIndex = 1; columnIndex < rowIndex; columnIndex++) {
                 List<Integer> previousRow = rows.get(rowIndex - 1);
