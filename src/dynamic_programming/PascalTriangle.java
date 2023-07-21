@@ -17,20 +17,18 @@ public class PascalTriangle {
                 List<Integer> previousRow = rows.get(rowIndex - 1);
                 currentRow.add(previousRow.get(columnIndex - 1) + previousRow.get(columnIndex));
             }
-
-            if(rowIndex > 0){
+            if (rowIndex > 0) {
                 currentRow.add(1);
             }
             rows.add(currentRow);
         }
 
-        System.out.println(rows);
         return rows;
     }
 
 
     public static void main(String[] args) {
-        generate(5);
+        System.out.println(generate(5));
     }
 }
 
