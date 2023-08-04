@@ -3,8 +3,9 @@ package sorting;
 import java.util.ArrayList;
 
 public class MergeSort {
-    public static void merge(int left, int right, ArrayList<Integer> a){
-        int mid = (left + right) / 2;
+
+    public static void merge(int left, int mid, int right, ArrayList<Integer> a){
+        //int mid = (left + right) / 2;
         // left, mid - LeftSubArray
         // mid+1, right - RightSubArray
 
@@ -48,7 +49,7 @@ public class MergeSort {
     }
 
     public static void mergeSort(int left, int right, ArrayList<Integer> a){
-        if(left > right){
+        if(left >= right){
             return;
         }
         int mid = (left + right) / 2;
@@ -56,7 +57,7 @@ public class MergeSort {
         mergeSort(mid + 1, right, a);
 
         System.out.println(left + " " + right);
-        merge(left, right, a);
+        merge(left, mid, right, a);
         System.out.println(a);
     }
 
