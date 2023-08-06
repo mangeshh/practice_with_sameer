@@ -815,6 +815,73 @@ Remember to not forget the arrow function, i.e., avoid doing this: `onClick={han
 
 ---------------------------------------------
 
+Routing in javascript/html, Angular and react. 
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Routing Example</title>
+</head>
+<body>
+  <h1>Simple Routing Example</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div id="content">
+    <!-- Content will be dynamically updated here -->
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+```
+
+
+Note -
+When you use href="#home", it adds the fragment identifier (#home) to the URL when the link is clicked. The browser interprets this as an anchor link to a specific section of the current page rather than a link to a different page. This means that clicking on the link will not cause the browser to make a new request to the server and fetch a new HTML page. Instead, it will scroll to the section of the current page that has the id="home".
+
+```javascript
+// Function to update the content based on the route
+function updateContent(route) {
+const contentDiv = document.getElementById('content');
+switch (route) {
+case '#home':
+contentDiv.innerHTML = '<h2>Welcome to the Home Page!</h2>';
+break;
+case '#about':
+contentDiv.innerHTML = '<h2>About Us</h2><p>We are a company...</p>';
+break;
+case '#contact':
+contentDiv.innerHTML = '<h2>Contact Us</h2><p>Email: contact@example.com</p>';
+break;
+default:
+contentDiv.innerHTML = '<h2>404 Not Found</h2>';
+}
+}
+
+// Function to handle navigation and update the content
+function handleNavigation() {
+const currentRoute = window.location.hash;
+updateContent(currentRoute);
+}
+
+// Event listener for hash change
+window.addEventListener('hashchange', handleNavigation);
+
+// Initial content update based on the current URL hash
+handleNavigation();
+
+```
+
+
+
+
+
 
 
 
