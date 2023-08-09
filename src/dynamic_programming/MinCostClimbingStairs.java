@@ -10,7 +10,6 @@ public class MinCostClimbingStairs {
     public int minCostClimbingStairs(int[] cost) {
 
         // dp[i], min cost to reach the ith index.
-
         int n = cost.length;
         int[] dp = new int[n + 1];
         Arrays.fill(dp, 0);

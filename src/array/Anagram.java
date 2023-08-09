@@ -1,5 +1,8 @@
 package array;
 
+/**
+ * https://leetcode.com/problems/valid-anagram/submissions/
+ */
 public class Anagram {
     public boolean isAnagram(String s, String t) {
         if (s.length() != t.length()) {
