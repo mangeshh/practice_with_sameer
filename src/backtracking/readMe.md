@@ -5,4 +5,4 @@ Note - we have to use preorder traversal, only. we
 remove or add same element at the same level of the tree.
 
 
-![img.png](img.png)
+![img.png](asset/img.png)
