@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class JavaLambdaStream {
 
@@ -18,11 +19,37 @@ public class JavaLambdaStream {
             new Person("Matt", "Smith")
     );
 
+    static class Product {
+        private String name;
+        private double price;
+
+        public Product(String name, double price) {
+            this.name = name;
+            this.price = price;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public double getPrice() {
+            return price;
+        }
+    }
+
+    final static List<Product> products = Arrays.asList(
+        new Product("Laptop", 1200.0),
+        new Product("Smartphone", 800.0),
+        new Product("Headphones", 100.0),
+        new Product("Tablet", 500.0),
+        new Product("Mouse", 30.0)
+    );
+
     static class Student {
         private String name;
         private int age;
 
-        public Student(String name, int age){
+        public Student(String name, int age) {
             this.name = name;
             this.age = age;
         }
@@ -43,6 +70,7 @@ public class JavaLambdaStream {
                     '}';
         }
     }
+
     static class Person {
 
         Person(String firstName, String lastName) {
@@ -172,6 +200,8 @@ public class JavaLambdaStream {
     public static void mapToInt_Sum_Example() {
         /**
          * map to int, converts object to int, mapToInt function expects "ToIntFunction function"
+         * Integer::parseInt is kind of dummy operation, because already we have integers
+         * Note - mapToInt is nothing but `map the object to int`.
          */
         int total = listOfStringNumbers.stream().mapToInt(Integer::parseInt).sum();
         System.out.println(total);
@@ -210,9 +240,9 @@ public class JavaLambdaStream {
         }
     }
 
-    public static void merge_Two_list_to_make_object(){
+    public static void merge_Two_list_to_make_object() {
         List<String> list = Arrays.asList("Bob", "John", "Matt");
-        List<Integer> numbers = Arrays.asList(12,19,22);
+        List<Integer> numbers = Arrays.asList(12, 19, 22);
 
         List<Student> students = IntStream.range(0, numbers.size())
                 .mapToObj(i -> new Student(list.get(i), numbers.get(i))).collect(Collectors.toList());
@@ -220,29 +250,99 @@ public class JavaLambdaStream {
         System.out.println(students);
     }
 
-    public static void get_Stats_Of_IntStream(){
+    public static void get_Stats_Of_IntStream() {
         IntSummaryStatistics statistics = listOfNumbers.stream().mapToInt(Integer::intValue).summaryStatistics();
         System.out.print("max is " + statistics.getMax());
         System.out.print(", min is " + statistics.getMin());
-        System.out.print(", average is "  + statistics.getAverage());
+        System.out.print(", average is " + statistics.getAverage());
         System.out.println(", count is " + statistics.getCount());
     }
 
-    public static void create_set(){
+    public static void create_set() {
         Set<Integer> set = listOfNumbers.stream().collect(Collectors.toSet());
         System.out.println("set is - " + set);
     }
 
-    public static void get_Map_From_Two_Lists(){
-        List<String> list = Arrays.asList("Bob", "John", "Matt");
-        List<Integer> numbers = Arrays.asList(12,19,22);
 
-       // IntStream.range(0, numbers.size()).boxed()
+    public static void boxedExample() {
+        IntStream stream = IntStream.range(3, 8);
+        // Creating a Stream of Integers Using IntStream boxed() to return
+        // a Stream consisting of the elements of this stream, each boxed to an Integer.
+        Stream<Integer> stream1 = stream.boxed();
+        stream1.forEach(System.out::println);
     }
 
-    public static void sort(){
-        listOfNumbers.sort((a,b) -> a.compareTo(b));
+    public static void get_Map_From_Two_Lists() {
+        List<String> list = Arrays.asList("Bob", "John", "Matt");
+        List<Integer> numbers = Arrays.asList(12, 19, 22);
+
+        Map<String, Integer> map = IntStream.range(0, numbers.size()).boxed()
+                .collect(Collectors.toMap(list::get, numbers::get));
+
+        System.out.println(map);
+    }
+
+
+    public static void sort() {
+        listOfNumbers.sort((a, b) -> a.compareTo(b));
         System.out.println(listOfNumbers);
+    }
+
+    public static void grouping_and_counting_elements() {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (Integer number : listOfNumbers) {
+            map.put(number, map.getOrDefault(number, 0) + 1);
+        }
+    }
+
+    public static void flat_map_example() {
+        List<List<Integer>> listOfLists = Arrays.asList(
+                Arrays.asList(1, 2, 3),
+                Arrays.asList(4, 5),
+                Arrays.asList(6, 7, 8)
+        );
+
+        /**
+         * The flatMap function in Java's Stream API takes a function that maps an element of the stream to another stream.
+         * Using flatMap to flatten the list of lists into a single stream of integers
+         */
+        List<Integer> flattenedList = listOfLists.stream()
+                .flatMap(list -> list.stream()) // because we are getting list of list
+                .collect(Collectors.toList());
+
+        System.out.println(flattenedList);
+    }
+
+
+    public static void find_products_with_price_greater_than_200(){
+        List<Product> expensiveProducts = products.stream()
+                .filter(product -> product.getPrice() > 200.0)
+                .collect(Collectors.toList());
+
+        System.out.println(expensiveProducts);
+    }
+
+    public static void total_Price_of_Products_in_shopping_cart(){
+        double total = products.stream().mapToDouble(product -> product.getPrice()).sum();
+        System.out.println(total);
+    }
+
+    public static void product_with_highest_price(){
+        OptionalDouble maxPrice = products.stream().mapToDouble(product -> product.getPrice()).max();
+        System.out.println(maxPrice.getAsDouble());
+        // 2nd way to solve the problem.
+        Product maxPriceProduct = products.stream()
+                .max((p1, p2) -> Double.compare(p1.getPrice(), p2.getPrice())).orElse(null);
+    }
+
+    /**
+     * mapToInt, mapToDouble r helpful, because they have max,min,avg Functions!
+     */
+    public static void calculate_avg_price_of_products(){
+        double averagePrice = products.stream()
+                .mapToDouble(Product::getPrice)
+                .average()
+                .orElse(0.0);
     }
 
     public static void main(String[] args) {
@@ -291,9 +391,23 @@ public class JavaLambdaStream {
 
         create_set(); //22
 
-        get_Map_From_Two_Lists(); //23
+        boxedExample(); //23
 
-        sort(); // 24
+        get_Map_From_Two_Lists(); //24
+
+        sort(); // 25
+
+        grouping_and_counting_elements(); //26
+
+        flat_map_example(); //27
+
+        find_products_with_price_greater_than_200(); //28
+
+        total_Price_of_Products_in_shopping_cart(); //29
+
+        product_with_highest_price(); //30
+
+        calculate_avg_price_of_products();
     }
 
 
