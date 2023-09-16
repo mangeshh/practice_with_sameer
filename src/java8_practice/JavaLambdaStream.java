@@ -3,8 +3,9 @@ package java8_practice;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
-public class JavaLambdaPractice {
+public class JavaLambdaStream {
 
     final static private List<Integer> listOfNumbers = Arrays.asList(1, 2, 3, 4, 2);
     final static private List<String> listOfStringNumbers = Arrays.asList("1", "2", "3", "4", "2");
@@ -17,6 +18,31 @@ public class JavaLambdaPractice {
             new Person("Matt", "Smith")
     );
 
+    static class Student {
+        private String name;
+        private int age;
+
+        public Student(String name, int age){
+            this.name = name;
+            this.age = age;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public int getAge() {
+            return age;
+        }
+
+        @Override
+        public String toString() {
+            return "Student{" +
+                    "name='" + name + '\'' +
+                    ", age=" + age +
+                    '}';
+        }
+    }
     static class Person {
 
         Person(String firstName, String lastName) {
@@ -66,6 +92,7 @@ public class JavaLambdaPractice {
     }
 
     public static void return_Count_After_GroupBy() {
+        // NOTE - see identity function.
         // group by returns the map.
         Map<Integer, Long> count = listOfNumbers
                 .stream()
@@ -107,12 +134,12 @@ public class JavaLambdaPractice {
         /**
          * older version
          */
-         Iterator<Integer> itr = listOfNumbers.iterator();
-         while(itr.hasNext()){
-             if(itr.next() == 2){
-                 //itr.remove();
-             }
-         }
+        Iterator<Integer> itr = listOfNumbers.iterator();
+        while (itr.hasNext()) {
+            if (itr.next() == 2) {
+                //itr.remove();
+            }
+        }
 
         /**
          * latest java, to remove element, we can use `removeIf`, instead of iterator
@@ -124,12 +151,12 @@ public class JavaLambdaPractice {
 
     }
 
-    public static void check_If_List_Contains_Element(){
-        boolean isPresent = listOfNumbers.stream().anyMatch(a -> a %2 ==0);
+    public static void check_If_List_Contains_Element() {
+        boolean isPresent = listOfNumbers.stream().anyMatch(a -> a % 2 == 0);
         System.out.println(isPresent);
     }
 
-    public static void collect_Elements_Using_ToMap(){
+    public static void collect_Elements_Using_ToMap() {
         Map map = people.stream().collect(Collectors.toMap(Person::getFirstName, Person::getLastName));
         /**
          *  with lambda, it would be like -
@@ -142,7 +169,7 @@ public class JavaLambdaPractice {
         System.out.println(String.join(" • ", listOfStrings));
     }
 
-    public static void mapToInt_Sum_Example(){
+    public static void mapToInt_Sum_Example() {
         /**
          * map to int, converts object to int, mapToInt function expects "ToIntFunction function"
          */
@@ -150,77 +177,123 @@ public class JavaLambdaPractice {
         System.out.println(total);
     }
 
-    public static void findAll_Elements_LessThan10(){
+    public static void findAll_Elements_LessThan10() {
         boolean allTrue = listOfNumbers.stream().allMatch(a -> a < 10);
         System.out.println(allTrue);
     }
 
-    public static void count_NumberOfElement_Inside_List(){
+    public static void count_NumberOfElement_Inside_List() {
         long count = listOfNumbers.stream().count();
         System.out.println(count);
     }
 
-    public static void find_Max_From_List(){
+    public static void find_Max_From_List() {
         int maxVal = listOfNumbers.stream().max(Integer::compare).orElse(Integer.MIN_VALUE);
         System.out.println(maxVal);
     }
 
-    public static void remove_duplicates_from_list(){
+    public static void remove_duplicates_from_list() {
         List<Integer> distinctList = listOfNumbers.stream().distinct().collect(Collectors.toList());
         System.out.println("original list • " + listOfNumbers + " and after removing distinct elements • " + distinctList);
     }
 
-    public static void convert_List_Into_SquareNumbers(){
+    public static void convert_List_Into_SquareNumbers() {
         List<Integer> squares = listOfNumbers.stream().map(n -> n * n).collect(Collectors.toList());
         System.out.println("list with squares " + squares);
 
     }
 
-    public static void square_Each_Number_And_FindTotal(){
+    public static void square_Each_Number_And_FindTotal() {
         Optional<Integer> sum = listOfNumbers.stream().map(n -> n * n).reduce(Integer::sum);
-        if(sum.isPresent()){
+        if (sum.isPresent()) {
             System.out.println("sum of square " + sum.get());
         }
     }
 
+    public static void merge_Two_list_to_make_object(){
+        List<String> list = Arrays.asList("Bob", "John", "Matt");
+        List<Integer> numbers = Arrays.asList(12,19,22);
+
+        List<Student> students = IntStream.range(0, numbers.size())
+                .mapToObj(i -> new Student(list.get(i), numbers.get(i))).collect(Collectors.toList());
+
+        System.out.println(students);
+    }
+
+    public static void get_Stats_Of_IntStream(){
+        IntSummaryStatistics statistics = listOfNumbers.stream().mapToInt(Integer::intValue).summaryStatistics();
+        System.out.print("max is " + statistics.getMax());
+        System.out.print(", min is " + statistics.getMin());
+        System.out.print(", average is "  + statistics.getAverage());
+        System.out.println(", count is " + statistics.getCount());
+    }
+
+    public static void create_set(){
+        Set<Integer> set = listOfNumbers.stream().collect(Collectors.toSet());
+        System.out.println("set is - " + set);
+    }
+
+    public static void get_Map_From_Two_Lists(){
+        List<String> list = Arrays.asList("Bob", "John", "Matt");
+        List<Integer> numbers = Arrays.asList(12,19,22);
+
+       // IntStream.range(0, numbers.size()).boxed()
+    }
+
+    public static void sort(){
+        listOfNumbers.sort((a,b) -> a.compareTo(b));
+        System.out.println(listOfNumbers);
+    }
+
     public static void main(String[] args) {
-        use_ForEach_To_Print_List();
 
-        make_List_After_Filtering();
+        use_ForEach_To_Print_List(); //1
 
-        learn_How_To_Handle_Null_Using_Optional();
+        make_List_After_Filtering(); //2
 
-        learn_How_To_Use_Map();
+        learn_How_To_Handle_Null_Using_Optional(); //3
 
-        return_Count_After_GroupBy();
+        learn_How_To_Use_Map(); //4
 
-        return_All_Rows_After_GroupBy();
+        return_Count_After_GroupBy(); //5
 
-        findFirst();
+        return_All_Rows_After_GroupBy(); //6
 
-        sum_using_reduce();
+        findFirst(); //7
 
-        remove_Element_From_List();
+        sum_using_reduce(); //8
 
-        check_If_List_Contains_Element();
+        remove_Element_From_List(); //9
 
-        collect_Elements_Using_ToMap();
+        check_If_List_Contains_Element(); //10
 
-        joinString();
+        collect_Elements_Using_ToMap(); //11
 
-        mapToInt_Sum_Example();
+        joinString(); //12
 
-        findAll_Elements_LessThan10();
+        mapToInt_Sum_Example(); //13
 
-        count_NumberOfElement_Inside_List();
+        findAll_Elements_LessThan10(); //14
 
-        find_Max_From_List();
+        count_NumberOfElement_Inside_List(); //15
 
-        remove_duplicates_from_list();
+        find_Max_From_List(); //16
 
-        convert_List_Into_SquareNumbers();
+        remove_duplicates_from_list(); //17
 
-        square_Each_Number_And_FindTotal();
+        convert_List_Into_SquareNumbers(); //18
+
+        square_Each_Number_And_FindTotal(); //19
+
+        merge_Two_list_to_make_object(); // 20
+
+        get_Stats_Of_IntStream(); // 21
+
+        create_set(); //22
+
+        get_Map_From_Two_Lists(); //23
+
+        sort(); // 24
     }
 
 
