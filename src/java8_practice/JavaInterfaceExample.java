@@ -55,11 +55,11 @@ interface Calculator {
 public class JavaInterfaceExample {
 
     public static void main(String[] args) {
+
         Greeting englishGreeting = new EnglishGreeting();
         englishGreeting.sayHello();          // Output: Hello!
         englishGreeting.sayBaseDefaultHello();   // Output: Default Hello!
         englishGreeting.testOverrideDefaultHello();   // Output: Default Hello!
-
 
         // # interface for MathOperation.
         int sum = MathOperations.add(5, 3);
@@ -67,7 +67,6 @@ public class JavaInterfaceExample {
 
         System.out.println("Sum: " + sum);           // Output: Sum: 8
         System.out.println("Difference: " + difference); // Output: Difference: 7
-
 
         // Functional Interface
         Calculator addition = (a,b) -> a + b;
