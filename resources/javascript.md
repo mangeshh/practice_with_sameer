@@ -1154,3 +1154,19 @@ In this example, `script.js` is a separate JavaScript file that contains JavaScr
 Note: It's recommended to place the `<script>` tag just before the closing `</body>` tag, as this prevents blocking of rendering of the page. If you place the `<script>` tag in the `<head>`, the browser will execute the JavaScript before it builds the DOM, which could lead to errors if your JavaScript is trying to interact with DOM elements that aren't built yet.
 
 
+Notes -
+
+```javascript
+Backticks are helpful for creating HTML:
+const html = ` <div>
+<h2>Hey everyone! I am ${name}.</h2> </div>`;
+```
+
+```javascript
+console.log(typeof age); // number
+```
+
+```javascript
+let dog;
+console.log(dog); // undefined
+```
