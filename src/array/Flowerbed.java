@@ -8,6 +8,7 @@ import java.util.List;
  * Leetcode - 605. Can Place Flowers
  */
 public class Flowerbed {
+
         public boolean canPlaceFlowers(int[] flowerbed, int n) {
             // 1 0 0 0 1 0 0 0 0 1
             // 0 0 1 0 0 0 0 1 1 0
@@ -45,9 +46,6 @@ public class Flowerbed {
 
             for(int c = 0 ; c < list.size(); c++){
                 int noOfZeros = list.get(c);
-                if(c == 0){
-
-                }
                 if(noOfZeros > 2){
                     noOfPossibilities = noOfPossibilities + ((noOfZeros-1)/2);
                 }
