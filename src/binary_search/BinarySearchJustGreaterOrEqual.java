@@ -9,7 +9,7 @@ public class BinarySearchJustGreaterOrEqual {
 
     public int search(int target){
         int low = 0;
-        int high = list.size();
+        int high = list.size()-1;
         int answer = -1;
 
         while(low <= high){

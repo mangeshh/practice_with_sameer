@@ -10,7 +10,7 @@ import java.util.List;
 public class Flowerbed {
 
         public boolean canPlaceFlowers(int[] flowerbed, int n) {
-            // 1 0 0 0 1 0 0 0 0 1
+            // 1 0 0 0 0 0 0 0 0 1
             // 0 0 1 0 0 0 0 1 1 0
 
             List<Integer> list = new ArrayList<>();
