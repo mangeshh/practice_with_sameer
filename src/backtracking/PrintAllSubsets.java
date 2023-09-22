@@ -3,6 +3,9 @@ package backtracking;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * main to start - actual backtracking.
+ */
 public class PrintAllSubsets {
 
     public static List<List<Integer>> findSubsets(int[] nums) {
@@ -11,7 +14,7 @@ public class PrintAllSubsets {
         return subsets;
     }
 
-    //    This will generate all subsets with elements starting from currentIndex
+    // This will generate all subsets with elements starting from currentIndex, having previous subset as previousSubset
     public static void backtrack(int currentIndex, ArrayList<Integer> previousSubset, List<List<Integer>> subsets, int[] nums) {
         System.out.println("backtrack(" + currentIndex + ", " + previousSubset + ")" );
         if (currentIndex == nums.length) {
