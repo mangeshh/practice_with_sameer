@@ -1,20 +1,22 @@
 package backtracking;
 
 
-class Node {
-    int val;
-    Node left;
-    Node right;
 
-    public Node(int val){
-        this.val = val;
-        this.left = null;
-        this.right = null;
-    }
-
-}
 
 public class SortedArrayToBinarySearchTree {
+
+    static class Node {
+        int val;
+        Node left;
+        Node right;
+
+        public Node(int val){
+            this.val = val;
+            this.left = null;
+            this.right = null;
+        }
+
+    }
 
     public static Node createBSTree(int [] nums, int start, int end){
         if(start > end){
