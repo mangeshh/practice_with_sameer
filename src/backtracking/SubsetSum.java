@@ -17,7 +17,7 @@ public class SubsetSum {
         return subsets;
     }
 
-//    This will generate all subsets with elements starting from currentIndex and summing up to target - previousSum
+    // This will generate all subsets with elements starting from currentIndex and summing up to target - previousSum
     public static void backtrack(int currentIndex, int previousSum, ArrayList<Integer> previousSubset, List<List<Integer>> subsets, int target, int []nums){
 
         if(previousSum == target){
