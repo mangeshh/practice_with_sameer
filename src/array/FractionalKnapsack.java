@@ -10,7 +10,7 @@ import java.util.Comparator;
  * Input: arr[] = {{60, 10}, {100, 20}, {120, 30}}, W = 50
  * Output: 240
  * Explanation: By taking items of weight 10 and 20 kg and 2/3 fraction of 30 kg.
- * Hence total price will be 60+100+(2/3)(120) = 240
+ * hence total price will be 60+100+(2/3)(120) = 240
  *
  * Input:  arr[] = {{500, 30}}, W = 10
  * Output: 166.667
