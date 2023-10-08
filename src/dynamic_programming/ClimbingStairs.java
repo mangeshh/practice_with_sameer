@@ -22,7 +22,7 @@ public class ClimbingStairs {
 //        dp[3] = 3
 
 //        For dp[4] my last step is 4th stair only. But what can be my 2nd last stairs?
-//                                                  2nd and 3rd
+//        answer - 2nd and 3rd
 //
 //        Two choices for my second last stair
 //                  a. 3rd Stair is my second last stair:
@@ -30,7 +30,7 @@ public class ClimbingStairs {
 //                      [3, 4]
 //                      Then there are dp[3] ways to reach 4th stair if 3rd stair is my second last
 
-        //          b. 2nd Stair is my second last stair:
+//                  b. 2nd Stair is my second last stair:
 //                      Then I can only jump 2 stair
 //                      [2, 4]
 //                      Then there are dp[2] ways to reach 4th stair if 2nd stair is my second last
