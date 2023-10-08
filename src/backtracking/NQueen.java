@@ -7,6 +7,7 @@ import java.util.List;
 /**
  * https://leetcode.com/problems/n-queens/
  */
+@SuppressWarnings("unused")
 public class NQueen {
     public List<List<String>> solveNQueens(int n) {
         List<List<String>> solutions = new ArrayList<>();
