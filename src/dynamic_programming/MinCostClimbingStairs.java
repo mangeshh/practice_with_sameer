@@ -48,7 +48,7 @@ public class MinCostClimbingStairs {
         // we have to use accumulated cost meaning dp plus cost.
         // consider dp and cost separate array.
         for (int i = 2; i <= n; i++) {
-            System.out.println("for `dp["+i+"]` we are comparing Math.min(dp["+(i - 2)+"]+cost["+ (i - 2) + "], dp["+ (i-1) + "]+cost["+ (i-1) +"])" );
+            System.out.println("calculating `dp["+i+"]` we are comparing Math.min(dp["+(i - 2)+"]+cost["+ (i - 2) + "], dp["+ (i-1) + "]+cost["+ (i-1) +"])" );
             System.out.println("dp["+(i-2)+"]=" + dp[i-2] + " and dp["+(i-1)+"]=" + dp[i-1] + " && cost["+(i-2)+"]=" + cost[i-2] + " and cost["+(i-1)+"]=" + cost[i-1]);
             System.out.println("ANSWER - To get `dp["+i+"]` we are comparing Math.min("+ (dp[i-2] + cost[i-2]) + ", " + (dp[i-1] + cost[i-1] + ")"));
             dp[i] = Math.min(dp[i - 2] + cost[i - 2], dp[i - 1] + cost[i - 1]);
