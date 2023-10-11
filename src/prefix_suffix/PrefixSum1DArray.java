@@ -1,4 +1,4 @@
-package prefix_sum;
+package prefix_suffix;
 
 import java.util.Arrays;
 

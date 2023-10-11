@@ -1,4 +1,4 @@
-package prefix_sum;
+package prefix_suffix;
 
 /**
  * https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/description/
