@@ -21,7 +21,7 @@ public class KthLargestElement {
 
         // time complexity is n (iteration of nums) * logK (heap has max k element so log k).
         for (int x : nums) {
-            minHeap.add(x);
+            minHeap.add(x);  // 1, 2, 3, 4, 5, 6, 7 -- now 3rd largest would be 7-3 = poll operations.
             if (minHeap.size() > k) {
                 minHeap.poll();
             }
