@@ -7,7 +7,6 @@ class FindMaxAverage {
 
     public static double findMaxAverage(int[] nums, int k) {
 
-
         // first iterate the window size and collect the average.
         // then increase the windows size to right and decrease from left and again find average.
         // base condition to make window, that's it.

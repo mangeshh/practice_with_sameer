@@ -18,6 +18,7 @@ public class BinarySearchJustSmallerOrEqual {
             if (list.get(mid) > target) {
                 high = mid - 1;
             } else {
+                System.out.println("current closest smallest " + list.get(mid));
                 answer = mid;// recording the closest number.
                 low = mid + 1;
             }

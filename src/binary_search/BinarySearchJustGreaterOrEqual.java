@@ -14,11 +14,12 @@ public class BinarySearchJustGreaterOrEqual {
 
         while(low <= high){
             int mid = (low + high) / 2;
-            if(list.get(mid) < target){
-                low = mid + 1;
-            } else{
+            if(list.get(mid) > target){
                 answer = mid;// recording the closest number.
                 high = mid - 1;
+                System.out.println("current closest is  " + list.get(mid));
+            } else{
+                low = mid + 1;
             }
         }
         return answer;
@@ -29,6 +30,7 @@ public class BinarySearchJustGreaterOrEqual {
         b.list.add(1);
         b.list.add(2);
         b.list.add(3);
+        b.list.add(5);
         b.list.add(7);
         b.list.add(19);
         b.list.add(22);
