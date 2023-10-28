@@ -20,8 +20,8 @@ class FindMaxAverage {
 
         double max_avg = sum/k; // base condition.
 
-        // now right is same as k(window size).
-        while (right < nums.length ){
+        // now right is same as k(window size), right pointer will touch endOfWindow, so it's '< nums.length'
+        while (right < nums.length){
             sum += nums[right];
             sum -= nums[right - k];
             max_avg = Math.max(max_avg, sum/k);
@@ -33,6 +33,7 @@ class FindMaxAverage {
     }
 
     public static void main(String[] args) {
-        System.out.println(findMaxAverage(new int[]{1,43,2,6,8,3}, 4));
+        //System.out.println(findMaxAverage(new int[]{1,43,2,6,8,3}, 4));
+        System.out.println(findMaxAverage(new int[]{1,1,2,2,2,19}, 4));
     }
 }
