@@ -15,12 +15,12 @@ public class BinarySearchJustSmallerOrEqual {
 
         while (low <= high) {
             int mid = (low + high) / 2;
-            if (list.get(mid) > target) {
-                high = mid - 1;
-            } else {
+            if (list.get(mid) < target) {
                 System.out.println("current closest smallest " + list.get(mid));
                 answer = mid;// recording the closest number.
                 low = mid + 1;
+            } else {
+                high = mid - 1;
             }
         }
         return answer;
