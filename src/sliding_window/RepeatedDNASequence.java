@@ -4,6 +4,7 @@ import java.util.HashSet;
 
 // fixed length
 public class RepeatedDNASequence {
+
     public static void main(String[] args) {
         //   AGCTGAAAGCTTAGCTG
         //   k = 5
@@ -20,7 +21,7 @@ public class RepeatedDNASequence {
         int right = k;
 
         while(right < n){
-
+            // currentSequence keeps on changing
             currentSequence = currentSequence.substring(1) + input.charAt(right);
 
             if(occurrence.contains(currentSequence)){
