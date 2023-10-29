@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * this is dynamic window problem.
+ * https://leetcode.com/problems/max-consecutive-ones/
  */
 public class MaxConsecutiveOnes {
 

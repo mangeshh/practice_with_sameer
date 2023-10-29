@@ -2,6 +2,9 @@ package sliding_window;
 
 import java.util.Stack;
 
+/**
+ * https://leetcode.com/problems/max-consecutive-ones-iii/
+ */
 public class MaxConsecutiveOnes3 {
 
     public static void main(String[] args) {
@@ -9,9 +12,7 @@ public class MaxConsecutiveOnes3 {
         //longestOnes(new int[]{1,1,1,0,0,0,1,1,1,1,0}, 2);
     }
 
-
     public static int longestOnes(int[] nums, int k) {
-
 
         int n = nums.length;
 
@@ -28,7 +29,7 @@ public class MaxConsecutiveOnes3 {
                 current_zero_count += 1;
             }
 
-           // Main left ko aage tabhi bahaunga jab current window ka sum K ya usse bada hai
+           // Main left ko aage tabhi badhaunga jab current window ka sum K ya usse bada hai
             while (current_zero_count > k) {
                 if (nums[left] == 0) {
                     current_zero_count -= 1;

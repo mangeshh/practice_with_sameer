@@ -6,7 +6,7 @@ public class SmallestSubarraySum {
 //    3, 4, 1, 5, 3, 1
 
 //    What is the smallest subarray length that sum greater than equal to 10?
-//    3 is smallest subarray
+//    3 is the smallest subarray
 
 //    Fixed Length: 1 pointer is enough (Why? Because other one is that plus k)
 //    current_window_sum += nums[index + k]
