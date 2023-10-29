@@ -3,6 +3,7 @@ package tree;
 /**
  * https://leetcode.com/problems/deepest-leaves-sum/description/
  */
+@SuppressWarnings("unused")
 public class DeepestLeavesSum {
     int height;
     int deepestSum = 0;
