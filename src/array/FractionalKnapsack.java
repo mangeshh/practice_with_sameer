@@ -43,19 +43,19 @@ public class FractionalKnapsack {
         });
 
         int count = 0;
-        int currenrWeight = arr[count].weight;
+        int currentWeight = arr[count].weight;
         int prevWeight = 0;
 
-        while (currenrWeight <= W && count < n) {
-            prevWeight = currenrWeight;
+        while (currentWeight <= W && count < n) {
+            prevWeight = currentWeight;
             result += arr[count].value;
             if (++count < n) {
-                currenrWeight += arr[count].weight;
+                currentWeight += arr[count].weight;
             }
 
         }
 
-        if (currenrWeight > W && count < n) {
+        if (currentWeight > W && count < n) {
             double diff = W - prevWeight;
             double fraction = diff * arr[count].value / arr[count].weight;
             result = result + fraction;
