@@ -7,6 +7,7 @@ import java.util.Arrays;
  */
 public class SubarrayMaxByKadane {
 
+    // Max likalo (abhi tak ka total or current number)
     public static int kadaneSpaceOptimized(int []nums){
         int n = nums.length;
 
