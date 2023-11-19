@@ -364,7 +364,42 @@ public class JavaLambdaStream {
                             } else {
                                 return Stream.empty();
                             }
+
+                            /**
+                             * Another better way to return,line 363 and 365
+                             * return y != null? Stream.of(y) : Stream.empty();
+                             *
+                             */
+
+                            /**
+                             * Another better way to return,line 363 and 365
+                             *
+                             * return  Stream.ofNullable(y);
+                             */
+
                         }).collect(Collectors.toList());
+
+        /**
+         *  goals [1, 2, 3]
+         */
+
+        System.out.println("goals " + xy);
+    }
+
+
+    /**
+     * flat map collect all streams into a single stream.
+     */
+    public static void betterVersionOfFlatMapToCombineAllStreams() {
+        Map<String, Integer> map = Map.of("1", 1, "2", 2, "3", 3);
+        List list = List.of("1", "2", "3");
+        /**
+         * OfNullable does same as if null then return empty Stream else return Stream of value from Map
+         * in this case, map returns single value for the Key but intention is to merge all single values into
+         * a single stream to get Map.
+         */
+        List<Integer> xy = (List<Integer>) list.stream()
+                        .flatMap(x -> Stream.ofNullable(map.get(x))).collect(Collectors.toList());
 
         /**
          *  goals [1, 2, 3]
@@ -438,6 +473,8 @@ public class JavaLambdaStream {
         calculate_avg_price_of_products(); //31
 
         flatMapToCombineAllStreams();  //32
+
+        betterVersionOfFlatMapToCombineAllStreams(); // 33
     }
 
 
