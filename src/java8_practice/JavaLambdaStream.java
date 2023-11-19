@@ -345,6 +345,34 @@ public class JavaLambdaStream {
                 .orElse(0.0);
     }
 
+
+    /**
+     * flat map sabhi stream se Ek stream banata hai.
+     */
+    public static void flatMapToCombineAllStreams() {
+        Map<String, Integer> map = Map.of("1", 1, "2", 2, "3", 3);
+        List list = List.of("1", "2", "3");
+
+        List<Integer> xy =
+                (List<Integer>) list.stream()
+                        .flatMap(x -> {
+                            Integer y = map.get(x);
+
+                            if (y != null) {
+                                System.out.println("xy : " + Stream.of(y));
+                                return Stream.of(y);
+                            } else {
+                                return Stream.empty();
+                            }
+                        }).collect(Collectors.toList());
+
+        /**
+         *  goals [1, 2, 3]
+         */
+
+        System.out.println("goals " + xy);
+    }
+
     public static void main(String[] args) {
 
         use_ForEach_To_Print_List(); //1
@@ -408,6 +436,8 @@ public class JavaLambdaStream {
         product_with_highest_price(); //30
 
         calculate_avg_price_of_products();
+
+        flatMapToCombineAllStreams();
     }
 
 
