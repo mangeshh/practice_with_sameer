@@ -435,9 +435,9 @@ public class JavaLambdaStream {
 
         product_with_highest_price(); //30
 
-        calculate_avg_price_of_products();
+        calculate_avg_price_of_products(); //31
 
-        flatMapToCombineAllStreams();
+        flatMapToCombineAllStreams();  //32
     }
 
 
