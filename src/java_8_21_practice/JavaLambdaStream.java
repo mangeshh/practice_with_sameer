@@ -996,15 +996,13 @@ public class JavaLambdaStream {
     public static void main(String[] args) throws IllegalAccessException, InvocationTargetException {
         boolean allowed = false;
 
-        Optional<String> command = Optional.empty();
         if (args.length == 0) {
             allowed = true;
-        } else {
-            command = Optional.of(args[0]);
         }
 
         // you can run by giving method name too.
         if (!allowed) {
+
             JavaLambdaStream javaLambdaStream = new JavaLambdaStream();
             Optional<Method> method = Arrays.stream(JavaLambdaStream.class.getMethods())
                     .filter(m -> m.getName().equalsIgnoreCase(args[0]))
@@ -1014,7 +1012,9 @@ public class JavaLambdaStream {
             } else {
                 System.out.println("No Method found..");
             }
+
         } else {
+
             use_ForEach_To_Print_List(); //1
 
             make_List_After_Filtering(); //2
@@ -1118,6 +1118,7 @@ public class JavaLambdaStream {
             debugStream(); //51
 
             exceptionHandlingInStream(); //52
+
         }
     }
 
