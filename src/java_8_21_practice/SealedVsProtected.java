@@ -51,9 +51,20 @@ final class Subclass1 extends SealedVsProtected {
     }
 }
 
-final class Subclass2 extends SealedVsProtected {
+// Super Important.
+non-sealed class Subclass2 extends SealedVsProtected {
     public String method() {
         return "running.. Subclass2";
+    }
+}
+
+/**
+ * if we extend subclass, extending sealed class, then need to use either
+ * sealed, non-sealed or final. (mandatory).
+ */
+class TestSeal extends Subclass2 {
+    public void test() {
+        System.out.println("because Subclass2 is non-sealed (declared before class), we can extend it");
     }
 }
 
