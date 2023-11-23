@@ -871,7 +871,7 @@ public class JavaLambdaStream {
         List<Integer> numbers4 = Arrays.asList(1, 2, 3, 4, 5);
 
         try {
-            int result4 = numbers.stream()
+            int result4 = numbers4.stream()
                     .map(n -> {
                         if (n % 2 == 0) {
                             //throw new CustomException("Even numbers are not allowed.");
@@ -881,7 +881,7 @@ public class JavaLambdaStream {
                     })
                     .reduce(0, Integer::sum);
 
-            System.out.println("Result: " + result);
+            System.out.println("Result: " + result4);
         } catch (CustomException e) {
             System.err.println("Custom Exception: " + e.getMessage());
         }
