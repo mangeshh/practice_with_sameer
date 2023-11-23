@@ -62,11 +62,10 @@ public class JavaInterfaceExample {
         englishGreeting.sayBaseDefaultHello();   // Output: Default Hello!
         englishGreeting.testOverrideDefaultHello();   // Output: Default Hello!
 
-        // # interface for MathOperation.
+        // # interface for MathOperation, static methods!
         int sum = MathOperations.add(5, 3);
-        int difference = MathOperations.subtract(10, 3);
-
         System.out.println("Sum: " + sum);           // Output: Sum: 8
+        int difference = MathOperations.subtract(10, 3);
         System.out.println("Difference: " + difference); // Output: Difference: 7
 
         // Functional Interface
