@@ -1,5 +1,7 @@
 package java8_practice;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -888,12 +890,29 @@ public class JavaLambdaStream {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalAccessException, InvocationTargetException {
         boolean allowed = false;
 
+        Optional<String> command = Optional.empty();
         if(args.length == 0){
             allowed = true;
+        } else{
+            command = Optional.of(args[0]);
         }
+
+        // you can run by giving method name too.
+        if(!allowed && !command.get().matches("^[M][1-9]+")){ //[0-9]+: + sign quantifier added to [0-9] means - match one or more digits in a row.
+            JavaLambdaStream javaLambdaStream = new JavaLambdaStream();
+            Optional<Method> method = Arrays.stream(JavaLambdaStream.class.getMethods())
+                    .filter(m -> m.getName().equalsIgnoreCase(args[0])).findFirst();
+            if(method.isPresent()){
+                method.get().invoke(javaLambdaStream);
+            }else{
+                System.out.println("No Method found..");
+            }
+            System.exit(0);
+        }
+
 
         if (allowed || args[0].equalsIgnoreCase("M1")){
             use_ForEach_To_Print_List(); //1
