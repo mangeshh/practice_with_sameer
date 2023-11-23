@@ -1094,8 +1094,6 @@ public class JavaLambdaStream {
 
         } else {
 
-
-
             use_ForEach_To_Print_List(); //1
 
             make_List_After_Filtering(); //2
