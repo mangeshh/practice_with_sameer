@@ -40,6 +40,7 @@ public sealed class SealedVsProtected permits Subclass1, Subclass2 {
     }
 }
 
+@SuppressWarnings("unused")
 final class Subclass {
     // Subclass definition
 }
