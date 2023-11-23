@@ -216,7 +216,7 @@ public class JavaInterfaceExample {
     public static void predicateExample() {
         System.out.println("method - " + getCurrentMethodName());
 
-        Predicate<Integer> isEven = n -> n % 2 == 0;
+        Predicate<Integer> isEven = n -> n % 2 == 0; // expected input is integer and return is always boolean
         System.out.println("Is 4 even? " + isEven.test(4)); // true
         System.out.println("Is 7 even? " + isEven.test(7)); // false
     }
