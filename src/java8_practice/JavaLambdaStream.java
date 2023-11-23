@@ -255,7 +255,7 @@ public class JavaLambdaStream {
         Iterator<Integer> itr = listOfNumbers.iterator();
         while (itr.hasNext()) {
             if (itr.next() == 2) {
-                itr.remove();
+                //itr.remove();  if we uncomment then - UnsupportedOperationException: remove at java.base/java.util.Iterator.remove(Iterator.java:102)
             }
         }
 
@@ -874,7 +874,8 @@ public class JavaLambdaStream {
             int result4 = numbers.stream()
                     .map(n -> {
                         if (n % 2 == 0) {
-                            throw new CustomException("Even numbers are not allowed.");
+                            //throw new CustomException("Even numbers are not allowed.");
+                            // Above line (throw runtime exception) will stop processing and send control back to caller.
                         }
                         return n;
                     })
@@ -888,110 +889,220 @@ public class JavaLambdaStream {
 
 
     public static void main(String[] args) {
+        boolean allowed = false;
 
-        use_ForEach_To_Print_List(); //1
+        if(args.length == 0){
+            allowed = true;
+        }
 
-        make_List_After_Filtering(); //2
+        if (allowed || args[0].equalsIgnoreCase("M1")){
+            use_ForEach_To_Print_List(); //1
+        }
 
-        learn_How_To_Handle_Null_Using_Optional(); //3
+        if (allowed || args[0].equalsIgnoreCase("M2")) {
+            make_List_After_Filtering(); //2
+        }
 
-        learn_How_To_Use_Map(); //4
+        if (allowed || args[0].equalsIgnoreCase("M3")) {
+            learn_How_To_Handle_Null_Using_Optional(); //3
+        }
 
-        return_Count_After_GroupBy(); //5
+        if (allowed || args[0].equalsIgnoreCase("M4")) {
+            learn_How_To_Use_Map(); //4
+        }
 
-        return_All_Rows_After_GroupBy(); //6
+        if (allowed || args[0].equalsIgnoreCase("M5")) {
+            return_Count_After_GroupBy(); //5
+        }
 
-        findFirst(); //7
+        if (allowed || args[0].equalsIgnoreCase("M6")) {
+            return_All_Rows_After_GroupBy(); //6
+        }
 
-        sum_using_reduce(); //8
+        if (allowed || args[0].equalsIgnoreCase("M7")) {
+            findFirst(); //7
+        }
 
-        remove_Element_From_List(); //9
+        if (allowed || args[0].equalsIgnoreCase("M8")) {
+            sum_using_reduce(); //8
+        }
 
-        check_If_List_Contains_Element(); //10
+        if (allowed || args[0].equalsIgnoreCase("M9")) {
+            remove_Element_From_List(); //9
+        }
 
-        collect_Elements_Using_ToMap(); //11
+        if (allowed || args[0].equalsIgnoreCase("M10")) {
+            check_If_List_Contains_Element(); //10
+        }
 
-        joinString(); //12
+        if (allowed || args[0].equalsIgnoreCase("M11")) {
+            collect_Elements_Using_ToMap(); //11
+        }
 
-        mapToInt_Sum_Example(); //13
+        if (allowed || args[0].equalsIgnoreCase("M12")) {
+            joinString(); //12
+        }
 
-        findAll_Elements_LessThan10(); //14
+        if (allowed || args[0].equalsIgnoreCase("M13")) {
+            mapToInt_Sum_Example(); //13
+        }
 
-        count_NumberOfElement_Inside_List(); //15
+        if (allowed || args[0].equalsIgnoreCase("M14")) {
+            findAll_Elements_LessThan10(); //14
+        }
 
-        find_Max_From_List(); //16
+        if (allowed || args[0].equalsIgnoreCase("M15")) {
+            count_NumberOfElement_Inside_List(); //15
+        }
 
-        remove_duplicates_from_list(); //17
+        if (allowed || args[0].equalsIgnoreCase("M16")) {
+            find_Max_From_List(); //16
+        }
 
-        convert_List_Into_SquareNumbers(); //18
+        if (allowed || args[0].equalsIgnoreCase("M17")) {
+            remove_duplicates_from_list(); //17
+        }
 
-        square_Each_Number_And_FindTotal(); //19
+        if (allowed || args[0].equalsIgnoreCase("M18")) {
+            convert_List_Into_SquareNumbers(); //18
+        }
 
-        merge_Two_list_to_make_object(); // 20
+        if (allowed || args[0].equalsIgnoreCase("M19")) {
+            square_Each_Number_And_FindTotal(); //19
+        }
 
-        get_Stats_Of_IntStream(); // 21
+        if (allowed || args[0].equalsIgnoreCase("M20")) {
+            merge_Two_list_to_make_object(); // 20
+        }
 
-        create_set(); //22
+        if (allowed || args[0].equalsIgnoreCase("M21")) {
+            get_Stats_Of_IntStream(); // 21
+        }
 
-        boxedExample(); //23
+        if (allowed || args[0].equalsIgnoreCase("M22")) {
+            create_set(); //22
+        }
 
-        get_Map_From_Two_Lists(); //24
+        if (allowed || args[0].equalsIgnoreCase("M23")) {
+            boxedExample(); //23
+        }
 
-        sort(); // 25
+        if (allowed || args[0].equalsIgnoreCase("M24")) {
+            get_Map_From_Two_Lists(); //24
+        }
 
-        grouping_and_counting_elements(); //26
+        if (allowed || args[0].equalsIgnoreCase("M25")) {
+            sort(); // 25
+        }
 
-        flat_map_example(); //27
+        if (allowed || args[0].equalsIgnoreCase("M26")) {
+            grouping_and_counting_elements(); //26
+        }
 
-        find_products_with_price_greater_than_200(); //28
+        if (allowed || args[0].equalsIgnoreCase("M27")) {
+            flat_map_example(); //27
+        }
 
-        total_Price_of_Products_in_shopping_cart(); //29
+        if (allowed || args[0].equalsIgnoreCase("M28")) {
+            find_products_with_price_greater_than_200(); //28
+        }
 
-        product_with_highest_price(); //30
+        if (allowed || args[0].equalsIgnoreCase("M29")) {
+            total_Price_of_Products_in_shopping_cart(); //29
+        }
 
-        calculate_avg_price_of_products(); //31
+        if (allowed || args[0].equalsIgnoreCase("M30")) {
+            product_with_highest_price(); //30
+        }
 
-        flatMapToCombineAllStreams();  //32
+        if (allowed || args[0].equalsIgnoreCase("M31")) {
+            calculate_avg_price_of_products(); //31
+        }
 
-        betterVersionOfFlatMapToCombineAllStreams(); //33
+        if (allowed || args[0].equalsIgnoreCase("M32")) {
+            flatMapToCombineAllStreams();  //32
+        }
 
-        compareSortMapByValues(); //34
+        if (allowed || args[0].equalsIgnoreCase("M33")) {
+            betterVersionOfFlatMapToCombineAllStreams(); //33
+        }
 
-        compareSortMapByComplexValues(); //35
+        if (allowed || args[0].equalsIgnoreCase("M34")) {
+            compareSortMapByValues(); //34
+        }
 
-        compareSortListOfIntegers(); //36
+        if (allowed || args[0].equalsIgnoreCase("M35")) {
+            compareSortMapByComplexValues(); //35
+        }
 
-        compareSortDescendingOrder(); //37
+        if (allowed || args[0].equalsIgnoreCase("M36")) {
+            compareSortListOfIntegers(); //36
+        }
 
-        comparatorStringForCustomObjects(); //38
+        if (allowed || args[0].equalsIgnoreCase("M37")) {
+            compareSortDescendingOrder(); //37
+        }
 
-        comparatorMixedForCustomObjects(); //39
+        if (allowed || args[0].equalsIgnoreCase("M38")) {
+            comparatorStringForCustomObjects(); //38
+        }
 
-        operationsOnNumbers(); //40
+        if (allowed || args[0].equalsIgnoreCase("M39")) {
+            comparatorMixedForCustomObjects(); //39
+        }
 
-        comparatorDoubleForCustomObjects(); //41
+        if (allowed || args[0].equalsIgnoreCase("M40")) {
+            operationsOnNumbers(); //40
+        }
 
-        takeWhile(); //42
+        if (allowed || args[0].equalsIgnoreCase("M41")) {
+            comparatorDoubleForCustomObjects(); //41
+        }
 
-        dropWhile(); //43
+        if (allowed || args[0].equalsIgnoreCase("M42")) {
+            takeWhile(); //42
+        }
 
-        playWithOptional(); //44
+        if (allowed || args[0].equalsIgnoreCase("M43")) {
+            dropWhile(); //43
+        }
 
-        performanceMinimizeIntermediateOperations(); //45
+        if (allowed || args[0].equalsIgnoreCase("M44")) {
+            playWithOptional(); //44
+        }
 
-        performanceUsePrimitives(); //46
+        if (allowed || args[0].equalsIgnoreCase("M45")) {
+            performanceMinimizeIntermediateOperations(); //45
+        }
 
-        performanceParallelProcessing(); //47
+        if (allowed || args[0].equalsIgnoreCase("M46")) {
+            performanceUsePrimitives(); //46
+        }
 
-        performanceLazyEvaluation(); //48
+        if (allowed || args[0].equalsIgnoreCase("M47")) {
+            performanceParallelProcessing(); //47
+        }
 
-        performanceUseCollectorsWisely(); //49
+        if (allowed || args[0].equalsIgnoreCase("M48")) {
+            performanceLazyEvaluation(); //48
+        }
 
-        performanceUnmodifiableList(); //50
+        if (allowed || args[0].equalsIgnoreCase("M49")) {
+            performanceUseCollectorsWisely(); //49
+        }
 
-        debugStream(); //51
+        if (allowed || args[0].equalsIgnoreCase("M50")) {
+            performanceUnmodifiableList(); //50
+        }
 
-        exceptionHandlingInStream(); //52
+        if (allowed || args[0].equalsIgnoreCase("M51")) {
+            debugStream(); //51
+        }
+
+        if (allowed || args[0].equalsIgnoreCase("M52")) {
+            exceptionHandlingInStream(); //52
+        }
+
     }
 
 
