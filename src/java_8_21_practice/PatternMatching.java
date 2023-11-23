@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Optional;
 
-import static java_8_21_practice.Util.*;
+import static java_8_21_practice.JavaUtilTricks.*;
 
 public class PatternMatching {
 

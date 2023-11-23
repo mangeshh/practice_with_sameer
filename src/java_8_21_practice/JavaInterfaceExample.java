@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 import java.util.*;
 import java.util.function.*;
 
-import static java_8_21_practice.Util.*;
+import static java_8_21_practice.JavaUtilTricks.*;
 
 
 /**

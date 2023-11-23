@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-import static java_8_21_practice.Util.*;
+import static java_8_21_practice.JavaUtilTricks.*;
 
 
 /**
