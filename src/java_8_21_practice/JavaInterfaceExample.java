@@ -221,10 +221,9 @@ public class JavaInterfaceExample {
         if (!allowed) {
             JavaInterfaceExample javaInterfaceExample = new JavaInterfaceExample();
             Optional<Method> method = Arrays.stream(JavaInterfaceExample.class.getMethods())
-                    .peek(m -> System.out.println(m.getName()))
+                    // .peek(m -> System.out.println(m.getName()))
                     .filter(m -> m.getName().equalsIgnoreCase(args[0]))
                     .findFirst();
-            System.out.println("@@ " + method.get());
             if (method.isPresent()) {
                 method.get().invoke(javaInterfaceExample);
             } else {
