@@ -9,7 +9,7 @@ import static java_8_21_practice.Util.*;
 
 public class StringAPIs {
 
-
+    // M1
     public static void indentExample() {
         String text = "Line 1\nLine 2\nLine 3";
         String indentedText = text.indent(2); // Indent each line with 2 spaces
@@ -22,6 +22,7 @@ public class StringAPIs {
         */
     }
 
+    // M2
     public static void transformExample() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -34,6 +35,7 @@ public class StringAPIs {
         System.out.println(transformedToNoWhitespaceString);
     }
 
+    // M3
     public static void transformExampleWithLittleComplexity() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -56,6 +58,7 @@ public class StringAPIs {
         System.out.println("Transformed String: " + transformedString);
     }
 
+    // M4
     public static void multiLineString() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -83,6 +86,7 @@ public class StringAPIs {
      * trim() removed only the ASCII spaces from the beginning and end of the string.
      * strip() removed both the ASCII spaces and the non-ASCII spaces (like the non-breaking space U+00A0) from the beginning and end of the string.
      */
+    // M5
     public static void trimStrip() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -94,6 +98,13 @@ public class StringAPIs {
         System.out.println("Original: [" + original + "]");
         System.out.println("Trimmed:  [" + trimmed + "]");
         System.out.println("Stripped: [" + stripped + "]");
+    }
+
+    // M6
+    public static void repeatMethod() {
+        String hash = "#";
+        System.out.println(hash.repeat(4));
+        System.out.println("empty string " + hash.repeat(0));
     }
 
     public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
@@ -118,6 +129,7 @@ public class StringAPIs {
             }
 
         } else {
+            
             indentExample(); // M1
 
             transformExample(); // M2
@@ -127,6 +139,10 @@ public class StringAPIs {
             multiLineString(); // M4
 
             trimStrip(); // M5
+            
+            repeatMethod(); // M6
         }
     }
+
+
 }
