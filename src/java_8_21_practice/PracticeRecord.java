@@ -24,7 +24,7 @@ public class PracticeRecord {
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
+            if (o == null || getClass() != o.getClass()) return false; // Spend 2 minutes, focus please
             Person person = (Person) o;
             return age == person.age && Objects.equals(name, person.name);
         }
