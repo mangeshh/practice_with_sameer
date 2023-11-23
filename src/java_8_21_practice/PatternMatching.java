@@ -153,6 +153,15 @@ public class PatternMatching {
         System.out.println("Today is a " + today);
         System.out.println("Activity: " + activity);
 
+        // case - 2
+        int day = 7;
+        String dayName = switch (day) {
+            case 1, 2, 3, 4, 5 -> "Weekday";
+            case 6, 7 -> "Weekend";
+            default -> "Unknown";
+        };
+
+        System.out.println(dayName);
     }
 
     public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {

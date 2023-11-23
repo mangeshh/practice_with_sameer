@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -1008,7 +1009,8 @@ public class JavaLambdaStream {
 
     //M53
     public static void modifyUnmodifiableList() {
-        //sample test
+        System.out.println("method - " + getCurrentMethodName());
+
         List<Integer> ll = Collections.unmodifiableList(testListOfNumbers);
         System.out.println(ll);
         testListOfNumbers.set(1,100); // we can replace element and modify the unModifiable list!!
@@ -1019,6 +1021,55 @@ public class JavaLambdaStream {
         // So always create unModifiableCollection using `of` method
         // List.of(1,2,3);
 
+    }
+
+    public static void limitAndSkip(){
+        System.out.println("method - " + getCurrentMethodName());
+
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        // Use limit to limit the number of elements processed
+        List<Integer> limitedNumbers = numbers.stream()
+                .limit(5) // Limit to the first 5 elements
+                .collect(Collectors.toList());
+
+        System.out.println("Limited Numbers: " + limitedNumbers);
+
+        // Use skip to skip a certain number of elements
+        List<Integer> skippedNumbers = numbers.stream()
+                .skip(5) // Skip the first 5 elements
+                .collect(Collectors.toList());
+
+        System.out.println("Skipped Numbers: " + skippedNumbers);
+    }
+
+
+    public static void iterateUsingPredicate(){
+        System.out.println("method - " + getCurrentMethodName());
+
+        // case - 1
+        List<String> words = Arrays.asList("apple", "banana", "cherry", "date", "grape");
+        Predicate<String> startsWithC = str -> str.startsWith("c");
+        List<String> filteredWords = words.stream()
+                .filter(startsWithC)
+                .toList();
+        filteredWords.forEach(System.out::println);
+
+        // case - 2
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        Predicate<Integer> greaterThan5 = num -> num > 5;
+
+        for (Integer num : numbers) {
+            if (greaterThan5.test(num)) { // This line is important, look at `test` call.
+                System.out.println(num);
+            }
+        }
+
+        // case - 3; iterate stream with predicate
+        long result = IntStream.iterate(1, n-> n < 1000, n -> n+1)
+                .filter(n -> n %7 ==0)
+                .count();
+        System.out.println("result " + result);
     }
 
     public static void main(String[] args) throws IllegalAccessException, InvocationTargetException {
@@ -1150,6 +1201,10 @@ public class JavaLambdaStream {
             exceptionHandlingInStream(); //52
 
             modifyUnmodifiableList(); //53
+
+            limitAndSkip(); // 54
+
+            iterateUsingPredicate(); // 55
 
         }
     }
