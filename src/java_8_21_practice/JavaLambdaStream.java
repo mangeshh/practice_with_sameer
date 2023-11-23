@@ -1006,6 +1006,17 @@ public class JavaLambdaStream {
         }
     }
 
+    //M53
+    public static void modifyUnmodifiableList() {
+        //sample test
+        List<Integer> ll = Collections.unmodifiableList(testListOfNumbers);
+        System.out.println(ll);
+        testListOfNumbers.set(1,100); // we can replace element and modify the unModifiable list!!
+        //testListOfNumbers.add(10); // `add(10)`, line will not allow to `add` underneath non-final mutable list, throws UnsupportedOperationException
+        // So Insert is not permitted but update is permitted in above example. Please give 2 minutes to read and meditate.
+        System.out.println(ll);
+
+    }
 
     public static void main(String[] args) throws IllegalAccessException, InvocationTargetException {
         boolean allowed = false;
@@ -1029,11 +1040,6 @@ public class JavaLambdaStream {
 
         } else {
 
-            //sample test
-            List<Integer> ll = Collections.unmodifiableList(testListOfNumbers);
-            System.out.println(ll);
-            //testListOfNumbers.add(10); -- this add(10), line will not allow modifying underneath non-final mutable list, throws UnSupportedException
-            System.out.println(ll);
 
 
             use_ForEach_To_Print_List(); //1
@@ -1139,6 +1145,8 @@ public class JavaLambdaStream {
             debugStream(); //51
 
             exceptionHandlingInStream(); //52
+
+            modifyUnmodifiableList(); //53
 
         }
     }
