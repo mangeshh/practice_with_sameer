@@ -1,4 +1,4 @@
-package java8_practice;
+package java_8_21_practice;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

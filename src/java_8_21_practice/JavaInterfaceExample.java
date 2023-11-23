@@ -1,4 +1,4 @@
-package java8_practice;
+package java_8_21_practice;
 
 /**
  * Default methods in Java interfaces were introduced to address the issue of evolving interfaces in a backward-compatible way. Before Java 8, once an interface was published with its methods, adding new methods to it would break existing code that implemented the interface
