@@ -60,17 +60,16 @@ public class JavaUtilTricks {
         System.arraycopy(sourceArrayForSlim, 1, destinationArraySlim, 0, 3);
 
 
-        // Case - 3; multidimensional array.
-        int[][] sourceArrayMultiDem = {{1, 2}, {3, 4}};
-        int[][] destinationArrayMultiDem = new int[sourceArray.length][sourceArrayMultiDem[0].length];
-        for (int i = 0; i < sourceArray.length; i++) {
-            System.arraycopy(sourceArrayMultiDem[i], 0, destinationArrayMultiDem[i], 0, sourceArrayMultiDem[i].length);
-        }
-
-
-        // Case - 4 (This is important)
+        // Case - 3 (This is important)
         int[] sourceArrayCopyOf = {1, 2, 3, 4, 5};
         int[] destinationArrayCopyOf = Arrays.copyOf(sourceArrayCopyOf, sourceArrayCopyOf.length);
         System.out.println(Arrays.toString(destinationArrayCopyOf));
+
+
+        // Case - 4 (Array fill)
+        int[] numbers = new int[5];
+        // Fill the entire 'numbers' array with the value 42
+        Arrays.fill(numbers, 42);
+        System.out.println(Arrays.toString(numbers));
     }
 }
