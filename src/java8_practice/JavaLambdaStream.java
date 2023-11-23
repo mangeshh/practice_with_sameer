@@ -634,6 +634,10 @@ public class JavaLambdaStream {
          * String value = optional.orElseThrow(() -> new NoSuchElementException("Value is absent"));
 
          */
+
+        Optional<String> optionalTransform = Optional.of("Hello, World!");
+        Optional<Integer> lengthOptional = optionalTransform.map(String::length);
+        System.out.println(lengthOptional.get());
        }
 
     public static void main(String[] args) {
