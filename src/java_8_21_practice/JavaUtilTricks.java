@@ -45,7 +45,7 @@ public class JavaUtilTricks {
         }
 
 
-        // Case - 4 (This is important.)
+        // Case - 4 (This is important)
         int[] sourceArrayCopyOf = {1, 2, 3, 4, 5};
         int[] destinationArrayCopyOf = Arrays.copyOf(sourceArrayCopyOf, sourceArrayCopyOf.length);
         System.out.println(Arrays.toString(destinationArrayCopyOf));
