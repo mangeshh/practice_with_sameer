@@ -102,6 +102,44 @@ public class JavaLambdaStream {
         }
     }
 
+    static class Persona {
+        private String name;
+        private int age;
+        private double height;
+
+        public Persona(String name, int age, double height) {
+            this.name = name;
+            this.age = age;
+            this.height = height;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getAge() {
+            return age;
+        }
+
+        public void setAge(int age) {
+            this.age = age;
+        }
+
+        public double getHeight() {
+            return height;
+        }
+
+        public void setHeight(double height) {
+            this.height = height;
+        }
+
+        // Constructor, getters, and setters...
+    }
+
     /***
      * Declaration ends
      */
@@ -426,7 +464,7 @@ public class JavaLambdaStream {
         // Sort the map by values in ascending order
         Map<String, Integer> sortedMap = unsortedMap.entrySet()
                 .stream()
-                .sorted(Map.Entry.comparingByValue())
+                .sorted(Map.Entry.comparingByValue()) // we always have 2 versions in comparator first one is default and 2nd is provided with customization. search 'Map.Entry.comparingByValue'
                 .collect(Collectors.toMap(
                         Map.Entry::getKey,
                         Map.Entry::getValue,
@@ -440,6 +478,27 @@ public class JavaLambdaStream {
          */
         // Print the sorted map
         sortedMap.forEach((key, value) -> System.out.println(key + ": " + value));
+    }
+
+    public static void sortMapByComplexValues() {
+        Map<String, Persona> personMap = new HashMap<>();
+        personMap.put("Alice", new Persona("Alice", 25, 165.0));
+        personMap.put("Bob", new Persona("Bob", 30, 175.5));
+        personMap.put("Charlie", new Persona("Charlie", 22, 160.0));
+
+        // Sort the map by values (Person objects) based on age
+        Map<String, Persona> sortedMap = personMap.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.comparingInt(Persona::getAge)))
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1,
+                        LinkedHashMap::new // Maintain insertion order
+                ));
+
+        // Print the sorted map
+        sortedMap.forEach((key, value) -> System.out.println(key + ": " + value.getName() + ", " + value.getAge()));
     }
 
     public static void sortListOfIntegers() {
@@ -598,17 +657,19 @@ public class JavaLambdaStream {
 
         sortMapByValues(); //34
 
-        sortListOfIntegers(); //35
+        sortMapByComplexValues(); //35
 
-        sortDescendingOrder(); //36
+        sortListOfIntegers(); //36
 
-        comparatorStringForCustomObjects(); //37
+        sortDescendingOrder(); //37
 
-        comparatorMixedForCustomObjects(); //38
+        comparatorStringForCustomObjects(); //38
 
-        operationsOnNumbers(); //39
+        comparatorMixedForCustomObjects(); //39
 
-        comparatorDoubleForCustomObjects(); //40
+        operationsOnNumbers(); //40
+
+        comparatorDoubleForCustomObjects(); //41
     }
 
 
