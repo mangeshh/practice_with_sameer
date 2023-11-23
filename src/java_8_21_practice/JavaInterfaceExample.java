@@ -87,6 +87,7 @@ class MyPrivateMethodInterfaceImpl implements MyPrivateMethodInterface {
 
 public class JavaInterfaceExample {
 
+    //M1
     public static void defaultMethod() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -96,6 +97,7 @@ public class JavaInterfaceExample {
         englishGreeting.testOverrideDefaultHello(); // Output: Override Default Hello!
     }
 
+    //M2
     public static void staticMethods() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -105,6 +107,7 @@ public class JavaInterfaceExample {
         System.out.println("Difference: " + difference); // Output: Difference: 7
     }
 
+    //M3
     public static void functionalInterface() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -116,6 +119,7 @@ public class JavaInterfaceExample {
         System.out.println(result1 + " and " + result2);
     }
 
+    //M4
     public static void privateMethodsInInterface() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -126,6 +130,7 @@ public class JavaInterfaceExample {
     /**
      * The Supplier functional interface represents a supplier of results and takes no arguments. It's typically used to generate or provide data.
      */
+    //M5
     public static void supplierExample() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -138,6 +143,7 @@ public class JavaInterfaceExample {
     /**
      * The Consumer functional interface represents an operation that takes a single input and performs some action without returning a result.
      */
+    //M6
     public static void consumerExample() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -146,6 +152,7 @@ public class JavaInterfaceExample {
         numbers.forEach(printConsumer);
     }
 
+    //M7
     public static void biConsumerExample() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -168,6 +175,7 @@ public class JavaInterfaceExample {
         studentScores.forEach(printStudentScore);
     }
 
+    //M8
     public static void functionApplyExample() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -176,6 +184,7 @@ public class JavaInterfaceExample {
         System.out.println("Square of 5 is: " + result);
     }
 
+    //M9
     public static void biFunctionApplyExample() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -185,6 +194,7 @@ public class JavaInterfaceExample {
         System.out.println("Sum of 5 and 3 is: " + result);
     }
 
+    //M10
     public static void unaryOperatorExample() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -193,6 +203,7 @@ public class JavaInterfaceExample {
         System.out.println("Double of 5 is: " + result);
     }
 
+    //M11
     public static void binaryOperatorExample() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -201,6 +212,7 @@ public class JavaInterfaceExample {
         System.out.println("3 + 4 = " + result);
     }
 
+    //M12
     public static void predicateExample() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -232,29 +244,29 @@ public class JavaInterfaceExample {
 
         } else {
 
-            defaultMethod();
+            defaultMethod(); //M1
 
-            staticMethods();
+            staticMethods(); //M2
 
-            functionalInterface();
+            functionalInterface(); //M3
 
-            privateMethodsInInterface();
+            privateMethodsInInterface(); //M4
 
-            supplierExample();
+            supplierExample(); //M5
 
-            consumerExample();
+            consumerExample(); //M6
 
-            biConsumerExample();
+            biConsumerExample(); //M7
 
-            functionApplyExample();
+            functionApplyExample(); //M8
 
-            biFunctionApplyExample();
+            biFunctionApplyExample(); //M9
 
-            unaryOperatorExample();
+            unaryOperatorExample(); //M10
 
-            binaryOperatorExample();
+            binaryOperatorExample(); //M11
 
-            predicateExample();
+            predicateExample(); //M12
         }
 
     }
