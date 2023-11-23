@@ -450,7 +450,7 @@ public class JavaLambdaStream {
         System.out.println("goals " + xy);
     }
 
-    public static void sortMapByValues() {
+    public static void compareSortMapByValues() {
         Map<String, Integer> unsortedMap = new HashMap<>();
         unsortedMap.put("John", 25);
         unsortedMap.put("Alice", 30);
@@ -476,7 +476,7 @@ public class JavaLambdaStream {
         sortedMap.forEach((key, value) -> System.out.println(key + ": " + value));
     }
 
-    public static void sortMapByComplexValues() {
+    public static void compareSortMapByComplexValues() {
         Map<String, Persona> personMap = new HashMap<>();
         personMap.put("Alice", new Persona("Alice", 25, 165.0));
         personMap.put("Bob", new Persona("Bob", 30, 175.5));
@@ -497,14 +497,14 @@ public class JavaLambdaStream {
         sortedMap.forEach((key, value) -> System.out.println(key + ": " + value.getName() + ", " + value.getAge()));
     }
 
-    public static void sortListOfIntegers() {
+    public static void compareSortListOfIntegers() {
         List<Integer> numbers = Arrays.asList(1, 4, 2, 6, 4, 8, 6);
         // other way -  Collections.sort(numbers);
         List<Integer> sortedList = numbers.stream().sorted().collect(Collectors.toList());
         System.out.println(sortedList);
     }
 
-    public static void sortDescendingOrder() {
+    public static void compareSortDescendingOrder() {
         List<Integer> numbers = Arrays.asList(1, 4, 2, 6, 4, 8, 6);
         List<Integer> sortedNumbersDescending = numbers.stream()
                 .sorted(Comparator.reverseOrder())
@@ -581,7 +581,7 @@ public class JavaLambdaStream {
         sortedProducts.forEach(System.out::println);
     }
 
-    public static void takeWhile(){
+    public static void takeWhile() {
         List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8);
 
         List<Integer> evenNumbers = numbers.stream()
@@ -591,7 +591,7 @@ public class JavaLambdaStream {
         System.out.println(evenNumbers); // Output: [1,2,3]
     }
 
-    public static void dropWhile(){
+    public static void dropWhile() {
         List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
         List<Integer> afterOddNumbers = numbers.stream()
@@ -601,7 +601,7 @@ public class JavaLambdaStream {
         System.out.println(afterOddNumbers); // Output: [4,5,6,7,8]
     }
 
-    public static void playWithOptional(){
+    public static void playWithOptional() {
         // creating optional
         Optional<String> presentOptional = Optional.of("Hello, World!");
         Optional<String> emptyOptional = Optional.empty();
@@ -627,7 +627,6 @@ public class JavaLambdaStream {
          * String value = optionalGetWithSupplier.orElseGet(() -> generateDefaultValue());
 
          ## orElseThrow()
-
          * Optional<String> optional = Optional.empty();
          * String value = optional.orElseThrow(() -> new NoSuchElementException("Value is absent"));
 
@@ -636,7 +635,7 @@ public class JavaLambdaStream {
         Optional<String> optionalTransform = Optional.of("Hello, World!");
         Optional<Integer> lengthOptional = optionalTransform.map(String::length);
         System.out.println(lengthOptional.get());
-       }
+    }
 
     public static void main(String[] args) {
 
@@ -706,13 +705,13 @@ public class JavaLambdaStream {
 
         betterVersionOfFlatMapToCombineAllStreams(); //33
 
-        sortMapByValues(); //34
+        compareSortMapByValues(); //34
 
-        sortMapByComplexValues(); //35
+        compareSortMapByComplexValues(); //35
 
-        sortListOfIntegers(); //36
+        compareSortListOfIntegers(); //36
 
-        sortDescendingOrder(); //37
+        compareSortDescendingOrder(); //37
 
         comparatorStringForCustomObjects(); //38
 
