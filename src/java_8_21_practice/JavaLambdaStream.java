@@ -58,6 +58,7 @@ public class JavaLambdaStream {
     final static private List<Integer> listOfNumbers = Arrays.asList(1, 2, 3, 4, 2);
     final static private List<String> listOfStringNumbers = Arrays.asList("1", "2", "3", "4", "2");
     final static private List<String> listOfStrings = Arrays.asList("one", "two", "three", "four", "five");
+    static private List<Integer> testListOfNumbers = Arrays.asList(1, 2, 3, 4, 2);
 
     final static List<Person> people = Arrays.asList(
             new Person("John", "Doe"),
@@ -1027,6 +1028,13 @@ public class JavaLambdaStream {
             }
 
         } else {
+
+            //sample test
+            List<Integer> ll = Collections.unmodifiableList(testListOfNumbers);
+            System.out.println(ll);
+            //testListOfNumbers.add(10); -- this add(10), line will not allow modifying underneath non-final mutable list, throws UnSupportedException
+            System.out.println(ll);
+
 
             use_ForEach_To_Print_List(); //1
 
