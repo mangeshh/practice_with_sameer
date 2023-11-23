@@ -349,7 +349,6 @@ public class JavaLambdaStream {
         );
 
         /**
-         * The flatMap function in Java's Stream API takes a function that maps an element of the stream to another stream.
          * Using flatMap to flatten the list of lists into a single stream of integers
          */
         List<Integer> flattenedList = listOfLists.stream()
@@ -584,7 +583,58 @@ public class JavaLambdaStream {
         sortedProducts.forEach(System.out::println);
     }
 
+    public static void takeWhile(){
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8);
 
+        List<Integer> evenNumbers = numbers.stream()
+                .takeWhile(n -> n < 4)
+                .collect(Collectors.toList());
+
+        System.out.println(evenNumbers); // Output: [1,2,3]
+    }
+
+    public static void dropWhile(){
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        List<Integer> afterOddNumbers = numbers.stream()
+                .dropWhile(n -> n < 4)
+                .collect(Collectors.toList());
+
+        System.out.println(afterOddNumbers); // Output: [4,5,6,7,8]
+    }
+
+    public static void playWithOptional(){
+        // creating optional
+        Optional<String> presentOptional = Optional.of("Hello, World!");
+        Optional<String> emptyOptional = Optional.empty();
+
+        //Checking if a Value is Present:
+        Optional<String> optional = Optional.of("Hello, World!");
+        if (optional.isPresent()) {
+            System.out.println("Value is present: " + optional.get());
+        }
+
+        // Get value from optional
+        Optional<String> optionalGet = Optional.of("Hello, World!");
+        String value = optionalGet.get();
+        // Note - it's recommended to use 'get'' cautiously because it may throw a NoSuchElementException if the value is absent.
+
+        // orElse
+        Optional<String> optionalElse = Optional.empty();
+        System.out.println(optionalElse.orElse("Default Value"));
+
+        /**
+         * You can provide a supplier function to generate a default value if the Optional is empty using orElseGet(supplier).
+         * Optional<String> optionalGetWithSupplier = Optional.empty();
+         * String value = optionalGetWithSupplier.orElseGet(() -> generateDefaultValue());
+
+         ## orElseThrow()
+
+         * Optional<String> optional = Optional.empty();
+         * String value = optional.orElseThrow(() -> new NoSuchElementException("Value is absent"));
+
+         */
+       }
 
     public static void main(String[] args) {
 
@@ -669,6 +719,12 @@ public class JavaLambdaStream {
         operationsOnNumbers(); //40
 
         comparatorDoubleForCustomObjects(); //41
+
+        takeWhile(); //42
+
+        dropWhile(); // 43
+
+        playWithOptional(); //44
     }
 
 
