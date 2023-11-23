@@ -197,7 +197,7 @@ public class JavaInterfaceExample {
     //M10
     public static void unaryOperatorExample() {
         System.out.println("method - " + getCurrentMethodName());
-
+        // Type here (Integer), is same for input and output.
         UnaryOperator<Integer> doubleNumber = n -> n * 2;
         int result = doubleNumber.apply(5); // Doubles 5 to get 10
         System.out.println("Double of 5 is: " + result);
@@ -206,7 +206,7 @@ public class JavaInterfaceExample {
     //M11
     public static void binaryOperatorExample() {
         System.out.println("method - " + getCurrentMethodName());
-
+        // Type here (Integer), is same for input (2 arguments) and output.
         BinaryOperator<Integer> add = (a, b) -> a + b;
         int result = add.apply(3, 4); // Adds 3 and 4 to get 7
         System.out.println("3 + 4 = " + result);
