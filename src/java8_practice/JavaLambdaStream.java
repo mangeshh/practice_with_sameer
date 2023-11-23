@@ -136,8 +136,6 @@ public class JavaLambdaStream {
         public void setHeight(double height) {
             this.height = height;
         }
-
-        // Constructor, getters, and setters...
     }
 
     /***
@@ -726,7 +724,7 @@ public class JavaLambdaStream {
 
         takeWhile(); //42
 
-        dropWhile(); // 43
+        dropWhile(); //43
 
         playWithOptional(); //44
     }
