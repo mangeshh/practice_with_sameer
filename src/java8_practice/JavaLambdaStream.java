@@ -22,8 +22,6 @@ public class JavaLambdaStream {
             new Person("Matt", "Smith")
     );
 
-
-
     final static List<Product> products = Arrays.asList(
         new Product("Laptop", 1200.0),
         new Product("Smartphone", 800.0),
@@ -194,7 +192,7 @@ public class JavaLambdaStream {
     }
 
     public static void collect_Elements_Using_ToMap() {
-        Map map = people.stream().collect(Collectors.toMap(Person::getFirstName, Person::getLastName));
+        Map<String, String> map = people.stream().collect(Collectors.toMap(Person::getFirstName, Person::getLastName));
         /**
          *  with lambda, it would be like -
          *  Map<String, String> map = people.stream().collect(Collectors.toMap(p -> p.getFirstName(), p -> p.getLastName()));
