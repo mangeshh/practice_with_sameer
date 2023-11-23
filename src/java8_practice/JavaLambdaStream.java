@@ -23,16 +23,17 @@ public class JavaLambdaStream {
     );
 
     final static List<Product> products = Arrays.asList(
-        new Product("Laptop", 1200.0),
-        new Product("Smartphone", 800.0),
-        new Product("Headphones", 100.0),
-        new Product("Tablet", 500.0),
-        new Product("Mouse", 30.0)
+            new Product("Laptop", 1200.0),
+            new Product("Smartphone", 800.0),
+            new Product("Headphones", 100.0),
+            new Product("Tablet", 500.0),
+            new Product("Mouse", 30.0)
     );
 
     static class Product {
-        private String name;
-        private double price;
+
+        public String name;
+        public double price;
 
         public Product(String name, double price) {
             this.name = name;
@@ -81,8 +82,8 @@ public class JavaLambdaStream {
             this.lastName = lastName;
         }
 
-        String firstName;
-        String lastName;
+        private String firstName;
+        private String lastName;
 
         public String getLastName() {
             return lastName;
@@ -321,7 +322,7 @@ public class JavaLambdaStream {
     }
 
 
-    public static void find_products_with_price_greater_than_200(){
+    public static void find_products_with_price_greater_than_200() {
         List<Product> expensiveProducts = products.stream()
                 .filter(product -> product.getPrice() > 200.0)
                 .collect(Collectors.toList());
@@ -329,12 +330,12 @@ public class JavaLambdaStream {
         System.out.println(expensiveProducts);
     }
 
-    public static void total_Price_of_Products_in_shopping_cart(){
+    public static void total_Price_of_Products_in_shopping_cart() {
         double total = products.stream().mapToDouble(product -> product.getPrice()).sum();
         System.out.println(total);
     }
 
-    public static void product_with_highest_price(){
+    public static void product_with_highest_price() {
         OptionalDouble maxPrice = products.stream().mapToDouble(product -> product.getPrice()).max();
         System.out.println(maxPrice.getAsDouble());
         // 2nd way to solve the problem.
@@ -345,7 +346,7 @@ public class JavaLambdaStream {
     /**
      * mapToInt, mapToDouble r helpful, because they have max,min,avg Functions!
      */
-    public static void calculate_avg_price_of_products(){
+    public static void calculate_avg_price_of_products() {
         double averagePrice = products.stream()
                 .mapToDouble(Product::getPrice)
                 .average()
@@ -406,7 +407,7 @@ public class JavaLambdaStream {
          * a single stream to get Map.
          */
         List<Integer> xy = (List<Integer>) list.stream()
-                        .flatMap(x -> Stream.ofNullable(map.get(x))).collect(Collectors.toList());
+                .flatMap(x -> Stream.ofNullable(map.get(x))).collect(Collectors.toList());
 
         /**
          *  goals [1, 2, 3]
@@ -415,7 +416,7 @@ public class JavaLambdaStream {
         System.out.println("goals " + xy);
     }
 
-    public static void sortMapByValues(){
+    public static void sortMapByValues() {
         Map<String, Integer> unsortedMap = new HashMap<>();
         unsortedMap.put("John", 25);
         unsortedMap.put("Alice", 30);
@@ -439,6 +440,75 @@ public class JavaLambdaStream {
          */
         // Print the sorted map
         sortedMap.forEach((key, value) -> System.out.println(key + ": " + value));
+    }
+
+    public static void sortListOfIntegers() {
+        List<Integer> numbers = Arrays.asList(1, 4, 2, 6, 4, 8, 6);
+        // other way -  Collections.sort(numbers);
+        List<Integer> sortedList = numbers.stream().sorted().collect(Collectors.toList());
+        System.out.println(sortedList);
+    }
+
+    public static void sortDescendingOrder() {
+        List<Integer> numbers = Arrays.asList(1, 4, 2, 6, 4, 8, 6);
+        List<Integer> sortedNumbersDescending = numbers.stream()
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList());
+    }
+
+    public static void comparatorStringForCustomObjects() {
+        List<Person> people = new ArrayList<>();
+        people.add(new Person("Alice", "LN1"));
+        people.add(new Person("Bob", "LN2"));
+        people.add(new Person("Charlie", "LN3"));
+
+        // Sort the list of Person objects by age using Java Streams and a custom comparator
+        List<Person> sortedPeople = people.stream()
+                .sorted(Comparator.comparing(Person::getFirstName))
+                .collect(Collectors.toList());
+
+        // Print the sorted list
+        sortedPeople.forEach(System.out::println);
+    }
+
+    public static void operationsOnNumbers() {
+        List<Integer> numbers = Arrays.asList(3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5);
+
+        // Check if all numbers are greater than 0
+        boolean allGreaterThanZero = numbers.stream().allMatch(n -> n > 0);
+        System.out.println("All numbers greater than 0? " + allGreaterThanZero);
+
+        // Check if any number is even
+        boolean anyEven = numbers.stream().anyMatch(n -> n % 2 == 0);
+        System.out.println("Any even number? " + anyEven);
+
+        // Check if none of the numbers are negative
+        boolean noneNegative = numbers.stream().noneMatch(n -> n < 0);
+        System.out.println("None of the numbers are negative? " + noneNegative);
+
+        // Find the minimum number
+        Optional<Integer> minNumber = numbers.stream().min(Integer::compareTo);
+        minNumber.ifPresent(min -> System.out.println("Minimum: " + min));
+
+        // Find the maximum number
+        Optional<Integer> maxNumber = numbers.stream().max(Integer::compareTo);
+        maxNumber.ifPresent(max -> System.out.println("Maximum: " + max));
+    }
+
+
+    public static void comparatorDoubleForCustomObjects() {
+        List<Product> products = new ArrayList<>();
+        products.add(new Product("Alice", 10.11));
+        products.add(new Product("Bob", 9.10));
+        products.add(new Product("Charlie", 13.2));
+
+        // Sort the list of products objects by price using Java Streams and a custom comparator
+        List<Product> sortedProducts = products.stream()
+                .sorted(Comparator.comparingDouble(Product::getPrice))
+                .collect(Collectors.toList());
+
+        // Print the sorted list
+        sortedProducts.forEach(System.out::println);
     }
 
     public static void main(String[] args) {
@@ -508,10 +578,19 @@ public class JavaLambdaStream {
 
         flatMapToCombineAllStreams();  //32
 
-        betterVersionOfFlatMapToCombineAllStreams(); // 33
+        betterVersionOfFlatMapToCombineAllStreams(); //33
 
         sortMapByValues(); //34
 
+        sortListOfIntegers(); //35
+
+        sortDescendingOrder(); //36
+
+        comparatorStringForCustomObjects(); //37
+
+        operationsOnNumbers(); //38
+
+        comparatorDoubleForCustomObjects(); //39
     }
 
 
