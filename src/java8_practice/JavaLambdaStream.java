@@ -441,8 +441,7 @@ public class JavaLambdaStream {
         List list = List.of("1", "2", "3");
         /**
          * OfNullable does same as if null then return empty Stream else return Stream of value from Map
-         * in this case, map returns single value for the Key but intention is to merge all single values into
-         * a single stream to get Map.
+         * in this case, Hashmap returns single value for the Key but intention is to merge all single values into a single stream.
          */
         List<Integer> xy = (List<Integer>) list.stream()
                 .flatMap(x -> Stream.ofNullable(map.get(x))).collect(Collectors.toList());
