@@ -19,10 +19,11 @@ public class JavaUtilTricks {
     }
 
     public static void main(String[] args) {
-        arrayCopyExample();
-        stringStickyMethods();
+        stringStickyMethods(); // M1
+        arrayCopyExample();  // M2
     }
 
+    // M1
     private static void stringStickyMethods() {
         // Case - 1
         String str = "Hello, World!";
@@ -43,6 +44,7 @@ public class JavaUtilTricks {
         String modified = original.replace("test", "example");
     }
 
+    // M2
     private static void arrayCopyExample() {
         // Case - 1
         int[] sourceArray = {1, 2, 3, 4, 5};
