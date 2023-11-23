@@ -448,7 +448,7 @@ public class JavaLambdaStream {
                 .flatMap(x -> Stream.ofNullable(map.get(x))).collect(Collectors.toList());
 
         /**
-         *  goals [1, 2, 3]
+         *  output - goals [1, 2, 3]
          */
 
         System.out.println("goals " + xy);
