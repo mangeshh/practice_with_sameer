@@ -1007,7 +1007,8 @@ public class JavaLambdaStream {
         if (!allowed) {
             JavaLambdaStream javaLambdaStream = new JavaLambdaStream();
             Optional<Method> method = Arrays.stream(JavaLambdaStream.class.getMethods())
-                    .filter(m -> m.getName().equalsIgnoreCase(args[0])).findFirst();
+                    .filter(m -> m.getName().equalsIgnoreCase(args[0]))
+                    .findFirst();
             if (method.isPresent()) {
                 method.get().invoke(javaLambdaStream);
             } else {
