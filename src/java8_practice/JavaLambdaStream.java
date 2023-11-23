@@ -471,6 +471,22 @@ public class JavaLambdaStream {
         sortedPeople.forEach(System.out::println);
     }
 
+
+    public static void comparatorMixedForCustomObjects() {
+        List<Person> people = new ArrayList<>();
+        people.add(new Person("Alice", "LN1"));
+        people.add(new Person("Bob", "LN2"));
+        people.add(new Person("Charlie", "LN3"));
+
+        // Sort the list of Person objects by age using Java Streams and a custom comparator
+        List<Person> sortedPeople = people.stream()
+                .sorted(Comparator.comparing(Person::getFirstName).thenComparing(Person::getLastName))
+                .collect(Collectors.toList());
+
+        // Print the sorted list
+        sortedPeople.forEach(System.out::println);
+    }
+
     public static void operationsOnNumbers() {
         List<Integer> numbers = Arrays.asList(3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5);
 
@@ -588,9 +604,11 @@ public class JavaLambdaStream {
 
         comparatorStringForCustomObjects(); //37
 
-        operationsOnNumbers(); //38
+        comparatorMixedForCustomObjects(); //38
 
-        comparatorDoubleForCustomObjects(); //39
+        operationsOnNumbers(); //39
+
+        comparatorDoubleForCustomObjects(); //40
     }
 
 
