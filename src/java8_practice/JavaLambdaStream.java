@@ -189,16 +189,19 @@ public class JavaLambdaStream {
      * Declaration ends
      */
 
+    //M1
     public static void use_ForEach_To_Print_List() {
         listOfNumbers.stream().filter(i -> i % 2 == 0).forEach(System.out::println);
     }
 
 
+    //M2
     public static void learn_How_To_Use_Map() {
         List<String> listOfString = listOfNumbers.stream().map(n -> n + "*").collect(Collectors.toList());
         System.out.println(listOfString);
     }
 
+    //M3
     public static void learn_How_To_Handle_Null_Using_Optional() {
         //'ofNullable', returns an Optional describing the given value, if non-null, otherwise returns an empty Optional.
         Optional<String> value = Optional.ofNullable(value());
@@ -211,6 +214,7 @@ public class JavaLambdaStream {
         }
     }
 
+    //M4
     public static void return_Count_After_GroupBy() {
         // NOTE - see identity function.
         // group by returns the map.
@@ -220,6 +224,7 @@ public class JavaLambdaStream {
         System.out.println(count);
     }
 
+    //M5
     public static void return_All_Rows_After_GroupBy() {
         Map<String, List<Person>> groupedByLastName = people.stream()
                 .collect(Collectors.groupingBy(Person::getLastName));
@@ -232,11 +237,13 @@ public class JavaLambdaStream {
     }
 
 
+    //M6
     public static void make_List_After_Filtering() {
         List newList = listOfNumbers.stream().filter(i -> i % 2 == 0).collect(Collectors.toList());
         System.out.println(newList);
     }
 
+    //M7
     public static void findFirst() {
         Optional num = listOfNumbers.stream().filter(a -> a % 2 == 0).findFirst();
         if (num.isPresent()) {
@@ -244,12 +251,14 @@ public class JavaLambdaStream {
         }
     }
 
+    //M8
     public static void sum_using_reduce() {
         int sum = listOfNumbers.stream().reduce(0, Integer::sum);
         // reduce method takes, default initial value and bi-functional reference or lambda
         System.out.println(sum);
     }
 
+    //M9
     public static void remove_Element_From_List() {
         /**
          * older version
@@ -271,11 +280,13 @@ public class JavaLambdaStream {
 
     }
 
+    //M10
     public static void check_If_List_Contains_Element() {
         boolean isPresent = listOfNumbers.stream().anyMatch(a -> a % 2 == 0);
         System.out.println(isPresent);
     }
 
+    //M11
     public static void collect_Elements_Using_ToMap() {
         Map<String, String> map = people.stream().collect(Collectors.toMap(Person::getFirstName, Person::getLastName));
         /**
@@ -285,10 +296,12 @@ public class JavaLambdaStream {
         System.out.println(map);
     }
 
+    //M12
     public static void joinString() {
         System.out.println(String.join(" • ", listOfStrings));
     }
 
+    //M13
     public static void mapToInt_Sum_Example() {
         /**
          * map to int, converts object to int, mapToInt function expects "ToIntFunction function"
@@ -299,32 +312,38 @@ public class JavaLambdaStream {
         System.out.println(total);
     }
 
+    //M14
     public static void findAll_Elements_LessThan10() {
         boolean allTrue = listOfNumbers.stream().allMatch(a -> a < 10);
         System.out.println(allTrue);
     }
 
+    //M15
     public static void count_NumberOfElement_Inside_List() {
         long count = listOfNumbers.stream().count();
         System.out.println(count);
     }
 
+    //M16
     public static void find_Max_From_List() {
         int maxVal = listOfNumbers.stream().max(Integer::compare).orElse(Integer.MIN_VALUE);
         System.out.println(maxVal);
     }
 
+    //M17
     public static void remove_duplicates_from_list() {
         List<Integer> distinctList = listOfNumbers.stream().distinct().collect(Collectors.toList());
         System.out.println("original list • " + listOfNumbers + " and after removing distinct elements • " + distinctList);
     }
 
+    //M18
     public static void convert_List_Into_SquareNumbers() {
         List<Integer> squares = listOfNumbers.stream().map(n -> n * n).collect(Collectors.toList());
         System.out.println("list with squares " + squares);
 
     }
 
+    //M19
     public static void square_Each_Number_And_FindTotal() {
         Optional<Integer> sum = listOfNumbers.stream().map(n -> n * n).reduce(Integer::sum);
         if (sum.isPresent()) {
@@ -332,6 +351,7 @@ public class JavaLambdaStream {
         }
     }
 
+    //M20
     public static void merge_Two_list_to_make_object() {
         List<String> list = Arrays.asList("Bob", "John", "Matt");
         List<Integer> numbers = Arrays.asList(12, 19, 22);
@@ -342,6 +362,7 @@ public class JavaLambdaStream {
         System.out.println(students);
     }
 
+    //M21
     public static void get_Stats_Of_IntStream() {
         IntSummaryStatistics statistics = listOfNumbers.stream().mapToInt(Integer::intValue).summaryStatistics();
         System.out.print("max is " + statistics.getMax());
@@ -350,12 +371,14 @@ public class JavaLambdaStream {
         System.out.println(", count is " + statistics.getCount());
     }
 
+    //M22
     public static void create_set() {
         Set<Integer> set = listOfNumbers.stream().collect(Collectors.toSet());
         System.out.println("set is - " + set);
     }
 
 
+    //M23
     public static void boxedExample() {
         IntStream stream = IntStream.range(3, 8);
         // Creating a Stream of Integers Using IntStream boxed() to return
@@ -364,6 +387,7 @@ public class JavaLambdaStream {
         stream1.forEach(System.out::println);
     }
 
+    //M24
     public static void get_Map_From_Two_Lists() {
         List<String> list = Arrays.asList("Bob", "John", "Matt");
         List<Integer> numbers = Arrays.asList(12, 19, 22);
@@ -375,11 +399,13 @@ public class JavaLambdaStream {
     }
 
 
+    //M25
     public static void sort() {
         listOfNumbers.sort((a, b) -> a.compareTo(b));
         System.out.println(listOfNumbers);
     }
 
+    //M26
     public static void grouping_and_counting_elements() {
         Map<Integer, Integer> map = new HashMap<>();
         for (Integer number : listOfNumbers) {
@@ -387,6 +413,7 @@ public class JavaLambdaStream {
         }
     }
 
+    //M27
     public static void flat_map_example() {
         List<List<Integer>> listOfLists = Arrays.asList(
                 Arrays.asList(1, 2, 3),
@@ -405,6 +432,7 @@ public class JavaLambdaStream {
     }
 
 
+    //M28
     public static void find_products_with_price_greater_than_200() {
         List<Product> expensiveProducts = products.stream()
                 .filter(product -> product.getPrice() > 200.0)
@@ -413,11 +441,13 @@ public class JavaLambdaStream {
         System.out.println(expensiveProducts);
     }
 
+    //M29
     public static void total_Price_of_Products_in_shopping_cart() {
         double total = products.stream().mapToDouble(product -> product.getPrice()).sum();
         System.out.println(total);
     }
 
+    //M30
     public static void product_with_highest_price() {
         OptionalDouble maxPrice = products.stream().mapToDouble(product -> product.getPrice()).max();
         System.out.println(maxPrice.getAsDouble());
@@ -429,6 +459,7 @@ public class JavaLambdaStream {
     /**
      * mapToInt, mapToDouble r helpful, because they have max,min,avg Functions!
      */
+    //M31
     public static void calculate_avg_price_of_products() {
         double averagePrice = products.stream()
                 .mapToDouble(Product::getPrice)
@@ -440,6 +471,7 @@ public class JavaLambdaStream {
     /**
      * flat map sabhi stream se Ek stream banata hai.
      */
+    //M32
     public static void flatMapToCombineAllStreams() {
         Map<String, Integer> map = Map.of("1", 1, "2", 2, "3", 3);
         List list = List.of("1", "2", "3");
@@ -481,6 +513,7 @@ public class JavaLambdaStream {
     /**
      * flat map collect all streams into a single stream.
      */
+    //M33
     public static void betterVersionOfFlatMapToCombineAllStreams() {
         Map<String, Integer> map = Map.of("1", 1, "2", 2, "3", 3);
         List list = List.of("1", "2", "3");
@@ -498,6 +531,7 @@ public class JavaLambdaStream {
         System.out.println("goals " + xy);
     }
 
+    //M34
     public static void compareSortMapByValues() {
         Map<String, Integer> unsortedMap = new HashMap<>();
         unsortedMap.put("John", 25);
@@ -524,6 +558,7 @@ public class JavaLambdaStream {
         sortedMap.forEach((key, value) -> System.out.println(key + ": " + value));
     }
 
+    //M35
     public static void compareSortMapByComplexValues() {
         Map<String, Persona> personMap = new HashMap<>();
         personMap.put("Alice", new Persona("Alice", 25, 165.0));
@@ -545,6 +580,7 @@ public class JavaLambdaStream {
         sortedMap.forEach((key, value) -> System.out.println(key + ": " + value.getName() + ", " + value.getAge()));
     }
 
+    //M36
     public static void compareSortListOfIntegers() {
         List<Integer> numbers = Arrays.asList(1, 4, 2, 6, 4, 8, 6);
         // other way -  Collections.sort(numbers);
@@ -552,6 +588,7 @@ public class JavaLambdaStream {
         System.out.println(sortedList);
     }
 
+    //M37
     public static void compareSortDescendingOrder() {
         List<Integer> numbers = Arrays.asList(1, 4, 2, 6, 4, 8, 6);
         List<Integer> sortedNumbersDescending = numbers.stream()
@@ -559,6 +596,7 @@ public class JavaLambdaStream {
                 .collect(Collectors.toList());
     }
 
+    //M38
     public static void comparatorStringForCustomObjects() {
         List<Person> people = new ArrayList<>();
         people.add(new Person("Alice", "LN1"));
@@ -574,7 +612,7 @@ public class JavaLambdaStream {
         sortedPeople.forEach(System.out::println);
     }
 
-
+    //M39
     public static void comparatorMixedForCustomObjects() {
         List<Person> people = new ArrayList<>();
         people.add(new Person("Alice", "LN1"));
@@ -590,6 +628,7 @@ public class JavaLambdaStream {
         sortedPeople.forEach(System.out::println);
     }
 
+    //M40
     public static void operationsOnNumbers() {
         List<Integer> numbers = Arrays.asList(3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5);
 
@@ -614,7 +653,7 @@ public class JavaLambdaStream {
         maxNumber.ifPresent(max -> System.out.println("Maximum: " + max));
     }
 
-
+    //M41
     public static void comparatorDoubleForCustomObjects() {
         List<Product> products = new ArrayList<>();
         products.add(new Product("Alice", 10.11));
@@ -629,6 +668,7 @@ public class JavaLambdaStream {
         sortedProducts.forEach(System.out::println);
     }
 
+    //M42
     public static void takeWhile() {
         List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8);
 
@@ -639,6 +679,7 @@ public class JavaLambdaStream {
         System.out.println(evenNumbers); // Output: [1,2,3]
     }
 
+    //M43
     public static void dropWhile() {
         List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
@@ -649,6 +690,7 @@ public class JavaLambdaStream {
         System.out.println(afterOddNumbers); // Output: [4,5,6,7,8]
     }
 
+    //M44
     public static void playWithOptional() {
         // creating optional
         Optional<String> presentOptional = Optional.of("Hello, World!");
@@ -685,6 +727,7 @@ public class JavaLambdaStream {
         System.out.println(lengthOptional.get());
     }
 
+    //M45
     public static void performanceMinimizeIntermediateOperations() {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 
@@ -701,6 +744,7 @@ public class JavaLambdaStream {
                 .collect(Collectors.toList());
     }
 
+    //M46
     public static void performanceUsePrimitives() {
         int[] intArray = {1, 2, 3, 4, 5};
 
@@ -715,6 +759,7 @@ public class JavaLambdaStream {
                 .sum();
     }
 
+    //M47
     public static void performanceParallelProcessing() {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
@@ -729,6 +774,7 @@ public class JavaLambdaStream {
                 .count();
     }
 
+    //M48
     public static void performanceLazyEvaluation() {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
@@ -749,6 +795,7 @@ public class JavaLambdaStream {
      * Collectors.toList() creates an ArrayList by default, so it's usually just as efficient as explicitly
      * specifying ArrayList with toCollection
      */
+    //M49
     public static void performanceUseCollectorsWisely() {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 
@@ -768,6 +815,7 @@ public class JavaLambdaStream {
      * which can have slightly better performance characteristics
      * in terms of memory usage and immutability.
      */
+    //M50
     public static void performanceUnmodifiableList() {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 
@@ -776,6 +824,7 @@ public class JavaLambdaStream {
                 .collect(Collectors.toUnmodifiableList());
     }
 
+    //M51
     public static void debugStream() {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 
@@ -784,9 +833,9 @@ public class JavaLambdaStream {
                 .map(n -> n * 2)
                 .peek(n -> System.out.println("Mapped: " + n))
                 .collect(Collectors.toList());
-
     }
 
+    //M52
     public static void exceptionHandlingInStream() {
         /* case - 1 */
 
@@ -951,7 +1000,9 @@ public class JavaLambdaStream {
 
         performanceUnmodifiableList(); //50
 
-        exceptionHandlingInStream(); //51
+        debugStream(); //51
+
+        exceptionHandlingInStream(); //52
     }
 
 
