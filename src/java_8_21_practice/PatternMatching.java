@@ -9,6 +9,7 @@ import static java_8_21_practice.JavaUtilTricks.*;
 
 public class PatternMatching {
 
+    // M1
     public static void exampleWithSwitchYield() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -31,6 +32,8 @@ public class PatternMatching {
         System.out.println(day);
     }
 
+
+    // M2
     public static void basicSwitchExampleWithoutBreak() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -80,6 +83,7 @@ public class PatternMatching {
         }
     }
 
+    // M3
     public static void patternMatchingWithType(Object obj) {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -90,6 +94,7 @@ public class PatternMatching {
         }
     }
 
+    // M4
     public static void basicSwitchExampleWithBreak() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -132,6 +137,7 @@ public class PatternMatching {
         }
     }
 
+    // M5
     public static void basicSwitchExampleWithMultipleOptions() {
         System.out.println("method - " + getCurrentMethodName());
 
@@ -194,15 +200,15 @@ public class PatternMatching {
                 //System.out.println(str);
             }
 
-            exampleWithSwitchYield();
+            exampleWithSwitchYield(); // M1
 
-            basicSwitchExampleWithoutBreak();
+            basicSwitchExampleWithoutBreak(); // M2
 
-            basicSwitchExampleWithBreak();
+            basicSwitchExampleWithBreak(); // M3
 
-            patternMatchingWithType(test);
+            patternMatchingWithType(test); // M4
 
-            basicSwitchExampleWithMultipleOptions();
+            basicSwitchExampleWithMultipleOptions(); // M5
         }
     }
 
