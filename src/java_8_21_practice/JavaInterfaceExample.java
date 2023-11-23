@@ -12,7 +12,7 @@ package java_8_21_practice;
  *
  */
 
-// 1st Example
+// 1st Example, default methods.
 interface Greeting {
     void sayHello();
 
@@ -37,7 +37,7 @@ class EnglishGreeting implements Greeting {
     }
 }
 
-// 2nd Example
+// 2nd Example, static methods.
 interface MathOperations {
 
     static int add(int a, int b) {
@@ -49,10 +49,32 @@ interface MathOperations {
     }
 }
 
-// 3rd Example
+// 3rd Example, SAM
 @FunctionalInterface
 interface Calculator {
     int calculate(int a, int b);
+}
+
+// 4th example, private, ,method
+interface MyInterface {
+    // multiple default methods sharing private method.
+    default void publicMethod() {
+        System.out.println("This is a public method");
+        privateMethod();
+    }
+
+    default void anotherPublicMethod() {
+        System.out.println("This is another public method");
+        privateMethod();
+    }
+
+    private void privateMethod() {
+        System.out.println("i am called by default method, This is a private method");
+    }
+}
+
+class MyInterfaceImpl implements MyInterface{
+
 }
 
 public class JavaInterfaceExample {
@@ -76,5 +98,9 @@ public class JavaInterfaceExample {
         int result1 = addition.calculate(5, 3);       // Result: 8
         int result2 = subtraction.calculate(10, 3);   // Result: 7
         System.out.println(result1 + " and " + result2);
+
+
+        MyInterfaceImpl myInterface = new MyInterfaceImpl();
+        myInterface.publicMethod();
     }
 }
