@@ -15,7 +15,8 @@ public class PracticeRecord {
     * ~~   main purpose of record is to hold immutable data  ~~
     *
     * Records are typically used to model data structures, DTOs (Data Transfer Objects), or other situations where you need a simple container for data.
-    *
+    * We can not modify record, once created.
+     *
     **/
     public record Person(String name, int age) {
         // spend sometime and read this method.
