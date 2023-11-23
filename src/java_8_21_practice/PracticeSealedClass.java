@@ -14,7 +14,7 @@ package java_8_21_practice;
  */
 
 // the moment we try to access `SealedVsProtected` in subclass `Subclass` by `extends`, we get compile time error.
-public sealed class SealedVsProtected permits Subclass1, Subclass2 {
+public sealed class PracticeSealedClass permits Subclass1, Subclass2 {
 
     public String method() {
         return "running..";
@@ -26,7 +26,7 @@ public sealed class SealedVsProtected permits Subclass1, Subclass2 {
      * @param shape
      * @return
      */
-    public static String getDescription(SealedVsProtected shape) {
+    public static String getDescription(PracticeSealedClass shape) {
         return switch (shape) {
             case Subclass1 c -> "This is a SealedVsProtected with return value " + c.method();
             case Subclass2 s -> "This is a SealedVsProtected with return value " + s.method();
@@ -45,14 +45,14 @@ final class Subclass {
     // Subclass definition
 }
 
-final class Subclass1 extends SealedVsProtected {
+final class Subclass1 extends PracticeSealedClass {
     public String method() {
         return "running.. Subclass1";
     }
 }
 
 // Super Important.
-non-sealed class Subclass2 extends SealedVsProtected {
+non-sealed class Subclass2 extends PracticeSealedClass {
     public String method() {
         return "running.. Subclass2";
     }
