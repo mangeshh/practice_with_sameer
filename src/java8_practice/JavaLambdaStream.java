@@ -8,6 +8,9 @@ import java.util.stream.Stream;
 
 public class JavaLambdaStream {
 
+    /***
+     * Declaration start
+     */
     final static private List<Integer> listOfNumbers = Arrays.asList(1, 2, 3, 4, 2);
     final static private List<String> listOfStringNumbers = Arrays.asList("1", "2", "3", "4", "2");
     final static private List<String> listOfStrings = Arrays.asList("one", "two", "three", "four", "five");
@@ -17,6 +20,16 @@ public class JavaLambdaStream {
             new Person("Jane", "Doe"),
             new Person("Mary", "Smith"),
             new Person("Matt", "Smith")
+    );
+
+
+
+    final static List<Product> products = Arrays.asList(
+        new Product("Laptop", 1200.0),
+        new Product("Smartphone", 800.0),
+        new Product("Headphones", 100.0),
+        new Product("Tablet", 500.0),
+        new Product("Mouse", 30.0)
     );
 
     static class Product {
@@ -36,14 +49,6 @@ public class JavaLambdaStream {
             return price;
         }
     }
-
-    final static List<Product> products = Arrays.asList(
-        new Product("Laptop", 1200.0),
-        new Product("Smartphone", 800.0),
-        new Product("Headphones", 100.0),
-        new Product("Tablet", 500.0),
-        new Product("Mouse", 30.0)
-    );
 
     static class Student {
         private String name;
@@ -97,6 +102,10 @@ public class JavaLambdaStream {
                     '}';
         }
     }
+
+    /***
+     * Declaration ends
+     */
 
     public static void use_ForEach_To_Print_List() {
         listOfNumbers.stream().filter(i -> i % 2 == 0).forEach(System.out::println);
