@@ -201,7 +201,7 @@ public class JavaLambdaStream {
     public static void learn_How_To_Handle_Null_Using_Optional() {
         System.out.println("method - " + getCurrentMethodName());
 
-        //'ofNullable', returns an Optional describing the given value, if non-null, otherwise returns an empty Optional.
+        //'ofNullable', returns the given value, if non-null, otherwise returns an empty Optional.
         Optional<String> value = Optional.ofNullable(value());
         value.ifPresentOrElse(name -> System.out.println("yes"),
                 () -> System.out.println("not present")
@@ -217,7 +217,7 @@ public class JavaLambdaStream {
         System.out.println("method - " + getCurrentMethodName());
 
         // NOTE - see identity function.
-        // group by returns the map.
+        // `group by` returns the map.
         Map<Integer, Long> count = listOfNumbers
                 .stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
