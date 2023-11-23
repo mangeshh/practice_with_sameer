@@ -22,6 +22,7 @@ public sealed class SealedVsProtected permits Subclass1, Subclass2 {
 
     /**
      * pattern matching in sealed class.
+     *
      * @param shape
      * @return
      */
