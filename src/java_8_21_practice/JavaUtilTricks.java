@@ -20,6 +20,23 @@ public class JavaUtilTricks {
 
     public static void main(String[] args) {
         arrayCopyExample();
+        stringStickyMethods();
+    }
+
+    private static void stringStickyMethods() {
+        // Case - 1
+        String str = "Hello, World!";
+        // it starts at 0, so find index 7 and till 11 (12-1 : exclusive 12)
+        String sub = str.substring(7, 12); // Extracts "World"
+
+        // Case  -2
+        String formatted = String.format("Hello, %s!", "John");
+        System.out.printf("Formatted: %s%n", formatted);
+
+        // Case - 3
+        String strCheck = "Hello, World!";
+        int index = strCheck.indexOf("World"); // Returns the index of "World"
+        boolean contains = strCheck.contains("Hello"); // true
     }
 
     private static void arrayCopyExample() {
