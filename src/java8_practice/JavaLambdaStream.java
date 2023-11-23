@@ -6,6 +6,35 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+/**
+ * ===============================================================================================================================
+ * Rules, while using streaming
+ * ===============================================================================================================================
+ *
+ * @ Minimize Intermediate Operations: Intermediate operations like filter, map, and flatMap can create
+ * additional intermediate streams. These can be costly in terms of memory and processing time, especially for large datasets.
+ * Try to minimize the number of intermediate operations and combine them whenever possible.
+ * @ Use Primitives: When working with primitive data types like int, long, and double, consider using specialized stream types
+ * like IntStream, LongStream, and DoubleStream. These specialized streams can avoid the overhead of boxing and unboxing values.
+ * @ Parallel Processing: For computationally intensive operations, consider using parallel streams (parallelStream()) to take
+ * advantage of multi-core processors. However, be aware that parallel processing introduces its own set of challenges,
+ * such as potential thread-safety issues and the need for proper synchronization.
+ * @ Avoid Unnecessary Sorting: Sorting elements in a stream can be an expensive operation, especially for large datasets.
+ * If you don't need to sort the data, avoid using sorting operations like sorted().
+ * @ Lazy Evaluation: Streams in Java are lazily evaluated, meaning that operations are only executed when a terminal operation
+ * is invoked. Take advantage of lazy evaluation to avoid unnecessary computation. If you only need a subset of the data,
+ * you can use operations like takeWhile and dropWhile to limit the processing.
+ * @ Use Collectors Wisely: Be mindful of the collectors you use when terminating a stream. Some collectors may introduce
+ * overhead or create unnecessary intermediate data structures. Choose the appropriate collector for your specific use case.
+ * @ Stream Sources: Consider the source of your stream. If possible, use sources that are already optimized for streaming,
+ * such as collections that implement the Stream interface, arrays, or I/O streams.
+ * @ Profiling and Benchmarking: To identify performance bottlenecks in your streaming code, use profiling tools and perform
+ * benchmarking. This will help you pinpoint areas that require optimization.
+ * @ Avoid Side Effects: Ensure that your stream operations are free from side effects. Side effects can lead to unexpected
+ * behavior and make it harder to reason about the correctness of your code.
+ * @ Resource Management: When working with streams that involve external resources (e.g., file streams or network streams),
+ * be sure to properly manage and close those resources to prevent resource leaks.
+ */
 public class JavaLambdaStream {
 
     /***
@@ -29,6 +58,14 @@ public class JavaLambdaStream {
             new Product("Tablet", 500.0),
             new Product("Mouse", 30.0)
     );
+
+    static class CustomException extends RuntimeException {
+
+        public CustomException(String exceptionMsg) {
+            super(exceptionMsg);
+        }
+
+    }
 
     static class Product {
 
@@ -153,6 +190,7 @@ public class JavaLambdaStream {
     }
 
     public static void learn_How_To_Handle_Null_Using_Optional() {
+        //'ofNullable', returns an Optional describing the given value, if non-null, otherwise returns an empty Optional.
         Optional<String> value = Optional.ofNullable(value());
         value.ifPresentOrElse(name -> System.out.println("yes"),
                 () -> System.out.println("not present")
@@ -557,7 +595,7 @@ public class JavaLambdaStream {
         boolean noneNegative = numbers.stream().noneMatch(n -> n < 0);
         System.out.println("None of the numbers are negative? " + noneNegative);
 
-        // Find the minimum number
+        // Find the minimum number - remember this - critical strategy.
         Optional<Integer> minNumber = numbers.stream().min(Integer::compareTo);
         minNumber.ifPresent(min -> System.out.println("Minimum: " + min));
 
@@ -636,6 +674,170 @@ public class JavaLambdaStream {
         Optional<Integer> lengthOptional = optionalTransform.map(String::length);
         System.out.println(lengthOptional.get());
     }
+
+    public static void performanceMinimizeIntermediateOperations() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        // Bad: Multiple intermediate operations
+        List<Integer> result = numbers.stream()
+                .filter(n -> n % 2 == 0)
+                .map(n -> n * 2)
+                .collect(Collectors.toList());
+
+        // Better: Combine intermediate operations
+        List<Integer> betterResult = numbers.stream()
+                .map(n -> n * 2)
+                .filter(n -> n % 2 == 0)
+                .collect(Collectors.toList());
+    }
+
+    public static void performanceUsePrimitives() {
+        int[] intArray = {1, 2, 3, 4, 5};
+
+        // Bad: Using a stream of boxed integers
+        int sum = Arrays.stream(intArray)
+                .boxed()
+                .mapToInt(Integer::intValue)
+                .sum();
+
+        // Better: Using specialized IntStream
+        int betterSum = Arrays.stream(intArray)
+                .sum();
+    }
+
+    public static void performanceParallelProcessing() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        // Sequential processing
+        long sequentialCount = numbers.stream()
+                .filter(n -> n % 2 == 0)
+                .count();
+
+        // Parallel processing
+        long parallelCount = numbers.parallelStream()
+                .filter(n -> n % 2 == 0)
+                .count();
+    }
+
+    public static void performanceLazyEvaluation() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        List<Integer> result = numbers.stream()
+                .filter(n -> {
+                    System.out.println("Filtering: " + n);
+                    return n % 2 == 0;
+                })
+                .map(n -> {
+                    System.out.println("Mapping: " + n);
+                    return n * 2;
+                })
+                .limit(2) // Limit the output
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Collectors.toList() creates an ArrayList by default, so it's usually just as efficient as explicitly
+     * specifying ArrayList with toCollection
+     */
+    public static void performanceUseCollectorsWisely() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        // Bad: Using a toList collector unnecessarily
+        List<Integer> result = numbers.stream()
+                .map(n -> n * 2)
+                .collect(Collectors.toList());
+
+        // Better: Using toCollection with a specific list type
+        List<Integer> betterResult = numbers.stream()
+                .map(n -> n * 2)
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    /**
+     * Collectors.toUnmodifiableList() (introduced in Java 10) to create an unmodifiable list,
+     * which can have slightly better performance characteristics
+     * in terms of memory usage and immutability.
+     */
+    public static void performanceUnmodifiableList() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        List<Integer> result = numbers.stream()
+                .map(n -> n * 2)
+                .collect(Collectors.toUnmodifiableList());
+    }
+
+    public static void debugStream() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        List<Integer> result = numbers.stream()
+                .peek(n -> System.out.println("Processing: " + n))
+                .map(n -> n * 2)
+                .peek(n -> System.out.println("Mapped: " + n))
+                .collect(Collectors.toList());
+
+    }
+
+    public static void exceptionHandlingInStream() {
+        /* case - 1 */
+
+        List<String> words = Arrays.asList("apple", "banana", null, "cherry");
+
+        List<String> validWords = words.stream()
+                .filter(word -> {
+                    try {
+                        return word.length() > 0; // Check for null and empty strings
+                    } catch (NullPointerException e) {
+                        return false; // Handle the exception by returning false
+                    }
+                })
+                .collect(Collectors.toList());
+
+        System.out.println(validWords); // Output: [apple, banana, cherry]
+
+        /* case - 2 */
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 0, 5);
+
+        List<Integer> result = numbers.stream()
+                .map(n -> {
+                    try {
+                        return 10 / n; // Handle division by zero
+                    } catch (ArithmeticException e) {
+                        return 0; // Handle the exception by returning 0
+                    }
+                })
+                .collect(Collectors.toList());
+
+        System.out.println(result); // Output: [10, 5, 3, 0, 2]
+
+        /* case - 3 */
+        List<String> wordsList = Arrays.asList("apple", "banana", null, "cherry");
+
+        List<String> validWordsList = wordsList.stream()
+                .map(Optional::ofNullable) // Wrap elements in Optional
+                .map(optional -> optional.orElse("unknown")) // Handle null values
+                .collect(Collectors.toList());
+
+        System.out.println(validWordsList); // Output: [apple, banana, unknown, cherry]
+
+        /* case - 4 - !! we stopped processing by throwing runtime exception !! */
+        List<Integer> numbers4 = Arrays.asList(1, 2, 3, 4, 5);
+
+        try {
+            int result4 = numbers.stream()
+                    .map(n -> {
+                        if (n % 2 == 0) {
+                            throw new CustomException("Even numbers are not allowed.");
+                        }
+                        return n;
+                    })
+                    .reduce(0, Integer::sum);
+
+            System.out.println("Result: " + result);
+        } catch (CustomException e) {
+            System.err.println("Custom Exception: " + e.getMessage());
+        }
+    }
+
 
     public static void main(String[] args) {
 
@@ -726,6 +928,20 @@ public class JavaLambdaStream {
         dropWhile(); //43
 
         playWithOptional(); //44
+
+        performanceMinimizeIntermediateOperations(); //45
+
+        performanceUsePrimitives(); //46
+
+        performanceParallelProcessing(); //47
+
+        performanceLazyEvaluation(); //48
+
+        performanceUseCollectorsWisely(); //49
+
+        performanceUnmodifiableList(); //50
+
+        exceptionHandlingInStream(); //51
     }
 
 
