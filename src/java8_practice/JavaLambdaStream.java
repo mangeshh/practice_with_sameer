@@ -1009,7 +1009,6 @@ public class JavaLambdaStream {
             Optional<Method> method = Arrays.stream(JavaLambdaStream.class.getMethods())
                     .filter(m -> m.getName().equalsIgnoreCase(args[0])).findFirst();
             if (method.isPresent()) {
-                System.out.println("running.. " + method.get());
                 method.get().invoke(javaLambdaStream);
             } else {
                 System.out.println("No Method found..");
