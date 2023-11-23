@@ -37,6 +37,10 @@ public class JavaUtilTricks {
         String strCheck = "Hello, World!";
         int index = strCheck.indexOf("World"); // Returns the index of "World"
         boolean contains = strCheck.contains("Hello"); // true
+
+        // Case - 4
+        String original = "This is a test.";
+        String modified = original.replace("test", "example");
     }
 
     private static void arrayCopyExample() {
