@@ -582,12 +582,12 @@ public class JavaLambdaStream {
                 .sorted(Comparator.comparingDouble(Product::getPrice))
                 .collect(Collectors.toList());
 
-        // Print the sorted list
         sortedProducts.forEach(System.out::println);
     }
 
-    public static void main(String[] args) {
 
+
+    public static void main(String[] args) {
 
         use_ForEach_To_Print_List(); //1
 
