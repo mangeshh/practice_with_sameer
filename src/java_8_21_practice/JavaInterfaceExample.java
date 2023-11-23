@@ -91,9 +91,9 @@ public class JavaInterfaceExample {
         System.out.println("method - " + getCurrentMethodName());
 
         Greeting englishGreeting = new EnglishGreeting();
-        englishGreeting.testOverrideHello();          // Output: Hello!
-        englishGreeting.testBaseDefaultHello();   // Output: Default Hello!
-        englishGreeting.testOverrideDefaultHello();   // Output: Default Hello!
+        englishGreeting.testOverrideHello();        // Output: Hello!
+        englishGreeting.testBaseDefaultHello();     // Output: Default Hello!
+        englishGreeting.testOverrideDefaultHello(); // Output: Override Default Hello!
     }
 
     public static void staticMethods() {
