@@ -11,7 +11,7 @@ package java_8_21_practice;
  * • Multiple Inheritance
  *
  */
-// § 1st Example §
+// 1st Example
 interface Greeting {
     void sayHello();
 
@@ -36,7 +36,7 @@ class EnglishGreeting implements Greeting {
     }
 }
 
-// § 2nd Example §
+// 2nd Example
 interface MathOperations {
 
     static int add(int a, int b) {
@@ -48,7 +48,7 @@ interface MathOperations {
     }
 }
 
-// § 3rd Example §
+// 3rd Example
 @FunctionalInterface
 interface Calculator {
     int calculate(int a, int b);
