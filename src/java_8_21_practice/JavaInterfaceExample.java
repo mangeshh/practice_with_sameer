@@ -9,9 +9,9 @@ import static java_8_21_practice.Util.*;
 
 /**
  * Default methods in Java interfaces were introduced to address the issue of evolving interfaces in a backward-compatible way. Before Java 8, once an interface was published with its methods, adding new methods to it would break existing code that implemented the interface
- * <p>
+ *
  * Default method gives following benefits -
- * <p>
+ *
  * • Backward Compatibility
  * • Interface Evolution
  * • Reducing Boilerplate Code
