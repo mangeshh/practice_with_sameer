@@ -165,12 +165,12 @@ public class PatternMatching {
         // you can run by giving method name too.
         if (!allowed) {
 
-            JavaLambdaStream javaLambdaStream = new JavaLambdaStream();
-            Optional<Method> method = Arrays.stream(JavaLambdaStream.class.getMethods())
+            PatternMatching patternMatching = new PatternMatching();
+            Optional<Method> method = Arrays.stream(PatternMatching.class.getMethods())
                     .filter(m -> m.getName().equalsIgnoreCase(args[0]))
                     .findFirst();
             if (method.isPresent()) {
-                method.get().invoke(javaLambdaStream);
+                method.get().invoke(patternMatching);
             } else {
                 System.out.println("No Method found..");
             }
