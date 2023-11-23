@@ -415,7 +415,34 @@ public class JavaLambdaStream {
         System.out.println("goals " + xy);
     }
 
+    public static void sortMapByValues(){
+        Map<String, Integer> unsortedMap = new HashMap<>();
+        unsortedMap.put("John", 25);
+        unsortedMap.put("Alice", 30);
+        unsortedMap.put("Bob", 20);
+        unsortedMap.put("Eve", 35);
+
+        // Sort the map by values in ascending order
+        Map<String, Integer> sortedMap = unsortedMap.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1, // Merge function for duplicate keys (if any)
+                        LinkedHashMap::new // Use LinkedHashMap to maintain insertion order
+                ));
+        /**
+         * In the provided example, (e1, e2) -> e1 is a simple merge function that resolves conflicts by selecting
+         * the first value encountered (e1) and discarding the second value (e2).
+         * In short - {A=1, B=2, A=3, C=4} becomes {A=1, B=2, C=4}
+         */
+        // Print the sorted map
+        sortedMap.forEach((key, value) -> System.out.println(key + ": " + value));
+    }
+
     public static void main(String[] args) {
+
 
         use_ForEach_To_Print_List(); //1
 
@@ -482,6 +509,9 @@ public class JavaLambdaStream {
         flatMapToCombineAllStreams();  //32
 
         betterVersionOfFlatMapToCombineAllStreams(); // 33
+
+        sortMapByValues(); //34
+
     }
 
 
