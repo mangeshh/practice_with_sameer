@@ -143,6 +143,7 @@ public class PatternMatching {
         Day today = Day.WEDNESDAY;
         String activity;
 
+        // Superb!! lovely way to get value assigned inside the variable from switch statement.
         switch (today) {
             case MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY -> activity = "Working day";
             case SATURDAY, SUNDAY -> activity = "Weekend";
