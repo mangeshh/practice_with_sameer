@@ -54,6 +54,7 @@ public class JavaLambdaStream {
     /***
      * Declaration start
      */
+    final static private List<Integer> collectionImmutableFactory = List.of(1, 2, 3, 4, 2); //any collection with `of` creates immutable result.
     final static private List<Integer> listOfNumbers = Arrays.asList(1, 2, 3, 4, 2);
     final static private List<String> listOfStringNumbers = Arrays.asList("1", "2", "3", "4", "2");
     final static private List<String> listOfStrings = Arrays.asList("one", "two", "three", "four", "five");
