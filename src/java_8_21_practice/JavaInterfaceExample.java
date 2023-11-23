@@ -11,6 +11,7 @@ package java_8_21_practice;
  * • Multiple Inheritance
  *
  */
+
 // 1st Example
 interface Greeting {
     void sayHello();
