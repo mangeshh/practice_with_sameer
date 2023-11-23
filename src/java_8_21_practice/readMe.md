@@ -1,4 +1,4 @@
-stackoverflow blog start.
+>>> stackoverflow blog start.
 
 While working, I got the warning
 
@@ -35,7 +35,7 @@ with
 
 (Note that the caching behavior mentioned above differs with the type and the Java platform, but the Java 9+ deprecation applies notwithstanding these differences.)
 
-stackoverflow blog ends.
+>>> stackoverflow blog ends.
 
 ***
 Command to find deprecated classes in application - `javac -Xlint:deprecation `
