@@ -1058,7 +1058,7 @@ public class JavaLambdaStream {
         }
 
         // case - 3; iterate stream with predicate
-        long result = IntStream.iterate(1, n -> n < 1000, n -> n + 1)
+        long result = IntStream.iterate(1, n -> n < 1000, n -> n + 1) // IntStream, TypeStream (type can be double, long, int) is powerful can generate numbers, give analytics too!
                 .filter(n -> n % 7 == 0)
                 .count();
         System.out.println("result " + result);
