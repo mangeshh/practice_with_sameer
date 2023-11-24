@@ -1079,7 +1079,7 @@ public class JavaLambdaStream {
         Comparator<Student> byName = Comparator.comparing(Student::getName);
 
         // Compose the comparators to sort by age and then by name
-        Comparator<Student> ageThenName = byAge.thenComparing(byName);
+        Comparator<Student> ageThenName = byAge.thenComparing(byName); // Super!!
 
         // Use the comparator to sort the list of people
         List<Student> sortedPeople = students.stream()
