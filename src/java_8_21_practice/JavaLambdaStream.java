@@ -8,6 +8,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+
 import static java_8_21_practice.JavaUtilTricks.*;
 
 
@@ -19,36 +20,26 @@ import static java_8_21_practice.JavaUtilTricks.*;
  * @ Minimize Intermediate Operations: Intermediate operations like filter, map, and flatMap can create
  * additional intermediate streams. These can be costly in terms of memory and processing time, especially for large datasets.
  * Try to minimize the number of intermediate operations and combine them whenever possible.
- *
  * @ Use Primitives: When working with primitive data types like int, long, and double, consider using specialized stream types
  * like IntStream, LongStream, and DoubleStream. These specialized streams can avoid the overhead of boxing and unboxing values.
- *
  * @ Parallel Processing: For computationally intensive operations, consider using parallel streams (parallelStream()) to take
  * advantage of multi-core processors. However, be aware that parallel processing introduces its own set of challenges,
  * such as potential thread-safety issues and the need for proper synchronization.
- *
  * @ Avoid Unnecessary Sorting: Sorting elements in a stream can be an expensive operation, especially for large datasets.
  * If you don't need to sort the data, avoid using sorting operations like sorted().
- *
  * @ Lazy Evaluation: Streams in Java are lazily evaluated, meaning that operations are only executed when a terminal operation
  * is invoked. Take advantage of lazy evaluation to avoid unnecessary computation. If you only need a subset of the data,
  * you can use operations like takeWhile and dropWhile to limit the processing.
- *
  * @ Use Collectors Wisely: Be mindful of the collectors you use when terminating a stream. Some collectors may introduce
  * overhead or create unnecessary intermediate data structures. Choose the appropriate collector for your specific use case.
- *
  * @ Stream Sources: Consider the source of your stream. If possible, use sources that are already optimized for streaming,
  * such as collections that implement the Stream interface, arrays, or I/O streams.
- *
  * @ Profiling and Benchmarking: To identify performance bottlenecks in your streaming code, use profiling tools and perform
  * benchmarking. This will help you pinpoint areas that require optimization.
- *
  * @ Avoid Side Effects: Ensure that your stream operations are free from side effects. Side effects can lead to unexpected
  * behavior and make it harder to reason about the correctness of your code.
- *
  * @ Resource Management: When working with streams that involve external resources (e.g., file streams or network streams),
  * be sure to properly manage and close those resources to prevent resource leaks.
- *
  */
 public class JavaLambdaStream {
 
@@ -1013,7 +1004,7 @@ public class JavaLambdaStream {
 
         List<Integer> ll = Collections.unmodifiableList(testListOfNumbers);
         System.out.println(ll);
-        testListOfNumbers.set(1,100); // we can replace element and modify the unModifiable list!!
+        testListOfNumbers.set(1, 100); // we can replace element and modify the unModifiable list!!
         //testListOfNumbers.add(10);  // `add(10)`, line will not allow to `add` underneath non-final mutable list, throws UnsupportedOperationException
         // So Insert is not permitted but update is permitted in above example. Please give 2 minutes to read and meditate.
         System.out.println(ll);
@@ -1023,7 +1014,8 @@ public class JavaLambdaStream {
 
     }
 
-    public static void limitAndSkip(){
+    // M54
+    public static void limitAndSkip() {
         System.out.println("method - " + getCurrentMethodName());
 
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
@@ -1043,8 +1035,8 @@ public class JavaLambdaStream {
         System.out.println("Skipped Numbers: " + skippedNumbers);
     }
 
-
-    public static void iterateUsingPredicate(){
+    // M55
+    public static void iterateUsingPredicate() {
         System.out.println("method - " + getCurrentMethodName());
 
         // case - 1
@@ -1066,10 +1058,37 @@ public class JavaLambdaStream {
         }
 
         // case - 3; iterate stream with predicate
-        long result = IntStream.iterate(1, n-> n < 1000, n -> n+1)
-                .filter(n -> n %7 ==0)
+        long result = IntStream.iterate(1, n -> n < 1000, n -> n + 1)
+                .filter(n -> n % 7 == 0)
                 .count();
         System.out.println("result " + result);
+    }
+
+    // M56
+    public static void comparatorExamples() {
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Alice", 25));
+        students.add(new Student("Bob", 30));
+        students.add(new Student("Carol", 25));
+        students.add(new Student("David", 22));
+
+        // Create a comparator for age
+        Comparator<Student> byAge = Comparator.comparingInt(Student::getAge);
+
+        // Create a comparator for name
+        Comparator<Student> byName = Comparator.comparing(Student::getName);
+
+        // Compose the comparators to sort by age and then by name
+        Comparator<Student> ageThenName = byAge.thenComparing(byName);
+
+        // Use the comparator to sort the list of people
+        List<Student> sortedPeople = students.stream()
+                .sorted(ageThenName)
+                .collect(Collectors.toList());
+
+        // Print the sorted list
+        sortedPeople.forEach(System.out::println);
+
     }
 
     public static void main(String[] args) throws IllegalAccessException, InvocationTargetException {
@@ -1203,6 +1222,8 @@ public class JavaLambdaStream {
             limitAndSkip(); // 54
 
             iterateUsingPredicate(); // 55
+
+            comparatorExamples(); // 56
 
         }
     }
