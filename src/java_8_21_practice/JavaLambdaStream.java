@@ -1066,6 +1066,8 @@ public class JavaLambdaStream {
 
     // M56
     public static void comparatorExamples() {
+        System.out.println("method - " + getCurrentMethodName());
+
         List<Student> students = new ArrayList<>();
         students.add(new Student("Alice", 25));
         students.add(new Student("Bob", 30));
@@ -1088,6 +1090,39 @@ public class JavaLambdaStream {
 
         // Print the sorted list
         sortedPeople.forEach(System.out::println);
+    }
+
+
+    /**
+     * max, min, average
+     */
+    //M57
+    public static void analytics() {
+        System.out.println("method - " + getCurrentMethodName());
+
+        //You can use mapToInt to find maximum, minimum, or average values because the specialized methods like max(), min(), and average() are available for IntStream.
+        List<Integer> numbers = Arrays.asList(10, 4, 7, 19, 25, 2, 8, 14);
+
+        OptionalInt max = numbers.stream()
+                .mapToInt(Integer::intValue)
+                .max();
+
+        System.out.println(max.getAsInt()); // we know number is present so not checking `ifPresent`
+
+        // Find the minimum value
+        OptionalInt min = numbers.stream()
+                .mapToInt(Integer::intValue)
+                .min();
+
+        System.out.println(min.getAsInt()); // we know number is present so not checking `ifPresent`
+
+
+        // Calculate the average value
+        OptionalDouble average = numbers.stream()
+                .mapToDouble(Integer::doubleValue)
+                .average();
+
+        System.out.println(average.getAsDouble()); // we know number is present so not checking `ifPresent`
 
     }
 
@@ -1225,8 +1260,12 @@ public class JavaLambdaStream {
 
             comparatorExamples(); // 56
 
+            analytics();
+
         }
     }
+
+
 
 
     public static String value() {
