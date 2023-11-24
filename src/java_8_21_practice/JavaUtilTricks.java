@@ -1,6 +1,9 @@
 package java_8_21_practice;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.OptionalDouble;
+import java.util.OptionalInt;
 
 public class JavaUtilTricks {
 
@@ -16,11 +19,6 @@ public class JavaUtilTricks {
         } else {
             return "Unknown"; // Handle the case when method name cannot be determined
         }
-    }
-
-    public static void main(String[] args) {
-        stringStickyMethods(); // M1
-        arrayCopyExample();  // M2
     }
 
     // M1
@@ -71,5 +69,42 @@ public class JavaUtilTricks {
         // Fill the entire 'numbers' array with the value 42
         Arrays.fill(numbers, 42);
         System.out.println(Arrays.toString(numbers));
+    }
+
+    /**
+     * max, min, average
+     */
+    //M3
+    public static void analytics() {
+        //You can use mapToInt to find maximum, minimum, or average values because the specialized methods like max(), min(), and average() are available for IntStream.
+        List<Integer> numbers = Arrays.asList(10, 4, 7, 19, 25, 2, 8, 14);
+
+        OptionalInt max = numbers.stream()
+                .mapToInt(Integer::intValue)
+                .max();
+
+        System.out.println(max.getAsInt()); // we know number is present so not checking `ifPresent`
+
+        // Find the minimum value
+        OptionalInt min = numbers.stream()
+                .mapToInt(Integer::intValue)
+                .min();
+
+        System.out.println(min.getAsInt()); // we know number is present so not checking `ifPresent`
+
+
+        // Calculate the average value
+        OptionalDouble average = numbers.stream()
+                .mapToDouble(Integer::doubleValue)
+                .average();
+
+        System.out.println(average.getAsDouble()); // we know number is present so not checking `ifPresent`
+
+    }
+
+    public static void main(String[] args) {
+        stringStickyMethods(); // M1
+        arrayCopyExample();  // M2
+        analytics(); // M3
     }
 }
