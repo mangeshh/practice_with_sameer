@@ -34,6 +34,59 @@ public class LinkedList {
 
     }
 
+    public void addAtPosition(int position, int element) {
+    /*
+        Comic-style explanation:
+
+        We want to insert a node at a specific position.
+
+        Example:
+            List: 1 → 2 → 3 → 4
+            addAtPosition(2, 99)
+
+            Result: 1 → 2 → 99 → 3 → 4
+
+        Edge Cases:
+        - position == 0 → same as addFirst
+        - position > length → insert at end
+        - position < 0 → invalid
+    */
+
+    if (position < 0) {
+        System.out.println("Invalid position: " + position);
+        return;
+    }
+
+    Node newNode = new Node(element);
+
+    // Case 1: Insert at beginning
+    if (position == 0) {
+        newNode.next = head;
+        head = newNode;
+        return;
+    }
+
+    Node currentNode = head;
+    int currentIndex = 0;
+
+    // Traverse to the node just before the desired position
+    while (currentNode != null && currentIndex < position - 1) {
+        currentNode = currentNode.next;
+        currentIndex++;
+    }
+
+    // Case 2: Position is beyond current length → insert at end
+    if (currentNode == null) {
+        System.out.println("Position is beyond list length. Adding at end.");
+        addLast(element);
+        return;
+    }
+
+    // Insert the new node
+    newNode.next = currentNode.next;
+    currentNode.next = newNode;
+}
+
     public void addFirst(int element) {
 
         if (head == null) {
@@ -113,5 +166,11 @@ public class LinkedList {
         System.out.println(list.search(1));
         System.out.println(list.search(11));
 
+        list.addAtPosition(2, 99); // Insert 99 at position 2 
+        list.display(); 
+        list.addAtPosition(0, 77); // Insert 77 at beginning 
+        list.display(); 
+        list.addAtPosition(2, 88); // Insert 88 beyond length → goes to end 
+        list.display();
     }
 }
