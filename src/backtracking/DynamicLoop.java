@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class DynamicLoop {
 
     static void dynamicLoops(int position, int totalPositions, int[] buffer, int from, int to) {
-        if (position == totalPositions) {
+        if (position == totalPositions) { // totalPositions is number of dymamic loops
             // buffer is full -> one combination ready
             System.out.println(Arrays.toString(buffer));
             return;

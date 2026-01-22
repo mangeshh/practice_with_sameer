@@ -7,11 +7,11 @@ public class PascalTriangle {
 
     public static List<List<Integer>> generate(int numRows) {
 
-        List<List<Integer>> rows = new ArrayList(numRows);
+        List<List<Integer>> rows = new ArrayList<>(numRows);
 
         for (int rowIndex = 0; rowIndex < numRows; rowIndex++) {
 
-            List<Integer> currentRow = new ArrayList();
+            List<Integer> currentRow = new ArrayList<>();
 
             currentRow.add(0, 1);
             for (int columnIndex = 1; columnIndex < rowIndex; columnIndex++) {
